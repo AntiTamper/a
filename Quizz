@@ -1,83 +1,251 @@
+$ErrorActionPreference = "Stop"
 
-$k1="89a7"
-$k2="2b87"
-$k3="a7e4"
-$k4="45e2"
-$k5="93cd"
-$k6="d14d"
-$k7="50e5"
-$k8="bdb3"
+Add-Type -AssemblyName System.Windows.Forms
 
-function Decode($v){
-    $r=-join ($v.ToCharArray()|Reverse)
-    $k=$k1+$k2+$k3+$k4+$k5+$k6+$k7+$k8
-    $d=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($r))
-    return $d.Substring(0,$d.Length-$k.Length)
+function Show-Notification($title, $text, $duration) {
+    $balloon = New-Object System.Windows.Forms.NotifyIcon
+    $balloon.Icon = [System.Drawing.SystemIcons]::Warning
+    $balloon.BalloonTipTitle = $title
+    $balloon.BalloonTipText = $text
+    $balloon.Visible = $true
+    $balloon.ShowBalloonTip($duration * 1000)
+    Start-Sleep -Seconds $duration
+    $balloon.Dispose()
 }
 
-$quiz=Decode "=MjYkJWNlBTNkRTMkR2YzkjMlVDN0U2NhdDOiJzNhlDOxQDO0gzM9M2Z/4Wavp2Lt92YuQmb19mcnlXY39yL6MHc0RHa"
-$webhook=Decode "zIGZiVTZwUDZ0EDZkN2M5ITZ1QDNldTY3gjYycTY5gDVEpEOSZHR5V3Nvh0UzRVLqFTbjF2RahUMx9FOmNzNC1WaKNWZLdXRjFDcxM3aXFHUahjMvBnVRVGT1IUV5d3aq1Wbk9iN0ITNyITN0MjMxADOzIjN3QTMvM3av9GaiV2dvkGch9SbvNmLkJ3bjNXak9yL6MHc0RHa"
-$blacklist=Decode "zIGZiVTZwUDZ0EDZkN2M5ITZ1QDNldTY3gjYycTY5gDdzlGbrNWYsJ0LulWYt9SYvIXZw1WYUlGduF0Lt92YuQnblRnbvNmclNXdiVHa0l2ZucXYy9yL6MHc0RHa"
-$status=Decode "zIGZiVTZwUDZ0EDZkN2M5ITZ1QDNldTY3gjYycTY5gzc1RXY0N1LulWYt9SYvIXZw1WYUlGduF0Lt92YuQnblRnbvNmclNXdiVHa0l2ZucXYy9yL6MHc0RHa"
-
-function Notify($t,$c){
-    [Windows.UI.Notifications.ToastNotificationManager,Windows.UI.Notifications,ContentType=WindowsRuntime]>$null
-    $template=[Windows.UI.Notifications.ToastTemplateType]::ToastText02
-    $xml=[Windows.UI.Notifications.ToastNotificationManager]::GetTemplateContent($template)
-    $txt=$xml.GetElementsByTagName("text")
-    $txt.Item(0).AppendChild($xml.CreateTextNode($t))>$null
-    $txt.Item(1).AppendChild($xml.CreateTextNode($c))>$null
-    $toast=[Windows.UI.Notifications.ToastNotification]::new($xml)
-    [Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier("Exam").Show($toast)
-}
-
-function HWID(){
-    (Get-WmiObject Win32_ComputerSystemProduct).UUID
-}
-
-$hwid=HWID
-$bl=Invoke-WebRequest -Uri $blacklist -UseBasicParsing
-if($bl.Content -match $hwid){
-    Notify "Blacklisted" "You are blacklisted from the quiz!"
-    exit
-}
-
-$cpu=(Get-WmiObject Win32_Processor).Name
-$win=(Get-CimInstance Win32_OperatingSystem).Caption
-$edge=(Get-Item "$env:ProgramFiles(x86)\Microsoft\Edge\Application\msedge.exe").VersionInfo.ProductVersion
-$desk=$env:COMPUTERNAME
-$time=Get-Date -Format "HH:mm:ss | dd/MM/yyyy"
-
-$embed=@{
-    title="User has started quizz session!"
-    description="Desktop: $desk`nHWID: $hwid`nWindows: $win`nCPU: $cpu`nEdge: $edge`nTime: $time"
-}
-
-$payload=@{embeds=@($embed)}|ConvertTo-Json -Depth 4
-Invoke-RestMethod -Uri $webhook -Method Post -Body $payload -ContentType 'application/json'
-
-Start-Process "msedge.exe" "--kiosk $quiz --edge-kiosk-type=fullscreen"
-Stop-Process -Name explorer -Force
-
-$viol=$false
-
-while($true){
-    Start-Sleep -Seconds 5
-    $st=Invoke-WebRequest -Uri $status -UseBasicParsing
-    if($st.Content -eq "true"){
-        Start-Process explorer.exe
-        Stop-Process -Name msedge -Force
-        break
+function Decode-Link($reversed, $keyParts) {
+    $key = -join $keyParts
+    $unreversed = -join ($reversed.ToCharArray() | Sort-Object { [array]::IndexOf($reversed.ToCharArray(), $_) } -Descending)
+    $charArr = $reversed.ToCharArray()
+    [array]::Reverse($charArr)
+    $unreversed = -join $charArr
+    $decoded = [System.Convert]::FromBase64String($unreversed)
+    $keyBytes = [System.Text.Encoding]::UTF8.GetBytes($key)
+    $result = New-Object byte[] $decoded.Length
+    for ($i = 0; $i -lt $decoded.Length; $i++) {
+        $result[$i] = $decoded[$i] -bxor $keyBytes[$i % $keyBytes.Length]
     }
-    $p=Get-Process msedge -ErrorAction SilentlyContinue
-    if(-not $p){
-        $viol=$true
+    return [System.Text.Encoding]::UTF8.GetString($result)
+}
+
+$keyParts = @("5a20", "0533", "971c", "4d13", "b2ce", "616a", "76e4", "5742")
+
+$encodedQuiz = "BYQWBowBKY1UahlXOwlHbpAAcYQXEtgREgkVOxBHPMEQGVRX"
+$encodedWebhook = "==wYlwXCkNxJLdBBexyZQUmGTJgXWF1dolCBDt2DTdgU0pFC8J1UuQxdBIQQVdECmZUaptwBfBEZwAlfBUHYNJRXdxwWVlxUXBwVBMQUAA1AGkwCAcgBHYAUaE0XYpFXHMFQO9VQXpkDdFQHVZxWAIkXdxBHPMEQGVRX"
+$encodedBlacklist = "==QQHxgWcJwVdRnSNs1Ae5RBbEBVHRlUnxFReNnTY11VZEkWAIUWOU1QTZhFQdxWF1wUNZkVLxBHPMEQGVRX"
+$encodedStatus = "==QRCVxVFVmSNs1Ae5RBbEBVHRlUnxFReNnTY11VZEkWAIUWOU1QTZhFQdxWF1wUNZkVLxBHPMEQGVRX"
+
+try {
+    $quizLink = Decode-Link $encodedQuiz $keyParts
+    $webhookLink = Decode-Link $encodedWebhook $keyParts
+    $blacklistLink = Decode-Link $encodedBlacklist $keyParts
+    $statusLink = Decode-Link $encodedStatus $keyParts
+} catch {
+    Write-Host "Decode failed: $_"
+    exit 1
+}
+
+$hwid = (Get-CimInstance -Class Win32_ComputerSystemProduct).UUID
+try {
+    $blacklistData = (Invoke-WebRequest -Uri $blacklistLink -UseBasicParsing -ErrorAction Stop).Content
+} catch {
+    Write-Host "Failed to fetch blacklist: $_"
+    exit 1
+}
+if ($blacklistData -match $hwid) {
+    Show-Notification "Blocked" "You are blacklisted from the quiz!" 10
+    exit 0
+}
+
+try {
+    $statusData = (Invoke-WebRequest -Uri $statusLink -UseBasicParsing -ErrorAction Stop).Content.Trim().ToLower()
+} catch {
+    Write-Host "Failed to fetch status: $_"
+    exit 1
+}
+if ($statusData -eq "true") {
+    Write-Host "Exam already completed."
+    exit 0
+}
+
+$desktopName = $env:COMPUTERNAME
+$winVer = (Get-CimInstance -Class Win32_OperatingSystem).Caption
+$cpuName = (Get-CimInstance -Class Win32_Processor).Name
+$edgeVer = (Get-Item "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" -ErrorAction SilentlyContinue).VersionInfo.ProductVersion
+if (-not $edgeVer) {
+    $edgeVer = (Get-Item "C:\Program Files\Microsoft\Edge\Application\msedge.exe" -ErrorAction SilentlyContinue).VersionInfo.ProductVersion
+}
+if (-not $edgeVer) { $edgeVer = "Unknown" }
+$startTime = Get-Date -Format "HH:mm:ss | dd/MM/yyyy"
+
+$embedBody = @{
+    embeds = @(
+        @{
+            title = "User has started quizz session!"
+            color = 3066993
+            fields = @(
+                @{ name = "Desktop Name"; value = $desktopName; inline = $true }
+                @{ name = "HWID"; value = $hwid; inline = $true }
+                @{ name = "Windows Version"; value = $winVer; inline = $false }
+                @{ name = "CPU"; value = $cpuName; inline = $false }
+                @{ name = "Edge Version"; value = $edgeVer; inline = $true }
+                @{ name = "Session Start"; value = $startTime; inline = $true }
+            )
+        }
+    )
+} | ConvertTo-Json -Depth 10
+
+try {
+    Invoke-RestMethod -Uri $webhookLink -Method Post -ContentType "application/json" -Body $embedBody -ErrorAction Stop | Out-Null
+} catch {
+    Write-Host "Webhook send failed: $_"
+}
+
+$browsersToKill = @("chrome", "brave", "opera", "firefox")
+foreach ($b in $browsersToKill) {
+    Get-Process -Name $b -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
+}
+
+Stop-Process -Name "explorer" -Force -ErrorAction SilentlyContinue
+
+Start-Process "msedge.exe" "--kiosk `"$quizLink`" --edge-kiosk-type=fullscreen --no-first-run"
+
+Start-Sleep -Seconds 3
+
+$signature = @"
+using System;
+using System.Runtime.InteropServices;
+public class KeyBlock {
+    [DllImport("user32.dll")]
+    public static extern bool RegisterHotKey(IntPtr hWnd, int id, uint fsModifiers, uint vk);
+    [DllImport("user32.dll")]
+    public static extern bool UnregisterHotKey(IntPtr hWnd, int id);
+    [DllImport("user32.dll")]
+    public static extern IntPtr GetForegroundWindow();
+    [DllImport("user32.dll", SetLastError=true)]
+    public static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint processId);
+    [DllImport("user32.dll")]
+    public static extern bool SetForegroundWindow(IntPtr hWnd);
+
+    private const uint MOD_ALT = 0x0001;
+    private const uint MOD_CONTROL = 0x0002;
+    private const uint MOD_WIN = 0x0008;
+    private const uint MOD_NOREPEAT = 0x4000;
+
+    public static void BlockKeys() {
+        RegisterHotKey(IntPtr.Zero, 1, MOD_ALT, 0x09);
+        RegisterHotKey(IntPtr.Zero, 2, MOD_ALT | MOD_CONTROL, 0x09);
+        RegisterHotKey(IntPtr.Zero, 3, MOD_WIN, 0x44);
+        RegisterHotKey(IntPtr.Zero, 4, MOD_WIN, 0x09);
+        RegisterHotKey(IntPtr.Zero, 5, MOD_ALT, 0x73);
+        RegisterHotKey(IntPtr.Zero, 6, MOD_CONTROL, 0x1B);
+        RegisterHotKey(IntPtr.Zero, 7, MOD_WIN, 0x45);
+        RegisterHotKey(IntPtr.Zero, 8, MOD_WIN, 0x52);
+        RegisterHotKey(IntPtr.Zero, 9, MOD_ALT, 0x1B);
+        RegisterHotKey(IntPtr.Zero, 10, MOD_WIN, 0x4C);
+        RegisterHotKey(IntPtr.Zero, 11, 0, 0x2C);
+        RegisterHotKey(IntPtr.Zero, 12, MOD_WIN, 0x2C);
+        RegisterHotKey(IntPtr.Zero, 13, MOD_ALT, 0x2C);
     }
-    if($viol){
-        $e=@{title="User possibly cheated"}
-        $pl=@{embeds=@($e)}|ConvertTo-Json -Depth 4
-        Invoke-RestMethod -Uri $webhook -Method Post -Body $pl -ContentType 'application/json'
-        Notify "Warning!" "Do not close quizz until instructed or it automatically closes!"
-        $viol=$false
+
+    public static void UnblockKeys() {
+        for (int i = 1; i <= 13; i++) {
+            UnregisterHotKey(IntPtr.Zero, i);
+        }
     }
 }
+"@
+
+try {
+    Add-Type -TypeDefinition $signature -ErrorAction Stop
+} catch {
+    if ($_.Exception.Message -notmatch "already exists") { throw }
+}
+
+[KeyBlock]::BlockKeys()
+
+$global:running = $true
+$condition = "ongoing"
+
+$statusJob = Start-Job -ScriptBlock {
+    param($url)
+    while ($true) {
+        try {
+            $resp = (Invoke-WebRequest -Uri $url -UseBasicParsing -ErrorAction Stop).Content.Trim().ToLower()
+            if ($resp -eq "true") {
+                return "completed"
+            }
+        } catch {}
+        Start-Sleep -Seconds 20
+    }
+} -ArgumentList $statusLink
+
+while ($global:running) {
+    if ($statusJob.State -eq "Completed") {
+        $condition = Receive-Job -Job $statusJob
+        if ($condition -eq "completed") {
+            $global:running = $false
+            break
+        }
+    }
+
+    $fgWnd = [KeyBlock]::GetForegroundWindow()
+    $procId = 0
+    [KeyBlock]::GetWindowThreadProcessId($fgWnd, [ref]$procId) | Out-Null
+    $fgProc = $null
+    try { $fgProc = Get-Process -Id $procId -ErrorAction Stop } catch {}
+
+    if ($fgProc -and $fgProc.ProcessName -ne "msedge") {
+        $condition = "violation"
+        $violationBody = @{
+            embeds = @(
+                @{
+                    title = "User possibly cheated"
+                    color = 15158332
+                    fields = @(
+                        @{ name = "Desktop Name"; value = $desktopName; inline = $true }
+                        @{ name = "HWID"; value = $hwid; inline = $true }
+                        @{ name = "Foreground App"; value = $fgProc.ProcessName; inline = $false }
+                        @{ name = "Time"; value = (Get-Date -Format "HH:mm:ss | dd/MM/yyyy"); inline = $false }
+                    )
+                }
+            )
+        } | ConvertTo-Json -Depth 10
+        try {
+            Invoke-RestMethod -Uri $webhookLink -Method Post -ContentType "application/json" -Body $violationBody -ErrorAction Stop | Out-Null
+        } catch {}
+
+        Start-Job -ScriptBlock {
+            Add-Type -AssemblyName System.Windows.Forms
+            $b = New-Object System.Windows.Forms.NotifyIcon
+            $b.Icon = [System.Drawing.SystemIcons]::Warning
+            $b.BalloonTipTitle = "Warning!"
+            $b.BalloonTipText = "Do not close quizz until instructed or it automatically closes!"
+            $b.Visible = $true
+            $b.ShowBalloonTip(15000)
+            Start-Sleep -Seconds 15
+            $b.Dispose()
+        } | Out-Null
+
+        $edgeProc = Get-Process -Name "msedge" -ErrorAction SilentlyContinue | Select-Object -First 1
+        if ($edgeProc) {
+            [KeyBlock]::SetForegroundWindow($edgeProc.MainWindowHandle) | Out-Null
+        }
+        $condition = "ongoing"
+    }
+
+    Start-Sleep -Milliseconds 500
+}
+
+[KeyBlock]::UnblockKeys()
+
+Get-Process -Name "msedge" -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
+
+Start-Process "explorer.exe"
+
+Stop-Job -Job $statusJob -ErrorAction SilentlyContinue
+Remove-Job -Job $statusJob -Force -ErrorAction SilentlyContinue
+
+Get-Job | Where-Object { $_.State -ne "Running" } | Remove-Job -Force -ErrorAction SilentlyContinue
+
+Write-Host "Exam session completed."
