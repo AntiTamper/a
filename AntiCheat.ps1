@@ -1,7 +1,7 @@
 $ErrorActionPreference = "SilentlyContinue"
 
-$u = "https://wayground.com/join?gc=371410"
-$minutes = 15
+$url = "https://wayground.com/join?gc=371410"
+$minutes = 13
 
 $edge = @(
   "$env:ProgramFiles (x86)\Microsoft\Edge\Application\msedge.exe",
@@ -10,30 +10,18 @@ $edge = @(
 
 if (-not $edge) { throw "Microsoft Edge not found." }
 
-function Start-EdgeKiosk {
-  Start-Process -FilePath $edge -ArgumentList @(
-    "--kiosk", $u,
-    "--edge-kiosk-type=fullscreen",
-    "--no-first-run",
-    "--disable-features=TranslateUI"
-  ) | Out-Null
-}
-
 try {
-  Stop-Process -Name explorer -Force | Out-Null
+  & taskkill /F /IM explorer.exe | Out-Null
 
-  Start-EdgeKiosk
+  Start-Process -FilePath $edge -ArgumentList @(
+    "--kiosk", $url,
+    "--edge-kiosk-type=fullscreen",
+    "--no-first-run"
+  ) | Out-Null
 
-  $sw = [System.Diagnostics.Stopwatch]::StartNew()
-  $deadline = [TimeSpan]::FromMinutes($minutes)
-
-  while ($sw.Elapsed -lt $deadline) {
-    $p = Get-Process -Name msedge -ErrorAction SilentlyContinue
-    if (-not $p) { Start-EdgeKiosk }
-    Start-Sleep -Milliseconds 500
-  }
+  Start-Sleep -Seconds ([int]([TimeSpan]::FromMinutes($minutes)).TotalSeconds)
 }
 finally {
-  Get-Process -Name msedge -ErrorAction SilentlyContinue | Stop-Process -Force | Out-Null
+  & taskkill /F /IM msedge.exe | Out-Null
   Start-Process explorer.exe | Out-Null
 }
