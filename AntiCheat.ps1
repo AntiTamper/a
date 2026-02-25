@@ -13,13 +13,15 @@ if(-not $edge){exit}
 $orig=(Get-ItemProperty -Path $regPath -Name AutoRestartShell -ErrorAction SilentlyContinue).AutoRestartShell
 if($orig -ne 0){Set-ItemProperty -Path $regPath -Name AutoRestartShell -Value 0}
 
+Register-EngineEvent PowerShell.Exiting -Action {Start-Process explorer.exe} | Out-Null
+
 try{
- & taskkill /F /IM explorer.exe
+ taskkill /F /IM explorer.exe
  Start-Process $edge "--kiosk $url --edge-kiosk-type=fullscreen --no-first-run"
  Start-Sleep -Seconds ($minutes*60)
 }
 finally{
- & taskkill /F /IM msedge.exe
+ taskkill /F /IM msedge.exe
  if($orig -ne $null){Set-ItemProperty -Path $regPath -Name AutoRestartShell -Value $orig}else{Remove-ItemProperty -Path $regPath -Name AutoRestartShell -ErrorAction SilentlyContinue}
  Start-Process explorer.exe
 }
