@@ -1,0 +1,83 @@
+
+$k1="89a7"
+$k2="2b87"
+$k3="a7e4"
+$k4="45e2"
+$k5="93cd"
+$k6="d14d"
+$k7="50e5"
+$k8="bdb3"
+
+function Decode($v){
+    $r=-join ($v.ToCharArray()|Reverse)
+    $k=$k1+$k2+$k3+$k4+$k5+$k6+$k7+$k8
+    $d=[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($r))
+    return $d.Substring(0,$d.Length-$k.Length)
+}
+
+$quiz=Decode "=MjYkJWNlBTNkRTMkR2YzkjMlVDN0U2NhdDOiJzNhlDOxQDO0gzM9M2Z/4Wavp2Lt92YuQmb19mcnlXY39yL6MHc0RHa"
+$webhook=Decode "zIGZiVTZwUDZ0EDZkN2M5ITZ1QDNldTY3gjYycTY5gDVEpEOSZHR5V3Nvh0UzRVLqFTbjF2RahUMx9FOmNzNC1WaKNWZLdXRjFDcxM3aXFHUahjMvBnVRVGT1IUV5d3aq1Wbk9iN0ITNyITN0MjMxADOzIjN3QTMvM3av9GaiV2dvkGch9SbvNmLkJ3bjNXak9yL6MHc0RHa"
+$blacklist=Decode "zIGZiVTZwUDZ0EDZkN2M5ITZ1QDNldTY3gjYycTY5gDdzlGbrNWYsJ0LulWYt9SYvIXZw1WYUlGduF0Lt92YuQnblRnbvNmclNXdiVHa0l2ZucXYy9yL6MHc0RHa"
+$status=Decode "zIGZiVTZwUDZ0EDZkN2M5ITZ1QDNldTY3gjYycTY5gzc1RXY0N1LulWYt9SYvIXZw1WYUlGduF0Lt92YuQnblRnbvNmclNXdiVHa0l2ZucXYy9yL6MHc0RHa"
+
+function Notify($t,$c){
+    [Windows.UI.Notifications.ToastNotificationManager,Windows.UI.Notifications,ContentType=WindowsRuntime]>$null
+    $template=[Windows.UI.Notifications.ToastTemplateType]::ToastText02
+    $xml=[Windows.UI.Notifications.ToastNotificationManager]::GetTemplateContent($template)
+    $txt=$xml.GetElementsByTagName("text")
+    $txt.Item(0).AppendChild($xml.CreateTextNode($t))>$null
+    $txt.Item(1).AppendChild($xml.CreateTextNode($c))>$null
+    $toast=[Windows.UI.Notifications.ToastNotification]::new($xml)
+    [Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier("Exam").Show($toast)
+}
+
+function HWID(){
+    (Get-WmiObject Win32_ComputerSystemProduct).UUID
+}
+
+$hwid=HWID
+$bl=Invoke-WebRequest -Uri $blacklist -UseBasicParsing
+if($bl.Content -match $hwid){
+    Notify "Blacklisted" "You are blacklisted from the quiz!"
+    exit
+}
+
+$cpu=(Get-WmiObject Win32_Processor).Name
+$win=(Get-CimInstance Win32_OperatingSystem).Caption
+$edge=(Get-Item "$env:ProgramFiles(x86)\Microsoft\Edge\Application\msedge.exe").VersionInfo.ProductVersion
+$desk=$env:COMPUTERNAME
+$time=Get-Date -Format "HH:mm:ss | dd/MM/yyyy"
+
+$embed=@{
+    title="User has started quizz session!"
+    description="Desktop: $desk`nHWID: $hwid`nWindows: $win`nCPU: $cpu`nEdge: $edge`nTime: $time"
+}
+
+$payload=@{embeds=@($embed)}|ConvertTo-Json -Depth 4
+Invoke-RestMethod -Uri $webhook -Method Post -Body $payload -ContentType 'application/json'
+
+Start-Process "msedge.exe" "--kiosk $quiz --edge-kiosk-type=fullscreen"
+Stop-Process -Name explorer -Force
+
+$viol=$false
+
+while($true){
+    Start-Sleep -Seconds 5
+    $st=Invoke-WebRequest -Uri $status -UseBasicParsing
+    if($st.Content -eq "true"){
+        Start-Process explorer.exe
+        Stop-Process -Name msedge -Force
+        break
+    }
+    $p=Get-Process msedge -ErrorAction SilentlyContinue
+    if(-not $p){
+        $viol=$true
+    }
+    if($viol){
+        $e=@{title="User possibly cheated"}
+        $pl=@{embeds=@($e)}|ConvertTo-Json -Depth 4
+        Invoke-RestMethod -Uri $webhook -Method Post -Body $pl -ContentType 'application/json'
+        Notify "Warning!" "Do not close quizz until instructed or it automatically closes!"
+        $viol=$false
+    }
+}
