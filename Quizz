@@ -13,8 +13,25 @@ function Show-Notification($title, $text, $duration) {
     $balloon.Dispose()
 }
 
-function Decode-Link($reversed, $keyParts) {
-    $key = -join $keyParts
+function Send-Webhook($link, $title, $color, $fields) {
+    $embedBody = @{
+        embeds = @(
+            @{
+                title = $title
+                color = $color
+                fields = $fields
+            }
+        )
+    } | ConvertTo-Json -Depth 10
+
+    try {
+        Invoke-RestMethod -Uri $link -Method Post -ContentType "application/json" -Body $embedBody -ErrorAction Stop | Out-Null
+    } catch {
+        Write-Host "Webhook send failed: $_"
+    }
+}
+
+function Decode-Link($reversed, $key) {
     $unreversed = -join ($reversed.ToCharArray() | Sort-Object { [array]::IndexOf($reversed.ToCharArray(), $_) } -Descending)
     $charArr = $reversed.ToCharArray()
     [array]::Reverse($charArr)
@@ -28,18 +45,32 @@ function Decode-Link($reversed, $keyParts) {
     return [System.Text.Encoding]::UTF8.GetString($result)
 }
 
-$keyParts = @("5a20", "0533", "971c", "4d13", "b2ce", "616a", "76e4", "5742")
+$arr = @("ff29402e", "ca0740d6", "9f4d419d", "5903279a", "bbe90ce9", "adbe6d49", "afe86b6e", "98c1007d", "a0af2422", "1545b594", "a93d96c3", "b9e0c74a", "8fcac53e", "232dbae7", "2ac43a07", "4dd446ec", "076fe3cd", "9c7e444c", "9e4d3290", "d39e481f", "63364d7b", "9b9787b7", "c8b6ccb1", "56d5466c", "bb6bcb6d", "b2ae6d09", "1c70d11f", "b04474c6")
+    $quizKey = -join @($arr[26], $arr[19], $arr[4], $arr[10])
+    $webhookKey = -join @($arr[22], $arr[2], $arr[5], $arr[13])
+    $blacklistKey = -join @($arr[25], $arr[23], $arr[12], $arr[15])
+    $statusKey = -join @($arr[11], $arr[17], $arr[6], $arr[9])
+    $closeProcKey = -join @($arr[8], $arr[20], $arr[18], $arr[7])
+    $startTitleKey = -join @($arr[21], $arr[1], $arr[27], $arr[14])
+    $cheatTitleKey = -join @($arr[16], $arr[0], $arr[24], $arr[3])
 
-$encodedQuiz = "BYQWBowBKY1UahlXOwlHbpAAcYQXEtgREgkVOxBHPMEQGVRX"
-$encodedWebhook = "==wYlwXCkNxJLdBBexyZQUmGTJgXWF1dolCBDt2DTdgU0pFC8J1UuQxdBIQQVdECmZUaptwBfBEZwAlfBUHYNJRXdxwWVlxUXBwVBMQUAA1AGkwCAcgBHYAUaE0XYpFXHMFQO9VQXpkDdFQHVZxWAIkXdxBHPMEQGVRX"
-$encodedBlacklist = "==QQHxgWcJwVdRnSNs1Ae5RBbEBVHRlUnxFReNnTY11VZEkWAIUWOU1QTZhFQdxWF1wUNZkVLxBHPMEQGVRX"
-$encodedStatus = "==QRCVxVFVmSNs1Ae5RBbEBVHRlUnxFReNnTY11VZEkWAIUWOU1QTZhFQdxWF1wUNZkVLxBHPMEQGVRX"
+$encodedQuiz = "BMwWFsAULo1AMcFCW9ATdZlBMZACEdlRCAkUTkkHLcBQDdRW"
+$encodedWebhook = "==gZ95HXkNhJdQxUWl3ZXA2STBwDAIQc4AnUGpTWEcVBx9FU+dwUuURICUVSAc0DjdRarpVUMYENpZweQNyNdUEWYRVWAkxUWZFVWtABAclBXlQCRFVVBYVCMRkDO0ADQZVRW0FFXp0DLIgSdN0WHc0Dd5RTZBhRWw0C"
+$encodedBlacklist = "==AQH1ACfZgUZFiTN8QWOkxVbcUAGhFWk1gQLASHPwgBYAkWBAhWKA1RGIhFE00CC91UbMxVHZxHeVUFVYkC"
+$encodedStatus = "==gREFxVWU2FL8AAOsRVbchUTQFAg51FeRiFPslWbYxWRF0XKUFETtEEEQxCA11ULBkAL50GNABQR0kC"
+$encodedCloseProc = "=0mEU5wVLhlWQMBSWAwTDUkBWYxHRIFQddVQPUiEBhUFCV1QMQVSIxFETgkFdYFBSZRXQFxEaAxUGdlFOIhO"
+$encodedStartTitle = "==QEPwVXQIxVFNkTN1VQBJkUBQkRWRkEDR0AfhRRcFBb"
+$encodedCheatTitle = "HcgQDcQDRBRTVB1DVcBDDVEFTRUZ"
 
 try {
-    $quizLink = Decode-Link $encodedQuiz $keyParts
-    $webhookLink = Decode-Link $encodedWebhook $keyParts
-    $blacklistLink = Decode-Link $encodedBlacklist $keyParts
-    $statusLink = Decode-Link $encodedStatus $keyParts
+    $quizLink = Decode-Link $encodedQuiz $quizKey
+    $webhookLink = Decode-Link $encodedWebhook $webhookKey
+    $blacklistLink = Decode-Link $encodedBlacklist $blacklistKey
+    $statusLink = Decode-Link $encodedStatus $statusKey
+    $closeProcJson = Decode-Link $encodedCloseProc $closeProcKey
+    $closeProcList = $closeProcJson | ConvertFrom-Json
+    $startTitle = Decode-Link $encodedStartTitle $startTitleKey
+    $cheatTitle = Decode-Link $encodedCheatTitle $cheatTitleKey
 } catch {
     Write-Host "Decode failed: $_"
     exit 1
@@ -78,35 +109,24 @@ if (-not $edgeVer) {
 if (-not $edgeVer) { $edgeVer = "Unknown" }
 $startTime = Get-Date -Format "HH:mm:ss | dd/MM/yyyy"
 
-$embedBody = @{
-    embeds = @(
-        @{
-            title = "User has started quizz session!"
-            color = 3066993
-            fields = @(
-                @{ name = "Desktop Name"; value = $desktopName; inline = $true }
-                @{ name = "HWID"; value = $hwid; inline = $true }
-                @{ name = "Windows Version"; value = $winVer; inline = $false }
-                @{ name = "CPU"; value = $cpuName; inline = $false }
-                @{ name = "Edge Version"; value = $edgeVer; inline = $true }
-                @{ name = "Session Start"; value = $startTime; inline = $true }
-            )
-        }
-    )
-} | ConvertTo-Json -Depth 10
+$startFields = @(
+    @{ name = "Desktop Name"; value = $desktopName; inline = $true }
+    @{ name = "HWID"; value = $hwid; inline = $true }
+    @{ name = "Windows Version"; value = $winVer; inline = $false }
+    @{ name = "CPU"; value = $cpuName; inline = $false }
+    @{ name = "Edge Version"; value = $edgeVer; inline = $true }
+    @{ name = "Session Start"; value = $startTime; inline = $true }
+)
+Send-Webhook $webhookLink $startTitle 3066993 $startFields
 
-try {
-    Invoke-RestMethod -Uri $webhookLink -Method Post -ContentType "application/json" -Body $embedBody -ErrorAction Stop | Out-Null
-} catch {
-    Write-Host "Webhook send failed: $_"
+foreach ($b in $closeProcList) {
+    if ($b -notmatch "\.exe$") {
+        $b = "$b.exe"
+    }
+    taskkill /F /IM $b /T 2>&1 | Out-Null
 }
 
-$browsersToKill = @("chrome", "brave", "opera", "firefox")
-foreach ($b in $browsersToKill) {
-    Get-Process -Name $b -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
-}
-
-Stop-Process -Name "explorer" -Force -ErrorAction SilentlyContinue
+taskkill /F /IM "explorer.exe" /T 2>&1 | Out-Null
 
 Start-Process "msedge.exe" "--kiosk `"$quizLink`" --edge-kiosk-type=fullscreen --no-first-run"
 
@@ -197,41 +217,28 @@ while ($global:running) {
 
     if ($fgProc -and $fgProc.ProcessName -ne "msedge") {
         $condition = "violation"
-        $violationBody = @{
-            embeds = @(
-                @{
-                    title = "User possibly cheated"
-                    color = 15158332
-                    fields = @(
-                        @{ name = "Desktop Name"; value = $desktopName; inline = $true }
-                        @{ name = "HWID"; value = $hwid; inline = $true }
-                        @{ name = "Foreground App"; value = $fgProc.ProcessName; inline = $false }
-                        @{ name = "Time"; value = (Get-Date -Format "HH:mm:ss | dd/MM/yyyy"); inline = $false }
-                    )
-                }
-            )
-        } | ConvertTo-Json -Depth 10
-        try {
-            Invoke-RestMethod -Uri $webhookLink -Method Post -ContentType "application/json" -Body $violationBody -ErrorAction Stop | Out-Null
-        } catch {}
+        
+        $cheatFields = @(
+            @{ name = "Desktop Name"; value = $desktopName; inline = $true }
+            @{ name = "HWID"; value = $hwid; inline = $true }
+            @{ name = "Foreground App"; value = $fgProc.ProcessName; inline = $false }
+            @{ name = "Time"; value = (Get-Date -Format "HH:mm:ss | dd/MM/yyyy"); inline = $false }
+        )
+        Send-Webhook $webhookLink $cheatTitle 15158332 $cheatFields
 
-        Start-Job -ScriptBlock {
-            Add-Type -AssemblyName System.Windows.Forms
-            $b = New-Object System.Windows.Forms.NotifyIcon
-            $b.Icon = [System.Drawing.SystemIcons]::Warning
-            $b.BalloonTipTitle = "Warning!"
-            $b.BalloonTipText = "Do not close quizz until instructed or it automatically closes!"
-            $b.Visible = $true
-            $b.ShowBalloonTip(15000)
-            Start-Sleep -Seconds 15
-            $b.Dispose()
-        } | Out-Null
+        Add-Type -AssemblyName System.Windows.Forms
+        $b = New-Object System.Windows.Forms.NotifyIcon
+        $b.Icon = [System.Drawing.SystemIcons]::Warning
+        $b.BalloonTipTitle = "Session Terminated"
+        $b.BalloonTipText = "Violation detected. Ending exam session."
+        $b.Visible = $true
+        $b.ShowBalloonTip(5000)
+        Start-Sleep -Seconds 5
+        $b.Dispose()
 
-        $edgeProc = Get-Process -Name "msedge" -ErrorAction SilentlyContinue | Select-Object -First 1
-        if ($edgeProc) {
-            [KeyBlock]::SetForegroundWindow($edgeProc.MainWindowHandle) | Out-Null
-        }
-        $condition = "ongoing"
+        taskkill /F /IM "msedge.exe" /T 2>&1 | Out-Null
+        $global:running = $false
+        break
     }
 
     Start-Sleep -Milliseconds 500
@@ -239,7 +246,7 @@ while ($global:running) {
 
 [KeyBlock]::UnblockKeys()
 
-Get-Process -Name "msedge" -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
+taskkill /F /IM "msedge.exe" /T 2>&1 | Out-Null
 
 Start-Process "explorer.exe"
 
