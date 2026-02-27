@@ -2,7 +2,7 @@ $ErrorActionPreference = "Stop"
 
 Add-Type -AssemblyName System.Windows.Forms
 
-function Show-Notification($title, $text, $duration) {
+function UEevBgMFfoTJ($title, $text, $duration) {
     $balloon = New-Object System.Windows.Forms.NotifyIcon
     $balloon.Icon = [System.Drawing.SystemIcons]::Warning
     $balloon.BalloonTipTitle = $title
@@ -13,7 +13,7 @@ function Show-Notification($title, $text, $duration) {
     $balloon.Dispose()
 }
 
-function Send-Webhook($link, $title, $color, $fields) {
+function fqsZULCfIrIj($link, $title, $color, $fields) {
     $embedBody = @{
         embeds = @(
             @{
@@ -26,12 +26,10 @@ function Send-Webhook($link, $title, $color, $fields) {
 
     try {
         Invoke-RestMethod -Uri $link -Method Post -ContentType "application/json" -Body $embedBody -ErrorAction Stop | Out-Null
-    } catch {
-        Write-Host "Webhook send failed: $_"
-    }
+    } catch {}
 }
 
-function Decode-Link($reversed, $key) {
+function QeyqFNUDjOaF($reversed, $key) {
     $unreversed = -join ($reversed.ToCharArray() | Sort-Object { [array]::IndexOf($reversed.ToCharArray(), $_) } -Descending)
     $charArr = $reversed.ToCharArray()
     [array]::Reverse($charArr)
@@ -45,94 +43,116 @@ function Decode-Link($reversed, $key) {
     return [System.Text.Encoding]::UTF8.GetString($result)
 }
 
-$arr = @("ff29402e", "ca0740d6", "9f4d419d", "5903279a", "bbe90ce9", "adbe6d49", "afe86b6e", "98c1007d", "a0af2422", "1545b594", "a93d96c3", "b9e0c74a", "8fcac53e", "232dbae7", "2ac43a07", "4dd446ec", "076fe3cd", "9c7e444c", "9e4d3290", "d39e481f", "63364d7b", "9b9787b7", "c8b6ccb1", "56d5466c", "bb6bcb6d", "b2ae6d09", "1c70d11f", "b04474c6")
-    $quizKey = -join @($arr[26], $arr[19], $arr[4], $arr[10])
-    $webhookKey = -join @($arr[22], $arr[2], $arr[5], $arr[13])
-    $blacklistKey = -join @($arr[25], $arr[23], $arr[12], $arr[15])
-    $statusKey = -join @($arr[11], $arr[17], $arr[6], $arr[9])
-    $closeProcKey = -join @($arr[8], $arr[20], $arr[18], $arr[7])
-    $startTitleKey = -join @($arr[21], $arr[1], $arr[27], $arr[14])
-    $cheatTitleKey = -join @($arr[16], $arr[0], $arr[24], $arr[3])
+$MOQeROuDXvMU = @("117bee54", "86f79573", "5d0e10e4", "3e77876e", "ebe726e8", "40c02c5d", "10f1c9dd", "0f2ebea2", "001dc37b", "fc2c130a", "460bf50e", "f6846f96", "c53043ba", "980c6b6f", "48530d9d", "90ade4f1", "e09160b1", "77056fc4", "00ebbf46", "d796b5d6", "7d44c925", "21d6802b", "0d5ee79d", "67d122fb", "f4482d82", "92b6881d", "1c19bd8e", "81d46cfd", "8134273b", "7bd984ce", "fe4d1b0c", "1e019096", "7b89a4f7", "9bcfb901", "bc514869", "36c4ff36", "8b575e89", "ef550823", "a38926c5", "168e0d2e", "976a7cc0", "953559b2", "49426705", "a8f1cd1a", "f308a21f", "11269740", "19762c61", "83d71441", "4e494e1a", "b707adde", "824771ef", "584e04e4", "543fb96e", "be7c4ec4", "c3bff0c8", "6422cc9d", "a802937d", "4ca13966", "2dab0ad3", "73b19d4a", "25b0829b", "216151fd", "0330f25c", "c9136e65", "eaf9084a", "2b818984", "25b9c87c", "a2335489", "46a15a9d", "d13a6089", "336b428a", "51e16265", "f945a82c", "3097628a", "e2cf96ec", "2a17037b", "8d9eb2ed", "9c0fda33", "4eba17b9", "0a72a461", "ddfc96fb", "b4e5599e", "4ac0bd67", "34833f1e", "c0dc44b1", "ac50aa9c", "223d6706", "9719f460", "e5a25de9", "8cdc778c", "3189d6ff", "3550611d")
+    $ofLzCmuLuwUm = -join @($MOQeROuDXvMU[77], $MOQeROuDXvMU[47], $MOQeROuDXvMU[49], $MOQeROuDXvMU[65])
+    $MkGGsYzxLCRf = -join @($MOQeROuDXvMU[81], $MOQeROuDXvMU[20], $MOQeROuDXvMU[56], $MOQeROuDXvMU[37])
+    $MspFNqkhQfcA = -join @($MOQeROuDXvMU[51], $MOQeROuDXvMU[7], $MOQeROuDXvMU[13], $MOQeROuDXvMU[90])
+    $BZJIZbqZXULg = -join @($MOQeROuDXvMU[43], $MOQeROuDXvMU[17], $MOQeROuDXvMU[36], $MOQeROuDXvMU[8])
+    $wwiboRreVUid = -join @($MOQeROuDXvMU[32], $MOQeROuDXvMU[24], $MOQeROuDXvMU[5], $MOQeROuDXvMU[58])
+    $OwdBDBqxVqEX = -join @($MOQeROuDXvMU[3], $MOQeROuDXvMU[40], $MOQeROuDXvMU[6], $MOQeROuDXvMU[25])
+    $xanCiPzEpoID = -join @($MOQeROuDXvMU[84], $MOQeROuDXvMU[67], $MOQeROuDXvMU[14], $MOQeROuDXvMU[44])
+    $DWyMZWViMrEp = -join @($MOQeROuDXvMU[48], $MOQeROuDXvMU[0], $MOQeROuDXvMU[2], $MOQeROuDXvMU[9])
+    $EwNEgjFGrovj = -join @($MOQeROuDXvMU[30], $MOQeROuDXvMU[31], $MOQeROuDXvMU[16], $MOQeROuDXvMU[18])
+    $WNvnwHkBioPj = -join @($MOQeROuDXvMU[70], $MOQeROuDXvMU[60], $MOQeROuDXvMU[15], $MOQeROuDXvMU[76])
+    $qHqfpwUWcHdn = -join @($MOQeROuDXvMU[22], $MOQeROuDXvMU[79], $MOQeROuDXvMU[87], $MOQeROuDXvMU[68])
+    $WEpqbGArvmTt = -join @($MOQeROuDXvMU[45], $MOQeROuDXvMU[62], $MOQeROuDXvMU[34], $MOQeROuDXvMU[52])
+    $znQgfNDuvjXP = -join @($MOQeROuDXvMU[74], $MOQeROuDXvMU[4], $MOQeROuDXvMU[88], $MOQeROuDXvMU[33])
+    $QCfUJWVoAPPP = -join @($MOQeROuDXvMU[82], $MOQeROuDXvMU[71], $MOQeROuDXvMU[29], $MOQeROuDXvMU[78])
+    $nQnlhDdwINVN = -join @($MOQeROuDXvMU[63], $MOQeROuDXvMU[69], $MOQeROuDXvMU[38], $MOQeROuDXvMU[64])
+    $KHFAbXDaYWeT = -join @($MOQeROuDXvMU[21], $MOQeROuDXvMU[28], $MOQeROuDXvMU[55], $MOQeROuDXvMU[50])
+    $AGNLuHdAhxWx = -join @($MOQeROuDXvMU[23], $MOQeROuDXvMU[89], $MOQeROuDXvMU[53], $MOQeROuDXvMU[1])
+    $FRFVGBpWzoFt = -join @($MOQeROuDXvMU[41], $MOQeROuDXvMU[54], $MOQeROuDXvMU[80], $MOQeROuDXvMU[66])
+    $WvEJpGgETvaQ = -join @($MOQeROuDXvMU[19], $MOQeROuDXvMU[85], $MOQeROuDXvMU[11], $MOQeROuDXvMU[26])
+    $izZwlxbYHmdm = -join @($MOQeROuDXvMU[59], $MOQeROuDXvMU[27], $MOQeROuDXvMU[12], $MOQeROuDXvMU[39])
+    $cCUhHUJMhzkH = -join @($MOQeROuDXvMU[10], $MOQeROuDXvMU[75], $MOQeROuDXvMU[61], $MOQeROuDXvMU[46])
+    $mcZeJsbZdsgV = -join @($MOQeROuDXvMU[91], $MOQeROuDXvMU[35], $MOQeROuDXvMU[83], $MOQeROuDXvMU[72])
+    $XdoIZsSrfxqE = -join @($MOQeROuDXvMU[73], $MOQeROuDXvMU[86], $MOQeROuDXvMU[57], $MOQeROuDXvMU[42])
 
-$encodedQuiz = "BMwWFsAULo1AMcFCW9ATdZlBMZACEdlRCAkUTkkHLcBQDdRW"
-$encodedWebhook = "==gZ95HXkNhJdQxUWl3ZXA2STBwDAIQc4AnUGpTWEcVBx9FU+dwUuURICUVSAc0DjdRarpVUMYENpZweQNyNdUEWYRVWAkxUWZFVWtABAclBXlQCRFVVBYVCMRkDO0ADQZVRW0FFXp0DLIgSdN0WHc0Dd5RTZBhRWw0C"
-$encodedBlacklist = "==AQH1ACfZgUZFiTN8QWOkxVbcUAGhFWk1gQLASHPwgBYAkWBAhWKA1RGIhFE00CC91UbMxVHZxHeVUFVYkC"
-$encodedStatus = "==gREFxVWU2FL8AAOsRVbchUTQFAg51FeRiFPslWbYxWRF0XKUFETtEEEQxCA11ULBkAL50GNABQR0kC"
-$encodedCloseProc = "=0mEU5wVLhlWQMBSWAwTDUkBWYxHRIFQddVQPUiEBhUFCV1QMQVSIxFETgkFdYFBSZRXQFxEaAxUGdlFOIhO"
-$encodedStartTitle = "==QEPwVXQIxVFNkTN1VQBJkUBQkRWRkEDR0AfhRRcFBb"
-$encodedCheatTitle = "HcgQDcQDRBRTVB1DVcBDDVEFTRUZ"
+$WzSOlgohPDFj = "XRwWNwwCEslVHwwWK4wSMg1UZYwXBt1QQ1hUPxBHbdhFEdRU"
+$LJrBnyLfxZBo = "==QMg03CrREdBRhAdFHMHBWSdRFVaRlc/w3UC1GAWZgAkgQD9BFX5dUfCQgQIAxXjVxZ/EwCaV0MldwfHoXZMJUDPkgWXZBBEoAVHAADXdgBVdQXKswACEVBNBUWX9VXXNgEL51QY1RXXJwGWtEDXdUDTpkFDYURRAkC"
+$xEbTFlYAovfq = "==AEKFVXYVwVOQHTeFFWf5EBNdxVW0VVx0FRLU3FYlQBYAxVdVUXJUFETBRRaxkWVwQBLV0BCthSOMUFAxUX"
+$lNpZKFsTRrAV = "==wQF1UWRYGGbtQWZx0BZcUVHpFAl1wFfdyFM0AVdchCURkXWt1FQREQA0EXX8QUbckVF5kHeBRQSwUC"
+$NDdsMgFsvJkU = "=wjEHwwCAxgVBJBHBFlRXh0CQgBGW4BWAE1EQ5FQX8hRTUFEOggQcAVQSwRQVJ0UKZAEYghFCUUCXJBU8BEb"
+$QaqOKRoOQAvc = "==AEWd1XREEXXQ0QZg1EBFBVGcRRAIERZYxVfhRRSZhZ"
+$WKDeVNrYaMuC = "UZVQZFVUbRBTfF1WSIUDERREBMkN"
+$LVEoppboToZl = "HoFU/FUQKAkUHBAc"
+$hcmFVzQBWhfx = "==AI9JjL"
+$AtoSGLrbIpLf = "X1VUDBBUkF0SFtlBYpFZ"
+$cossrGMklfey = "gRzc"
+$sgakcoQLkkbD = "exlWDJUUhlxUVVFd"
+$ElZXRKMTTnBJ = "==gRFRgF2M0CZBVFQclN"
+$GbqWBpDrmsGB = "=IkRwVUVbJUWWUQVR4gc"
+$IhTMmzhpxLsQ = "==gVcB1N"
+$XXecpzfDRsEN = "==gVVNVVL0Fc"
+$iuKPVStMFxCw = "==gFMplQElhUOIEGZxwFSN0UAYBERtFXAUwDaJ0AANVERg1b"
+$eZDZJBSrvOTH = "AEATC41DLAhV3IBDWxlRABla"
+$ESfcrvEQubjt = "==AGKo1CFpkUXUUVFoBXRQwXf1FCzRhFSNwFaRQFVF1QPkVDBNgWW5lM"
+$RKlHiJDhvcop = "=w0VRRkVZNRCJAgFNBAUdNBWFkBXDskc"
+$inMOyrsxmIds = "QFgBVVUW"
+$ZyNByrQxjvWs = "==wULFwHUFFVQZkX"
+$MfJdtcwdqUlQ = "Bs0VcMRXAl1WJhkV"
 
 try {
-    $quizLink = Decode-Link $encodedQuiz $quizKey
-    $webhookLink = Decode-Link $encodedWebhook $webhookKey
-    $blacklistLink = Decode-Link $encodedBlacklist $blacklistKey
-    $statusLink = Decode-Link $encodedStatus $statusKey
-    $closeProcJson = Decode-Link $encodedCloseProc $closeProcKey
-    $closeProcList = $closeProcJson | ConvertFrom-Json
-    $startTitle = Decode-Link $encodedStartTitle $startTitleKey
-    $cheatTitle = Decode-Link $encodedCheatTitle $cheatTitleKey
-} catch {
-    Write-Host "Decode failed: $_"
-    exit 1
-}
+    $asQglOabSbKf = QeyqFNUDjOaF $WzSOlgohPDFj $ofLzCmuLuwUm
+    $UvuwxnfsUrsj = QeyqFNUDjOaF $LJrBnyLfxZBo $MkGGsYzxLCRf
+    $qgiawtsxpwhg = QeyqFNUDjOaF $xEbTFlYAovfq $MspFNqkhQfcA
+    $EnYVzCRfVNzD = QeyqFNUDjOaF $lNpZKFsTRrAV $BZJIZbqZXULg
+    $yNVxBhGjtFlM = QeyqFNUDjOaF $NDdsMgFsvJkU $wwiboRreVUid
+    $ZrluUpGMVKCm = QeyqFNUDjOaF $QaqOKRoOQAvc $OwdBDBqxVqEX
+    $qFaRlJRyCxOv = QeyqFNUDjOaF $WKDeVNrYaMuC $xanCiPzEpoID
+    $fXnoRbcmpTxV = QeyqFNUDjOaF $LVEoppboToZl $DWyMZWViMrEp
+    $SRkVPdMHqTsC = QeyqFNUDjOaF $hcmFVzQBWhfx $EwNEgjFGrovj
+    $fRmtQiNdynIH = QeyqFNUDjOaF $AtoSGLrbIpLf $WNvnwHkBioPj
+    $KHxsvnrFmzda = QeyqFNUDjOaF $cossrGMklfey $qHqfpwUWcHdn
+    $RXupAQuOguyu = QeyqFNUDjOaF $sgakcoQLkkbD $WEpqbGArvmTt
+    $loOmtWnCDphi = QeyqFNUDjOaF $ElZXRKMTTnBJ $znQgfNDuvjXP
+    $eTYfiYkBoylH = QeyqFNUDjOaF $GbqWBpDrmsGB $QCfUJWVoAPPP
+    $hmKDGNgjXErc = QeyqFNUDjOaF $IhTMmzhpxLsQ $nQnlhDdwINVN
+    $sFhEKRQOJouD = QeyqFNUDjOaF $XXecpzfDRsEN $KHFAbXDaYWeT
+    $cyljPlDVpJXd = QeyqFNUDjOaF $iuKPVStMFxCw $AGNLuHdAhxWx
+    $eADsYASCXxPt = QeyqFNUDjOaF $eZDZJBSrvOTH $FRFVGBpWzoFt
+    $EVvRwfETdoFB = QeyqFNUDjOaF $ESfcrvEQubjt $WvEJpGgETvaQ
+    $IkioaLvPBfld = QeyqFNUDjOaF $RKlHiJDhvcop $izZwlxbYHmdm
+    $UllZETXmnLxm = QeyqFNUDjOaF $inMOyrsxmIds $cCUhHUJMhzkH
+    $WhUulhNQZpKX = QeyqFNUDjOaF $ZyNByrQxjvWs $mcZeJsbZdsgV
+    $kRiXQVcEVqtI = QeyqFNUDjOaF $MfJdtcwdqUlQ $XdoIZsSrfxqE
+    $yNVxBhGjtFlM = $yNVxBhGjtFlM | ConvertFrom-Json
+} catch { exit 1 }
 
-$hwid = (Get-CimInstance -Class Win32_ComputerSystemProduct).UUID
+
+$IoOLBOVKGFAc = (Get-CimInstance -Class Win32_ComputerSystemProduct).UUID
 try {
-    $blacklistData = (Invoke-WebRequest -Uri $blacklistLink -UseBasicParsing -ErrorAction Stop).Content
-} catch {
-    Write-Host "Failed to fetch blacklist: $_"
-    exit 1
-}
-if ($blacklistData -match $hwid) {
-    Show-Notification "Blocked" "You are blacklisted from the quiz!" 10
+    $BFuRwOmkqyNF = (Invoke-WebRequest -Uri $qgiawtsxpwhg -UseBasicParsing -ErrorAction Stop).Content
+} catch { exit 1 }
+
+if ($BFuRwOmkqyNF -match $IoOLBOVKGFAc) {
+    UEevBgMFfoTJ $sFhEKRQOJouD $cyljPlDVpJXd 10
     exit 0
 }
 
 try {
-    $statusData = (Invoke-WebRequest -Uri $statusLink -UseBasicParsing -ErrorAction Stop).Content.Trim().ToLower()
-} catch {
-    Write-Host "Failed to fetch status: $_"
-    exit 1
-}
-if ($statusData -eq "true") {
-    Write-Host "Exam already completed."
+    $FHhtMnWilZQk = (Invoke-WebRequest -Uri $EnYVzCRfVNzD -UseBasicParsing -ErrorAction Stop).Content.Trim().ToLower()
+} catch { exit 1 }
+
+if ($FHhtMnWilZQk -eq "true") {
+    Write-Host $IkioaLvPBfld
     exit 0
 }
 
-$desktopName = $env:COMPUTERNAME
-$winVer = (Get-CimInstance -Class Win32_OperatingSystem).Caption
-$cpuName = (Get-CimInstance -Class Win32_Processor).Name
-$edgeVer = (Get-Item "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" -ErrorAction SilentlyContinue).VersionInfo.ProductVersion
-if (-not $edgeVer) {
-    $edgeVer = (Get-Item "C:\Program Files\Microsoft\Edge\Application\msedge.exe" -ErrorAction SilentlyContinue).VersionInfo.ProductVersion
-}
-if (-not $edgeVer) { $edgeVer = "Unknown" }
-$startTime = Get-Date -Format "HH:mm:ss | dd/MM/yyyy"
-
-$startFields = @(
-    @{ name = "Desktop Name"; value = $desktopName; inline = $true }
-    @{ name = "HWID"; value = $hwid; inline = $true }
-    @{ name = "Windows Version"; value = $winVer; inline = $false }
-    @{ name = "CPU"; value = $cpuName; inline = $false }
-    @{ name = "Edge Version"; value = $edgeVer; inline = $true }
-    @{ name = "Session Start"; value = $startTime; inline = $true }
-)
-Send-Webhook $webhookLink $startTitle 3066993 $startFields
-
-foreach ($b in $closeProcList) {
-    if ($b -notmatch "\.exe$") {
-        $b = "$b.exe"
+foreach ($UBYyAhVpCxrM in $yNVxBhGjtFlM) {
+    if ($UBYyAhVpCxrM -notmatch "\.exe`$") {
+        $UBYyAhVpCxrM = "$UBYyAhVpCxrM.exe"
     }
-    taskkill /F /IM $b /T 2>&1 | Out-Null
+    taskkill /F /IM $UBYyAhVpCxrM /T 2>&1 | Out-Null
 }
 
-taskkill /F /IM "explorer.exe" /T 2>&1 | Out-Null
+taskkill /F /IM $kRiXQVcEVqtI /T 2>&1 | Out-Null
 
-Start-Process "msedge.exe" "--kiosk `"$quizLink`" --edge-kiosk-type=fullscreen --no-first-run"
+Start-Process $WhUulhNQZpKX "--kiosk `"$asQglOabSbKf`" --edge-kiosk-type=fullscreen --no-first-run"
 
 Start-Sleep -Seconds 3
 
-$signature = @"
+$nhhABorutQlP = @"
 using System;
 using System.Runtime.InteropServices;
 public class KeyBlock {
@@ -150,7 +170,6 @@ public class KeyBlock {
     private const uint MOD_ALT = 0x0001;
     private const uint MOD_CONTROL = 0x0002;
     private const uint MOD_WIN = 0x0008;
-    private const uint MOD_NOREPEAT = 0x4000;
 
     public static void BlockKeys() {
         RegisterHotKey(IntPtr.Zero, 1, MOD_ALT, 0x09);
@@ -177,67 +196,80 @@ public class KeyBlock {
 "@
 
 try {
-    Add-Type -TypeDefinition $signature -ErrorAction Stop
-} catch {
-    if ($_.Exception.Message -notmatch "already exists") { throw }
-}
+    Add-Type -TypeDefinition $nhhABorutQlP -ErrorAction Stop
+} catch { }
 
 [KeyBlock]::BlockKeys()
 
-$global:running = $true
-$condition = "ongoing"
+$DISFVyvRmdEn = $env:COMPUTERNAME
+$HDBhAgAeOYFM = (Get-CimInstance -Class Win32_OperatingSystem).Caption
+$ygFCIUTFwkVi = (Get-CimInstance -Class Win32_Processor).Name
+$tbtkEfWWcdNU = (Get-Item "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" -ErrorAction SilentlyContinue).VersionInfo.ProductVersion
+if (-not $tbtkEfWWcdNU) {
+    $tbtkEfWWcdNU = (Get-Item "C:\Program Files\Microsoft\Edge\Application\msedge.exe" -ErrorAction SilentlyContinue).VersionInfo.ProductVersion
+}
+if (-not $tbtkEfWWcdNU) { $tbtkEfWWcdNU = "Unknown" }
+$asxEyRURSSRR = Get-Date -Format "HH:mm:ss | dd/MM/yyyy"
 
-$statusJob = Start-Job -ScriptBlock {
+$EQXbXxUDRFTu = @(
+    @{ name = $fXnoRbcmpTxV; value = $DISFVyvRmdEn; inline = $true }
+    @{ name = $SRkVPdMHqTsC; value = $IoOLBOVKGFAc; inline = $true }
+    @{ name = $fRmtQiNdynIH; value = $HDBhAgAeOYFM; inline = $false }
+    @{ name = $KHxsvnrFmzda; value = $ygFCIUTFwkVi; inline = $false }
+    @{ name = $RXupAQuOguyu; value = $tbtkEfWWcdNU; inline = $true }
+    @{ name = $loOmtWnCDphi; value = $asxEyRURSSRR; inline = $true }
+)
+fqsZULCfIrIj $UvuwxnfsUrsj $ZrluUpGMVKCm 3066993 $EQXbXxUDRFTu
+
+$global:GVyLBNewugEL = $true
+
+$yuxqeGmsDMVV = Start-Job -ScriptBlock {
     param($url)
     while ($true) {
         try {
-            $resp = (Invoke-WebRequest -Uri $url -UseBasicParsing -ErrorAction Stop).Content.Trim().ToLower()
-            if ($resp -eq "true") {
+            $FwtNyUnqekWj = (Invoke-WebRequest -Uri $url -UseBasicParsing -ErrorAction Stop).Content.Trim().ToLower()
+            if ($FwtNyUnqekWj -eq "true") {
                 return "completed"
             }
         } catch {}
         Start-Sleep -Seconds 20
     }
-} -ArgumentList $statusLink
+} -ArgumentList $EnYVzCRfVNzD
 
-while ($global:running) {
-    if ($statusJob.State -eq "Completed") {
-        $condition = Receive-Job -Job $statusJob
+while ($global:GVyLBNewugEL) {
+    if ($yuxqeGmsDMVV.State -eq "Completed") {
+        $condition = Receive-Job -Job $yuxqeGmsDMVV
         if ($condition -eq "completed") {
-            $global:running = $false
+            [KeyBlock]::UnblockKeys()
+            taskkill /F /IM $WhUulhNQZpKX /T 2>&1 | Out-Null
+            Start-Process $kRiXQVcEVqtI
+            $global:GVyLBNewugEL = $false
             break
         }
     }
 
-    $fgWnd = [KeyBlock]::GetForegroundWindow()
-    $procId = 0
-    [KeyBlock]::GetWindowThreadProcessId($fgWnd, [ref]$procId) | Out-Null
-    $fgProc = $null
-    try { $fgProc = Get-Process -Id $procId -ErrorAction Stop } catch {}
+    $mYYBnoHhveHy = [KeyBlock]::GetForegroundWindow()
+    $pqTWgrTCmzWa = 0
+    [KeyBlock]::GetWindowThreadProcessId($mYYBnoHhveHy, [ref]$pqTWgrTCmzWa) | Out-Null
+    $SnMApwzDGjcB = $null
+    try { $SnMApwzDGjcB = Get-Process -Id $pqTWgrTCmzWa -ErrorAction Stop } catch {}
 
-    if ($fgProc -and $fgProc.ProcessName -ne "msedge") {
-        $condition = "violation"
-        
-        $cheatFields = @(
-            @{ name = "Desktop Name"; value = $desktopName; inline = $true }
-            @{ name = "HWID"; value = $hwid; inline = $true }
-            @{ name = "Foreground App"; value = $fgProc.ProcessName; inline = $false }
-            @{ name = "Time"; value = (Get-Date -Format "HH:mm:ss | dd/MM/yyyy"); inline = $false }
+    if ($SnMApwzDGjcB -and $SnMApwzDGjcB.ProcessName -ne $UllZETXmnLxm) {
+        $AmYTamgyllNB = @(
+            @{ name = $fXnoRbcmpTxV; value = $DISFVyvRmdEn; inline = $true }
+            @{ name = $SRkVPdMHqTsC; value = $IoOLBOVKGFAc; inline = $true }
+            @{ name = $eTYfiYkBoylH; value = $SnMApwzDGjcB.ProcessName; inline = $false }
+            @{ name = $hmKDGNgjXErc; value = (Get-Date -Format "HH:mm:ss | dd/MM/yyyy"); inline = $false }
         )
-        Send-Webhook $webhookLink $cheatTitle 15158332 $cheatFields
+        fqsZULCfIrIj $UvuwxnfsUrsj $qFaRlJRyCxOv 15158332 $AmYTamgyllNB
 
-        Add-Type -AssemblyName System.Windows.Forms
-        $b = New-Object System.Windows.Forms.NotifyIcon
-        $b.Icon = [System.Drawing.SystemIcons]::Warning
-        $b.BalloonTipTitle = "Session Terminated"
-        $b.BalloonTipText = "Violation detected. Ending exam session."
-        $b.Visible = $true
-        $b.ShowBalloonTip(5000)
-        Start-Sleep -Seconds 5
-        $b.Dispose()
+        UEevBgMFfoTJ $eADsYASCXxPt $EVvRwfETdoFB 5
 
-        taskkill /F /IM "msedge.exe" /T 2>&1 | Out-Null
-        $global:running = $false
+        [KeyBlock]::UnblockKeys()
+        taskkill /F /IM $WhUulhNQZpKX /T 2>&1 | Out-Null
+        Start-Process $kRiXQVcEVqtI
+        
+        $global:GVyLBNewugEL = $false
         break
     }
 
@@ -245,14 +277,6 @@ while ($global:running) {
 }
 
 [KeyBlock]::UnblockKeys()
-
-taskkill /F /IM "msedge.exe" /T 2>&1 | Out-Null
-
-Start-Process "explorer.exe"
-
-Stop-Job -Job $statusJob -ErrorAction SilentlyContinue
-Remove-Job -Job $statusJob -Force -ErrorAction SilentlyContinue
-
+Stop-Job -Job $yuxqeGmsDMVV -ErrorAction SilentlyContinue
+Remove-Job -Job $yuxqeGmsDMVV -Force -ErrorAction SilentlyContinue
 Get-Job | Where-Object { $_.State -ne "Running" } | Remove-Job -Force -ErrorAction SilentlyContinue
-
-Write-Host "Exam session completed."
